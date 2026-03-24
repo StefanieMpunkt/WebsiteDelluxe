@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delluxe Dellen GmbH – Lackfreie Dellenreparatur München</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #5DCD5D;
+      --dark: #0d0d0d;
+      --card-bg: #141414;
+      --card-border: #222;
+      --text-muted: #999;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── NAVBAR ── */
+    header {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1200px;
+      background: transparent;
+      backdrop-filter: blur(0px);
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+    }
+
+    header.scrolled {
+      background: rgba(20, 20, 20, 0.1);
+      backdrop-filter: blur(8px);
+      border-color: #2a2a2a;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #111;
+      border: 1.5px solid var(--green);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-text span:first-child {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: #fff;
+      letter-spacing: 0.08em;
+    }
+
+    .logo-text span:last-child {
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #fff; }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .social-icons a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .social-icons a:hover { color: #fff; }
+
+    .phone {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .btn-anfragen {
+      background: transparent;
+      border: 1.5px solid #fff;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-anfragen:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: #1a1a1a;
+      /* Platzhalter – ersetze durch echtes Bild: background: url('images/hero.jpg') center/cover no-repeat; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-bg::after {
+      /* dunkler Gradient von links */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.2) 100%);
+    }
+
+    /* Platzhalter-Bild-Hinweis */
+    .hero-placeholder {
+      color: #444;
+      font-size: 14px;
+      font-style: italic;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(64px, 9vw, 130px);
+      line-height: 0.95;
+      font-weight: 300;
+      color: #fff;
+    }
+
+    .hero-title .italic-green {
+      font-style: italic;
+      color: var(--green);
+    }
+
+    .hero-tags {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .hero-tags .dot {
+      width: 4px;
+      height: 4px;
+      background: #666;
+      border-radius: 50%;
+    }
+
+    .hero-tags .star { color: #f5c518; }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 999px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      z-index: 200;
+      transition: background 0.2s;
+    }
+
+    .whatsapp-float:hover { background: #222; }
+
+    .whatsapp-float svg {
+      width: 22px;
+      height: 22px;
+      fill: #25D366;
+    }
+
+    /* ── LEISTUNGEN SECTION ── */
+    .section-leistungen {
+      background: var(--dark);
+      padding: 100px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .leistungen-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 60px;
+    }
+
+    .leistungen-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .leistungen-desc {
+      font-size: 15px;
+      color: #aaa;
+      line-height: 1.7;
+      padding-top: 8px;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: #333; }
+
+    .card-num {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.05em;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #fff;
+      margin-top: 20px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.65;
+    }
+
+    .card-link {
+      color: var(--green);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s;
+    }
+
+    .card-link:hover { gap: 8px; }
+
+    /* ── NACHHALTIGKEIT SECTION ── */
+    .section-nachhaltigkeit {
+      background: #0a0a0a;
+      padding: 100px 48px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: #fff;
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .section-text {
+      font-size: 15px;
+      color: #aaa;
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: 48px;
+    }
+
+    .nachhaltigkeit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .nach-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .nach-card-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(93,205,93,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .nach-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .nach-card-text {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.65;
+    }
+
+    /* ── GALERIE SECTION ── */
+    .section-galerie {
+      padding: 100px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .galerie-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 220px 220px;
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    .galerie-item {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    .galerie-item:first-child {
+      grid-row: span 2;
+    }
+
+    /* ── KONTAKT SECTION ── */
+    .section-kontakt {
+      background: #0a0a0a;
+      padding: 100px 48px;
+    }
+
+    .kontakt-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .kontakt-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .kontakt-text {
+      font-size: 15px;
+      color: #aaa;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .kontakt-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .kontakt-info-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .kontakt-info-item .icon {
+      width: 36px;
+      height: 36px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    /* Formular */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    input, textarea, select {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: #fff;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--green);
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #555;
+    }
+
+    textarea { resize: vertical; min-height: 120px; }
+
+    .btn-submit {
+      background: var(--green);
+      color: #000;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: opacity 0.2s;
+    }
+
+    .btn-submit:hover { opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid #1a1a1a;
+      padding: 40px 48px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #aaa; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      header { width: calc(100% - 24px); padding: 12px 20px; }
+      nav { display: none; }
+      .hero-content { padding: 0 24px; }
+      .section-leistungen, .section-galerie { padding: 60px 24px; }
+      .section-nachhaltigkeit, .section-kontakt, footer { padding: 60px 24px; }
+      .leistungen-header { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .nachhaltigkeit-grid { grid-template-columns: 1fr; }
+      .galerie-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .galerie-item:first-child { grid-row: span 1; }
+      .kontakt-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <a class="logo" href="#">
+      <div class="logo-icon">D</div>
+      <div class="logo-text">
+        <span>DELLUXE</span>
+        <span>DELLEN GMBH</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#nachhaltigkeit">Nachhaltigkeit</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="header-right">
+      <div class="social-icons">
+        <!-- Facebook -->
+        <a href="#" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <!-- X/Twitter -->
+        <a href="#" aria-label="X">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+      <span class="phone">08141 XXX XXX</span>
+      <a href="#kontakt" class="btn-anfragen">Anfragen</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <!-- Platzhalter: Ersetze durch <img src="images/hero.jpg"> oder background-image -->
+      <span class="hero-placeholder">[ Hintergrundbild: Techniker bei Dellenreparatur ]</span>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Dellenentfernung München &nbsp;·&nbsp; Beulendoktor Meisterbetrieb</p>
+      <h1 class="hero-title">
+        Perfektion<br>
+        <span class="italic-green">ist unsichtbar.</span>
+      </h1>
+      <div class="hero-tags">
+        <span>Lackfreie Dellenreparatur</span>
+        <span class="dot"></span>
+        <span>Eichenau bei München</span>
+        <span class="dot"></span>
+        <span><span class="star">★</span> 5.0 Google</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section id="leistungen">
+    <div class="section-leistungen">
+      <div class="leistungen-header">
+        <h2 class="leistungen-title">Lackfreie Dellenreparatur in München</h2>
+        <p class="leistungen-desc">
+          Meisterbetrieb für PDR – klare Prozesse, hochwertige Werkzeuge und
+          Präzision vom Einzelauftrag bis zum Hagelschaden.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-num">I</span>
+          <h3 class="card-title">Lackfreie Dellenreparatur</h3>
+          <p class="card-text">PDR-Technik bewahrt den Originallack – ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
+          <a href="#" class="card-link">Mehr erfahren →</a>
+        </div>
+        <div class="card">
+          <span class="card-num">II</span>
+          <h3 class="card-title">Hagelschaden</h3>
+          <p class="card-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Abwicklung.</p>
+          <a href="#" class="card-link">Mehr erfahren →</a>
+        </div>
+        <div class="card">
+          <span class="card-num">III</span>
+          <h3 class="card-title">Smart Repair</h3>
+          <p class="card-text">Gezielte Instandsetzung kleiner Schäden – wirtschaftlich und ohne großen Zeitaufwand.</p>
+          <a href="#" class="card-link">Mehr erfahren →</a>
+        </div>
+        <div class="card">
+          <span class="card-num">IV</span>
+          <h3 class="card-title">Leasingrückgabe</h3>
+          <p class="card-text">Fahrzeuge optimal vorbereiten – Dellen und Beulen vor der Rückgabe professionell beseitigen.</p>
+          <a href="#" class="card-link">Mehr erfahren →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NACHHALTIGKEIT -->
+  <section id="nachhaltigkeit" class="section-nachhaltigkeit">
+    <div class="section-inner">
+      <p class="section-eyebrow">Umweltbewusst handeln</p>
+      <h2 class="section-title">Nachhaltig reparieren statt ersetzen</h2>
+      <p class="section-text">
+        Lackfreie Dellenreparatur schont Ressourcen: kein Lack, kein Schleifstaub,
+        keine Chemikalien. Gut für Ihr Fahrzeug – und für die Umwelt.
+      </p>
+
+      <div class="nachhaltigkeit-grid">
+        <div class="nach-card">
+          <div class="nach-card-icon">🌱</div>
+          <div class="nach-card-title">Kein Lackauftrag</div>
+          <p class="nach-card-text">Der Originallack bleibt erhalten – keine Lösungsmittel, keine flüchtigen organischen Verbindungen.</p>
+        </div>
+        <div class="nach-card">
+          <div class="nach-card-icon">♻️</div>
+          <div class="nach-card-title">Ressourcenschonend</div>
+          <p class="nach-card-text">Reparatur statt Austausch: Karosserieteile bleiben original, der Materialaufwand ist minimal.</p>
+        </div>
+        <div class="nach-card">
+          <div class="nach-card-icon">⚡</div>
+          <div class="nach-card-title">Kurze Reparaturzeit</div>
+          <p class="nach-card-text">Weniger Energie, weniger Transportwege, kürzere Standzeiten – effizienter für alle Beteiligten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie" class="section-galerie">
+    <p class="section-eyebrow">Unsere Arbeit</p>
+    <h2 class="section-title">Ergebnisse, die überzeugen</h2>
+
+    <div class="galerie-grid">
+      <div class="galerie-item">[ Vorher/Nachher Foto 1 ]</div>
+      <div class="galerie-item">[ Foto 2 ]</div>
+      <div class="galerie-item">[ Foto 3 ]</div>
+      <div class="galerie-item">[ Foto 4 ]</div>
+      <div class="galerie-item">[ Foto 5 ]</div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="section-kontakt">
+    <div class="kontakt-inner">
+      <div>
+        <h2 class="kontakt-title">Jetzt Termin anfragen</h2>
+        <p class="kontakt-text">
+          Schreiben Sie uns oder rufen Sie direkt an – wir melden uns schnellstmöglich zurück.
+        </p>
+        <div class="kontakt-info">
+          <div class="kontakt-info-item">
+            <div class="icon">📍</div>
+            <span>Eichenau bei München</span>
+          </div>
+          <div class="kontakt-info-item">
+            <div class="icon">📞</div>
+            <span>08141 XXX XXX</span>
+          </div>
+          <div class="kontakt-info-item">
+            <div class="icon">✉️</div>
+            <span>info@delluxe.de</span>
+          </div>
+        </div>
+      </div>
+
+      <form>
+        <div class="form-row">
+          <input type="text" placeholder="Vorname" />
+          <input type="text" placeholder="Nachname" />
+        </div>
+        <input type="email" placeholder="E-Mail-Adresse" />
+        <input type="tel" placeholder="Telefonnummer" />
+        <select>
+          <option value="" disabled selected>Leistung wählen</option>
+          <option>Lackfreie Dellenreparatur</option>
+          <option>Hagelschaden</option>
+          <option>Smart Repair</option>
+          <option>Leasingrückgabe</option>
+        </select>
+        <textarea placeholder="Ihre Nachricht (optional)"></textarea>
+        <button type="submit" class="btn-submit">Anfrage senden</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 Delluxe Dellen GmbH. Alle Rechte vorbehalten.</span>
+      <div class="footer-links">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/49XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+    WhatsApp
+  </a>
+
+  <script>
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+
+</body>
+</html>
