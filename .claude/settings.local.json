@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Stefanie/Desktop/**)",
+      "Bash(python3 -c \":*)",
+      "Bash(node -e \":*)",
+      "Bash(wc -l \"C:/Users/Stefanie/Desktop/delluxe-v6-cinematic \\(3\\).jsx\")"
+    ]
+  }
+}
