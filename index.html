@@ -62,50 +62,70 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --g:  #6ccc43;
-      --gs: rgba(108,204,67,0.12);
-      --bg: #040404;
-      --s1: #0c0c0c;
-      --bd: rgba(255,255,255,0.08);
-      --t:  #f5f5f2;
-      --m:  rgba(245,245,242,0.65);
-      --x:  1240px;
-      --r:  20px;
+      --delluxe_green:        #6cd141;
+      --delluxe_green_transparent10: #6cd14110;
+      --delluxe_green_transparent25: #6cd14125;
+      --softgreen:            #dcffe8;
+      --softgreen_transparent10: #dcffe810;
+      --softgreen_transparent50: #dcffe850;
+      --delluxe_black:        #0c0c0c;
+      --delluxe_black_transparent55:        #0c0c0c55;
+      --delluxe_black_transparent85:        #0c0c0c85;
+      --delluxe_white:        #f5f5f2;
+      --softblack:            #1c1c1c;
+      --gold:                 #f5c518;
+      --mediumgrey:           #444444;
+      --softgrey80:           #F5F5F2CC;
+      --softgrey70:           #F5F5F2B3;
+      --softgrey50:           #f5f5f285;
+      --black_transparent10:  #0000001A;
+      --black_transparent20:  #00000033;
+      --white_transparent10:  #FFFFFF1A;
+      --white_transparent15:  #FFFFFF26;
+      
+      --max-width:          1240px;
+      --radius:             20px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--t);
+      background: var(--delluxe_black);
+      color: var(--delluxe_white);
       font-family: 'Instrument Sans', sans-serif;
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    .c { width: 100%; max-width: var(--x); margin: 0 auto; padding: 0 40px; }
+    /* ── LAYOUT ── */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
 
-    .ey {
+    .eyebrow {
       display: inline-block;
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--g);
+      color: var(--softgrey50);
       margin-bottom: 18px;
     }
 
-    /* Scroll reveal */
-    .r {
+    /* ── SCROLL REVEAL ── */
+    .reveal {
       opacity: 0;
       transform: translateY(28px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .r.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* Buttons */
-    .b {
+    /* ── BUTTONS ── */
+    .btn {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 13px 28px; border-radius: 999px;
       font-size: 14px; font-weight: 500;
@@ -113,308 +133,321 @@
       cursor: pointer; text-decoration: none; border: none;
       transition: opacity 0.2s, transform 0.2s;
     }
-    .b:hover { opacity: 0.85; transform: translateY(-1px); }
-    .bp { background: var(--t); color: #000; }
-    .bg { background: var(--g); color: #000; }
-    .bs { background: rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.15); color: var(--t); backdrop-filter: blur(8px); }
-    .b--sm { padding: 8px 18px; font-size: 13px; }
+    .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn--primary { background: var(--delluxe_white); color: var(--delluxe_black); }
+    .btn--green   { background: var(--softgreen); color: var(--delluxe_black); }
+    .btn--ghost   { background: var(--black_transparent10); border: 1px solid var(--white_transparent15); color: var(--delluxe_white); backdrop-filter: blur(8px); }
+    .btn--small   { padding: 8px 18px; font-size: 13px; }
+    .btn--secondary { background: var(--softblack); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); }
 
-    /* ── NAVIGATION ── */
-    .nv {
+    /* ════════════════════════════
+       NAVIGATION
+    ════════════════════════════ */
+    .navbar {
       position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
-      width: calc(100% - 48px); max-width: var(--x);
-      height: 64px;
-      padding: 0 24px;
+      width: calc(100% - 48px); max-width: var(--max-width);
+      height: 64px; padding: 0 24px;
       display: flex; align-items: center; justify-content: space-between;
-      border-radius: 20px;
+      border-radius: var(--radius);
       border: 1px solid transparent;
       background: transparent;
       backdrop-filter: blur(0px);
       transition: background 0.45s, border-color 0.45s, backdrop-filter 0.45s;
       z-index: 200;
     }
-    .nv.ns {
-      background: rgba(4,4,4,0.18);
-      border-color: rgba(255,255,255,0.09);
-      backdrop-filter: blur(20px) saturate(1.4);
+    .navbar.navbar--scrolled {
+      background: var(--black_transparent20);
+      border-color: var(--white_transparent10);
+      backdrop-filter: blur(10px) saturate(1.4);
     }
-    .nv__l { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nv__li {
-      width: 38px; height: 38px;
-      background: #0d0d0d; border: 1.5px solid var(--g); border-radius: 7px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Bodoni Moda', serif; font-size: 21px; color: var(--g); flex-shrink: 0;
-    }
-    .nv__lt { display: flex; flex-direction: column; line-height: 1.1; }
-    .nv__lt span:first-child { font-size: 13px; font-weight: 600; color: var(--t); letter-spacing: 0.07em; }
-    .nv__lt span:last-child  { font-size: 10px; color: var(--m); letter-spacing: 0.13em; }
-    .nv__k { display: flex; align-items: center; gap: 32px; }
-    .nv__k a { font-size: 13px; color: rgba(245,245,242,0.8); text-decoration: none; transition: color 0.2s; }
-    .nv__k a:hover { color: var(--t); }
-    .nv__r { display: flex; align-items: center; gap: 18px; }
-    .nv__s { display: flex; align-items: center; gap: 14px; }
-    .nv__s a { color: rgba(245,245,242,0.6); text-decoration: none; transition: color 0.2s; }
-    .nv__s a:hover { color: var(--t); }
-    .nv__p { font-size: 13px; color: var(--t); font-weight: 500; white-space: nowrap; }
 
-    /* ── HERO ── */
-    .h {
+    .navbar__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+
+    .navbar__links { display: flex; align-items: center; gap: 32px; }
+    .navbar__links a { font-size: 13px; color: var(--softgrey80); text-decoration: none; transition: color 0.2s; }
+    .navbar__links a:hover { color: var(--delluxe_white); }
+
+    .navbar__right  { display: flex; align-items: center; gap: 18px; }
+    .navbar__social { display: flex; align-items: center; gap: 14px; }
+    .navbar__social a { color: var(--softgrey80); text-decoration: none; transition: color 0.2s; }
+    .navbar__social a:hover { color: var(--delluxe_white); }
+    .navbar__phone { font-size: 13px; color: var(--delluxe_white); font-weight: 500; white-space: nowrap; }
+
+    /* ════════════════════════════
+       HERO
+    ════════════════════════════ */
+    .hero {
       position: relative; height: 100vh; min-height: 640px;
-      display: flex; align-items: center; overflow: hidden;
+      display: flex; align-items: flex-end; overflow: hidden;
     }
-    .h__frame { position: absolute; inset: 0; overflow: hidden; }
-    /* KRITISCH: Niemals opacity:0 auf .h__bg setzen */
-    .h__bg {
+    .hero__frame { position: absolute; inset: 0; overflow: hidden; }
+
+    /* KRITISCH: Niemals opacity:0 auf .hero__bg setzen!
+       Kombination von scale() + opacity-Animation erzeugt GPU-Compositing-Spalt. */
+    .hero__bg {
       position: absolute; inset: 0;
-      background: #1c1c1c url('images/delluxe-dellenentfernen-1536x533.jpg') center/cover no-repeat;
-      transform: scale(1.06); /* Nicht ändern – verhindert Ränder */
+      background: var(--softblack) url('images/dellenreparatur.jpg') center/cover no-repeat;
+      transform: scale(1.06); /* Nicht ändern – verhindert weiße Ränder bei voller Viewport-Breite */
     }
-    .h__f {
+    .hero__overlay {
       position: absolute; inset: 0;
       background:
-        linear-gradient(to bottom, rgba(4,4,4,1.0) 0%, transparent 45%, transparent 55%, rgba(4,4,4,1.0) 100%),
-        linear-gradient(to right,  rgba(4,4,4,1.0) 0%, transparent 20%, transparent 80%, rgba(4,4,4,1.0) 100%);
+        linear-gradient(to right, var(--delluxe_black) 0%, transparent 20%, transparent 80%, var(--delluxe_black) 100%),
+        linear-gradient(to top, var(--delluxe_black) 0%, transparent 30%, transparent 60%, var(--delluxe_black) 90%);
     }
-    .h__fade {
-      position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
-      background: linear-gradient(to bottom, transparent, var(--bg));
-      pointer-events: none;
-    }
-    .h__hint {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      color: #333; font-size: 13px; font-style: italic; pointer-events: none;
-    }
-    .h__c {
+    .hero__content {
       position: relative; z-index: 2;
-      width: 100%; max-width: var(--x); margin: 0 auto; padding: 0 40px;
+      width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 40px 100px;
     }
-    .h__ey {
+    .hero__eyebrow {
       display: block; font-size: 11px; font-weight: 500;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--g); margin-bottom: 20px;
+      color: var(--delluxe_green); margin-bottom: 20px;
       font-family: 'Instrument Sans', sans-serif; /* Browser-H1-Standard überschreiben */
     }
-    .h__t {
+    .hero__title {
       font-family: 'Bodoni Moda', serif;
-      font-size: clamp(68px, 9.5vw, 136px);
-      font-weight: 300; line-height: 0.93;
-      margin-bottom: 40px;
+      font-size: clamp(48px, 7.5vw, 100px);
+      line-height: .94;
+      letter-spacing: -.05em;
+      font-weight: 550;
+      margin-bottom: 20px;
     }
-    .h__t .line1 { display: block; color: var(--t); font-weight: 700; }
-    .h__t .line2 {
-      display: block;
-      font-style: italic;
-      font-weight: 700;
-      background: linear-gradient(to right, #ffffff 0%, #6ccc43 50%);
+    .hero__title-line1 { display: block; color: var(--delluxe_white);}
+    .hero__title-line2 {
+      display: block; font-style: italic;
+      background: linear-gradient(to right, var(--softgreen) 0%, var(--delluxe_green) 50%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .h__sub { display: flex; align-items: center; gap: 14px; font-size: 13px; color: rgba(245,245,242,0.7); }
-    .h__sub .dot { width: 3px; height: 3px; background: #555; border-radius: 50%; flex-shrink: 0; }
-    .h__sub .star { color: #f5c518; }
+    .hero__subtitle { display: flex; align-items: center; gap: 15px; font-size: 15px; color: var(--softgrey70); }
+    .hero__subtitle-dot  { width: 3px; height: 3px; background: var(--mediumgrey); border-radius: 50%; flex-shrink: 0; }
+    .hero__subtitle-star { color: var(--gold); }
 
-    /* ── STATEMENT ── */
-    .st { padding: 120px 0; border-bottom: 1px solid var(--bd); }
-    .st__in { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .st__t {
+    /* ════════════════════════════
+       STATEMENT
+    ════════════════════════════ */
+    .statement { padding: 120px 0; border-bottom: 1px solid var(--black_transparent10); }
+    .statement__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+    .statement__title {
       font-family: 'Bodoni Moda', serif;
       font-size: clamp(28px, 3.2vw, 44px);
-      font-weight: 300; line-height: 1.25; color: var(--t);
+      font-weight: 300; line-height: 1.25; color: var(--delluxe_white);
+      max-width: var(--max-width); width: 100%; text-align: center;
     }
-    .st__t strong { font-weight: 500; }
-    .st__t em { font-style: italic; color: var(--g); }
-    .st__r { display: flex; flex-direction: column; gap: 24px; }
-    .st__r p { font-size: 15px; color: var(--m); line-height: 1.75; }
+    .statement__title strong { font-weight: 500; }
+    .statement__title em { font-style: italic; color: var(--delluxe_green); }
+    .statement__buttons { padding: 18px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-    /* ── LEISTUNGEN ── */
-    .se { padding: 120px 0; }
-    .sh { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 52px; }
-    .sh__t { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; line-height: 1.1; color: var(--t); }
-    .sh__x { font-size: 15px; color: var(--m); line-height: 1.75; padding-top: 8px; }
-    .sg { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .sc {
-      background: #0e0e0e; border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--r); padding: 36px;
+    /* ════════════════════════════
+       LEISTUNGEN
+    ════════════════════════════ */
+    .services { padding: 120px 0; }
+
+    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 52px; }
+    .section-header__title { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; line-height: 1.1; color: var(--delluxe_white); }
+    .section-header__text  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; padding-top: 8px; }
+
+    .services__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .service-card {
+      background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 1px solid var(--white_transparent10);
+      border-radius: var(--radius); padding: 36px;
       display: flex; flex-direction: column; gap: 14px;
       transition: border-color 0.25s, background 0.25s, transform 0.25s;
     }
-    .sc:hover { background: #111; border-color: rgba(255,255,255,0.13); transform: translateY(-3px); }
-    .sc__n { font-size: 11px; color: #444; letter-spacing: 0.06em; }
-    .sc__t { font-family: 'Bodoni Moda', serif; font-size: 26px; font-weight: 400; color: var(--t); margin-top: 18px; }
-    .sc__d { font-size: 14px; color: var(--m); line-height: 1.65; }
-    .sc__m { margin-top: auto; color: var(--g); font-size: 14px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
-    .sc__m:hover { gap: 10px; }
+    .service-card:hover { border-color: var(--softgreen_transparent50); transform: translateY(-3px); box-shadow: 0 8px 32px var(--white_transparent15); }
+    .service-card__number      { font-size: 11px; color: var(--mediumgrey); letter-spacing: 0.06em; }
+    .service-card__title       { font-family: 'Bodoni Moda', serif; font-size: 26px; font-weight: 400; color: var(--delluxe_white); margin-top: 18px; }
+    .service-card__description { font-size: 14px; color: var(--softgrey70); line-height: 1.65; }
+    .service-card__link        { margin-top: auto; color: var(--delluxe_green); font-size: 14px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
+    .service-card__link:hover  { gap: 10px; }
 
-    /* ── GALERIE / SLIDER ── */
-    .gl { padding: 0 0 120px; }
-    .gl__hd { margin-bottom: 40px; }
-    .gl__t { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; color: var(--t); }
+    /* ════════════════════════════
+       GALERIE / SLIDER
+    ════════════════════════════ */
+    .gallery { padding: 0 0 120px; }
+    .gallery__header { margin-bottom: 40px; }
+    .gallery__title  { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; color: var(--delluxe_white); }
 
     .slider { position: relative; height: 480px; overflow: hidden; }
     .slider__track { display: flex; height: 100%; gap: 16px; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
     .slider__slide {
       min-width: 82%; height: 100%; position: relative; flex-shrink: 0;
-      border-radius: 20px; overflow: hidden; background: #111;
+      border-radius: var(--radius); overflow: hidden; background: var(--delluxe_black);
     }
-    .slider__img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      display: block;
-    }
-    .slider__ov { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,4,4,0.55) 0%, transparent 50%); pointer-events: none; }
+    .slider__image   { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .slider__overlay { position: absolute; inset: 0; background: linear-gradient(to top, var(--delluxe_black_transparent55) 0%, transparent 50%); pointer-events: none; }
 
-    /* Prev / Next Buttons */
     .slider__btn {
       position: absolute; top: 50%; transform: translateY(-50%);
       width: 44px; height: 44px;
-      background: rgba(4,4,4,0.55); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 50%; color: var(--t); font-size: 18px;
+      background: var(--delluxe_black_transparent55); border: 1px solid var(--black_transparent10);
+      border-radius: 50%; color: var(--delluxe_white); font-size: 18px;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       transition: background 0.2s; z-index: 10; backdrop-filter: blur(8px);
     }
-    .slider__btn:hover { background: rgba(4,4,4,0.85); }
-    .slider__prev { left: 16px; }
-    .slider__next { right: 16px; }
+    .slider__btn:hover { background: var(--delluxe_black_transparent85); }
+    .slider__btn--prev { left: 16px; }
+    .slider__btn--next { right: 16px; }
 
-    /* Dots */
     .slider__dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
-    .slider__dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(255,255,255,0.25); cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+    .slider__dot  { width: 6px; height: 6px; border-radius: 50%; background: var(--black_transparent20); cursor: pointer; transition: background 0.2s, transform 0.2s; }
+    .slider__dot.slider__dot--active { background: var(--delluxe_green); transform: scale(1.3); }
+
+    /* ════════════════════════════
+       NACHHALTIGKEIT
+    ════════════════════════════ */
+    .sustainability { padding: 120px 0; background: var(--delluxe_black); border-top: 1px solid var(--black_transparent10); border-bottom: 1px solid var(--black_transparent10); }
+    .sustainability__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .sustainability__title { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; line-height: 1.1; color: var(--delluxe_white); margin-bottom: 20px; }
+    .sustainability__text  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; margin-bottom: 36px; }
+
+    .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .metric-card { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 1px solid var(--white_transparent10);
+      border-radius: var(--radius); padding: 16px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
     }
-    .slider__dot.active { background: var(--g); transform: scale(1.3); }
+    .metric-card:hover { border-color: var(--softgreen_transparent50); transform: translateY(-3px); box-shadow: 0 8px 32px var(--white_transparent15); }
+    .metric-card__label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--softgrey50); margin-bottom: 10px; }
+    .metric-card__value { font-family: 'Bodoni Moda', serif; font-size: 32px; font-weight: 400; color: var(--delluxe_white); line-height: 1; margin-bottom: 10px;}
+    .metric-card__sub   { font-size: 14px; color: var(--softgrey80); line-height: 1.65;}
 
-    /* ── NACHHALTIGKEIT ── */
-    .na { padding: 120px 0; background: var(--s1); border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd); }
-    .na__in { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .na__t { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; line-height: 1.1; color: var(--t); margin-bottom: 20px; }
-    .na__x { font-size: 15px; color: var(--m); line-height: 1.75; margin-bottom: 36px; }
-    .ms { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .m { background: #0e0e0e; border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 28px 24px; transition: transform 0.25s, border-color 0.25s; }
-    .m:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.13); }
-    .m__l { font-size: 11px; color: #555; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
-    .m__v { font-family: 'Bodoni Moda', serif; font-size: 32px; font-weight: 400; color: var(--g); line-height: 1; }
-    .m__s { font-size: 13px; color: var(--m); margin-top: 6px; }
-    .lp { background: #0e0e0e; border: 1px solid rgba(255,255,255,0.07); border-radius: var(--r); padding: 48px; transition: transform 0.25s, border-color 0.25s; }
-    .lp:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.13); }
-    .lp__ic { width: 48px; height: 48px; background: var(--gs); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 24px; }
-    .lp__t { font-family: 'Bodoni Moda', serif; font-size: 26px; font-weight: 400; color: var(--t); margin-bottom: 14px; line-height: 1.2; }
-    .lp__x { font-size: 14px; color: var(--m); line-height: 1.75; }
+    .large-panel { background: var(--delluxe_black); border: 1px solid var(--black_transparent10); border-radius: var(--radius); padding: 48px; transition: transform 0.25s, border-color 0.25s; }
+    .large-panel:hover { transform: translateY(-3px); border-color: var(--black_transparent20); }
+    .large-panel__icon  { width: 48px; height: 48px; background: var(--softgreen_transparent10); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 24px; }
+    .large-panel__title { font-family: 'Bodoni Moda', serif; font-size: 26px; font-weight: 400; color: var(--delluxe_white); margin-bottom: 14px; line-height: 1.2; }
+    .large-panel__text  { font-size: 14px; color: var(--softgrey70); line-height: 1.75; }
 
-    /* ── BEWERTUNGEN ── */
-    .bw { padding: 120px 0; }
-    .bw__hd { text-align: center; margin-bottom: 56px; }
-    .bw__t { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; color: var(--t); }
-    .rv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .rc { background: #0e0e0e; border: 1px solid rgba(255,255,255,0.07); border-radius: var(--r); padding: 32px; display: flex; flex-direction: column; gap: 18px; transition: transform 0.25s, border-color 0.25s; }
-    .rc:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.13); }
-    .rc__s { color: #f5c518; font-size: 15px; letter-spacing: 2px; }
-    .rc__q { font-size: 15px; color: rgba(245,245,242,0.85); line-height: 1.7; font-style: italic; flex: 1; }
-    .rc__q::before { content: '\201E'; }
-    .rc__q::after  { content: '\201C'; }
-    .rc__a { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--bd); }
-    .rc__av { width: 36px; height: 36px; background: var(--gs); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--g); flex-shrink: 0; }
-    .rc__nm { font-size: 13px; font-weight: 500; color: var(--t); }
-    .rc__sr { font-size: 11px; color: #555; }
+    /* ════════════════════════════
+       BEWERTUNGEN
+    ════════════════════════════ */
+    .reviews { padding: 120px 0; }
+    .reviews__header { text-align: left; margin-bottom: 56px; }
+    .reviews__title  { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; color: var(--delluxe_white); }
+    .reviews__grid   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 
-    /* ── FAQ ── */
-    .fq { padding: 0 0 120px; }
-    .fq__hd { margin-bottom: 48px; }
-    .fq__t { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; color: var(--t); }
-    .fq__list { display: flex; flex-direction: column; gap: 8px; }
-    .fq__item { background: #0e0e0e; border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; overflow: hidden; transition: border-color 0.2s; }
-    .fq__item.open { border-color: rgba(108,204,67,0.25); }
-    .fq__q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; background: none; border: none; color: var(--t); font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500; text-align: left; cursor: pointer; gap: 20px; transition: color 0.2s; }
-    .fq__q:hover { color: var(--g); }
-    .fq__ic { width: 28px; height: 28px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; color: var(--m); transition: transform 0.3s, border-color 0.2s, color 0.2s; }
-    .fq__item.open .fq__ic { transform: rotate(45deg); border-color: var(--g); color: var(--g); }
-    .fq__a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 28px; }
-    .fq__item.open .fq__a { max-height: 300px; padding: 0 28px 24px; }
-    .fq__a p { font-size: 14px; color: var(--m); line-height: 1.75; padding-top: 16px; border-top: 1px solid var(--bd); }
+    .review-card { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 1px solid var(--white_transparent10); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.25s, background 0.25s, transform 0.25s; }
+    .review-card:hover { border-color: var(--softgreen_transparent50); transform: translateY(-3px); box-shadow: 0 8px 32px var(--white_transparent15); }
+    .review-card__stars  { color: var(--gold); font-size: 15px; letter-spacing: 2px; }
+    .review-card__quote  { font-size: 15px; color: var(--softgrey80); line-height: 1.7; font-style: italic; flex: 1; }
+    .review-card__quote::before { content: '\201E'; }
+    .review-card__quote::after  { content: '\201C'; }
+    .review-card__author { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--black_transparent10); }
+    .review-card__avatar { width: 36px; height: 36px; background: var(--softgreen_transparent10); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--delluxe_green); flex-shrink: 0; }
+    .review-card__name   { font-size: 13px; font-weight: 500; color: var(--delluxe_white); }
+    .review-card__source { font-size: 11px; color: var(--mediumgrey); }
 
-    /* ── CTA ── */
-    .ct { padding: 0 0 120px; }
-    .ct__b {
-      background: linear-gradient(135deg, #0e0e0e 0%, #121212 100%);
-      border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
+    /* ════════════════════════════
+       FAQ
+    ════════════════════════════ */
+    .faq { padding: 0 0 120px; }
+    .faq__header { margin-bottom: 48px; }
+    .faq__title  { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; color: var(--delluxe_white); }
+    .faq__list   { display: flex; flex-direction: column; gap: 8px; }
+
+    .faq__item { background: var(--delluxe_black); border: 1px solid var(--black_transparent10); border-radius: var(--radius); overflow: hidden; transition: border-color 0.2s; }
+    .faq__item.faq__item--open { border-color: var(--delluxe_green_transparent25); }
+
+    .faq__question { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; background: none; border: none; color: var(--delluxe_white); font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500; text-align: left; cursor: pointer; gap: 20px; transition: color 0.2s; }
+    .faq__question:hover { color: var(--delluxe_green); }
+
+    .faq__icon { width: 28px; height: 28px; border: 1px solid var(--white_transparent15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; color: var(--softgrey70); transition: transform 0.3s, border-color 0.2s, color 0.2s; }
+    .faq__item.faq__item--open .faq__icon { transform: rotate(45deg); border-color: var(--delluxe_green); color: var(--delluxe_green); }
+
+    .faq__answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 28px; }
+    .faq__item.faq__item--open .faq__answer { max-height: 300px; padding: 0 28px 24px; }
+    .faq__answer p { font-size: 14px; color: var(--softgrey70); line-height: 1.75; padding-top: 16px; border-top: 1px solid var(--black_transparent10); }
+
+    /* ════════════════════════════
+       CTA
+    ════════════════════════════ */
+    .cta { padding: 0 0 120px; }
+    .cta__box {
+      background: var(--delluxe_black);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius);
       padding: 80px 60px; text-align: center; position: relative; overflow: hidden;
     }
-    .ct__b::before {
+    .cta__box::before {
       content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
       width: 400px; height: 200px;
-      background: radial-gradient(ellipse, rgba(108,204,67,0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse, var(--delluxe_green_transparent10) 0%, transparent 70%);
       pointer-events: none;
     }
-    .ct__t { font-family: 'Bodoni Moda', serif; font-size: clamp(36px, 4.5vw, 64px); font-weight: 300; color: var(--t); margin-bottom: 16px; position: relative; }
-    .ct__x { font-size: 15px; color: var(--m); margin-bottom: 40px; position: relative; }
-    .ct__a { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
+    .cta__title   { font-family: 'Bodoni Moda', serif; font-size: clamp(36px, 4.5vw, 64px); font-weight: 300; color: var(--delluxe_white); margin-bottom: 16px; position: relative; }
+    .cta__text    { font-size: 15px; color: var(--softgrey70); margin-bottom: 40px; position: relative; }
+    .cta__actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
 
-    /* ── FOOTER ── */
-    .ft { background: var(--s1); border-top: 1px solid var(--bd); padding: 64px 0 40px; }
-    .ft__g { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 56px; }
-    .ft__br p { font-size: 13px; color: var(--m); line-height: 1.75; margin-top: 16px; max-width: 260px; }
-    .ft__ti { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #555; margin-bottom: 18px; }
-    .ft__l { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .ft__l a { font-size: 14px; color: var(--m); text-decoration: none; transition: color 0.2s; }
-    .ft__l a:hover { color: var(--t); }
-    .ft__btm { border-top: 1px solid var(--bd); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-    .ft__copy { font-size: 12px; color: #444; }
-    .ft__bl { display: flex; gap: 20px; }
-    .ft__bl a { font-size: 12px; color: #444; text-decoration: none; transition: color 0.2s; }
-    .ft__bl a:hover { color: var(--m); }
+    /* ════════════════════════════
+       FOOTER
+    ════════════════════════════ */
+    .footer { background: var(--delluxe_black); border-top: 1px solid var(--black_transparent10); padding: 64px 0 40px; }
+    .footer__grid  { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 56px; }
+    .footer__brand p { font-size: 13px; color: var(--softgrey70); line-height: 1.75; margin-top: 16px; max-width: 260px; }
+    .footer__col-title  { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mediumgrey); margin-bottom: 18px; }
+    .footer__links      { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a    { font-size: 14px; color: var(--softgrey70); text-decoration: none; transition: color 0.2s; }
+    .footer__links a:hover { color: var(--delluxe_white); }
+    .footer__bottom       { border-top: 1px solid var(--black_transparent10); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer__copyright    { font-size: 12px; color: var(--mediumgrey); }
+    .footer__bottom-links { display: flex; gap: 20px; }
+    .footer__bottom-links a { font-size: 12px; color: var(--mediumgrey); text-decoration: none; transition: color 0.2s; }
+    .footer__bottom-links a:hover { color: var(--softgrey70); }
 
-    /* ── WHATSAPP FLOAT ── */
-    .wa {
+    /* ════════════════════════════
+       WHATSAPP FLOAT
+    ════════════════════════════ */
+    .whatsapp-float {
       position: fixed; bottom: 28px; right: 28px;
-      background: rgba(10,10,10,0.92); border: 1px solid rgba(255,255,255,0.1);
+      background: var(--delluxe_black_transparent85); border: 1px solid var(--white_transparent10);
       border-radius: 999px; padding: 11px 20px;
       display: flex; align-items: center; gap: 9px;
-      font-size: 13px; font-weight: 500; color: var(--t);
+      font-size: 13px; font-weight: 500; color: var(--delluxe_white);
       text-decoration: none; z-index: 300;
       backdrop-filter: blur(12px);
       transition: background 0.2s, transform 0.2s;
     }
-    .wa:hover { background: rgba(20,20,20,0.98); transform: translateY(-2px); }
-    .wa svg { width: 20px; height: 20px; fill: #25D366; flex-shrink: 0; }
+    .whatsapp-float:hover { background: var(--delluxe_black); transform: translateY(-2px); }
+    .whatsapp-float svg { width: 20px; height: 20px; fill: #25D366; flex-shrink: 0; }
 
-    /* ── RESPONSIVE ── */
+    /* ════════════════════════════
+       RESPONSIVE
+    ════════════════════════════ */
     @media (max-width: 1120px) {
-      .ft__g { grid-template-columns: 1fr 1fr; }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 820px) {
-      .c { padding: 0 20px; }
-      .nv { width: calc(100% - 24px); padding: 10px 16px; }
-      .nv__k, .nv__s, .nv__p { display: none; }
-      .h__t { font-size: clamp(52px, 14vw, 80px); }
-      .st__in, .sh, .na__in { grid-template-columns: 1fr; gap: 32px; }
-      .sg, .rv { grid-template-columns: 1fr; }
-      .gg { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
-      .gc:first-child { grid-column: span 2; grid-row: span 1; }
-      .ms { grid-template-columns: 1fr 1fr; }
-      .ft__g { grid-template-columns: 1fr 1fr; }
-      .ct__b { padding: 48px 24px; }
-      .ft__btm { flex-direction: column; align-items: flex-start; }
+      .container { padding: 0 20px; }
+      .navbar { width: calc(100% - 24px); padding: 10px 16px; }
+      .navbar__links, .navbar__social, .navbar__phone { display: none; }
+      .hero__title { font-size: clamp(52px, 14vw, 80px); }
+      .statement__inner, .section-header, .sustainability__inner { grid-template-columns: 1fr; gap: 32px; }
+      .services__grid, .reviews__grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+      .cta__box { padding: 48px 24px; }
+      .footer__bottom { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
   <!-- ═══ NAVIGATION ═══ -->
-  <header class="nv" id="nav">
-    <a class="nv__l" href="#">
-      <img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Delluxe-Dellen GmbH Logo" height="30" />
+  <header class="navbar" id="navbar">
+    <a class="navbar__logo" href="#">
+      <img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Delluxe-Dellen GmbH Logo" height="36" />
     </a>
-    <nav class="nv__k" aria-label="Hauptnavigation">
+    <nav class="navbar__links" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
       <a href="#nachhaltigkeit">Nachhaltigkeit</a>
       <a href="#galerie">Galerie</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <div class="nv__r">
-      <div class="nv__s">
+    <div class="navbar__right">
+      <div class="navbar__social">
         <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
@@ -425,125 +458,120 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
       </div>
-      <span class="nv__p">08141 890 8558</span>
-      <a href="#kontakt" class="b bs b--sm">Anfragen</a>
+      <span class="navbar__phone">08141 890 8558</span>
+      <a href="#kontakt" class="btn btn--ghost btn--small">Anfragen</a>
     </div>
   </header>
 
   <!-- ═══ HERO ═══ -->
-  <section class="h" aria-label="Hero">
-    <div class="h__frame">
-      <div class="h__bg">
-      </div>
-      <div class="h__f"></div>
-      <div class="h__fade"></div>
+  <section class="hero" aria-label="Hero">
+    <div class="hero__frame">
+      <div class="hero__bg"></div>
+      <div class="hero__overlay"></div>
     </div>
-    <div class="h__c">
-      <h1 class="h__ey">Dellenentfernung München&nbsp;&middot;&nbsp;Beulendoktor Meisterbetrieb</h1>
-      <div class="h__t">
-        <span class="line1">Perfektion</span>
-        <span class="line2">ist unsichtbar.</span>
+    <div class="hero__content">
+      <h1 class="hero__eyebrow">Dellenentfernung München&nbsp;&middot;&nbsp;Beulendoktor Meisterbetrieb</h1>
+      <div class="hero__title">
+        <span class="hero__title-line1">Perfektion</span>
+        <span class="hero__title-line2">ist unsichtbar.</span>
       </div>
-      <div class="h__sub">
+      <div class="hero__subtitle">
         <span>Lackfreie Dellenreparatur</span>
-        <span class="dot"></span>
+        <span class="hero__subtitle-dot"></span>
         <span>Eichenau bei München</span>
-        <span class="dot"></span>
-        <span><span class="star">&#9733;</span> 5.0 Google</span>
+        <span class="hero__subtitle-dot"></span>
+        <span><span class="hero__subtitle-star">&#9733;</span> 5.0 Google</span>
       </div>
     </div>
   </section>
 
   <!-- ═══ STATEMENT ═══ -->
-  <section class="st">
-    <div class="c">
-      <div class="st__in">
-        <div class="r">
-          <span class="ey">Warum Delluxe-Dellen</span>
-          <h2 class="st__t">
-            Ihr Originallack ist <strong>unersetzlich.</strong><br><br>
-            Konventionelle Reparaturen greifen in Material und Oberfläche ein. Wir sind die <em>schonende Alternative.</em>
+  <section class="statement">
+    <div class="container">
+      <div class="statement__inner">
+        <div class="reveal">
+          <span class="eyebrow" style="display: block; text-align: center;">Warum Delluxe-Dellen</span>
+          <h2 class="statement__title">
+            Ihr Originallack ist <strong>unersetzlich.</strong><br>
+            Konventionelle Reparaturen greifen in<br>Material und Oberfläche ein. Wir sind<br>die <em>schonende Alternative.</em>
           </h2>
-        </div>
-        <div class="st__r r" style="transition-delay:0.15s">
-          <p>PDR &ndash; Paintless Dent Repair &ndash; ist die modernste Methode zur Beseitigung von Dellen und Beulen. Ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
-          <p>Als Meisterbetrieb in Eichenau bei München stehen wir für handwerkliche Präzision, transparente Abwicklung und Ergebnisse, die überzeugen.</p>
-          <a href="#leistungen" class="b bp">Leistungen entdecken</a>
-        </div>
-      </div>
+          <div class="statement__buttons">
+            <a href="#kontakt" class="btn btn--green">Jetzt anfragen</a>
+            <a href="https://wa.me/498141890855" class="btn btn--secondary" target="_blank" rel="noopener">WhatsApp senden</a>
+          </div>
     </div>
   </section>
 
   <!-- ═══ LEISTUNGEN ═══ -->
-  <section class="se" id="leistungen">
-    <div class="c">
-      <div class="sh r">
+  <section class="services" id="leistungen">
+    <div class="container">
+      <div class="section-header reveal">
         <div>
-          <span class="ey">Leistungen</span>
-          <h2 class="sh__t">Lackfreie Dellenreparatur in München</h2>
+          <span class="eyebrow">Leistungen</span>
+          <h2 class="section-header__title">Lackfreie Dellenreparatur in München</h2>
         </div>
-        <p class="sh__x">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
+        <p class="section-header__text">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
       </div>
-      <div class="sg">
-        <article class="sc r">
-          <span class="sc__n">I</span>
-          <h3 class="sc__t">Lackfreie Dellenreparatur</h3>
-          <p class="sc__d">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
-          <a href="#" class="sc__m">Mehr erfahren &rarr;</a>
+      <div class="services__grid">
+        <article class="service-card reveal">
+          <span class="service-card__number">I</span>
+          <h3 class="service-card__title">Lackfreie Dellenreparatur</h3>
+          <p class="service-card__description">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
+          <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
-        <article class="sc r" style="transition-delay:0.1s">
-          <span class="sc__n">II</span>
-          <h3 class="sc__t">Hagelschaden</h3>
-          <p class="sc__d">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
-          <a href="#" class="sc__m">Mehr erfahren &rarr;</a>
+        <article class="service-card reveal" style="transition-delay:0.1s">
+          <span class="service-card__number">II</span>
+          <h3 class="service-card__title">Hagelschaden</h3>
+          <p class="service-card__description">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
+          <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
-        <article class="sc r" style="transition-delay:0.2s">
-          <span class="sc__n">III</span>
-          <h3 class="sc__t">Smart Repair</h3>
-          <p class="sc__d">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
-          <a href="#" class="sc__m">Mehr erfahren &rarr;</a>
+        <article class="service-card reveal" style="transition-delay:0.2s">
+          <span class="service-card__number">III</span>
+          <h3 class="service-card__title">Smart Repair</h3>
+          <p class="service-card__description">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
+          <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
-        <article class="sc r" style="transition-delay:0.3s">
-          <span class="sc__n">IV</span>
-          <h3 class="sc__t">Leasingrückgabe</h3>
-          <p class="sc__d">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
-          <a href="#" class="sc__m">Mehr erfahren &rarr;</a>
+        <article class="service-card reveal" style="transition-delay:0.3s">
+          <span class="service-card__number">IV</span>
+          <h3 class="service-card__title">Leasingrückgabe</h3>
+          <p class="service-card__description">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
+          <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ═══ GALERIE ═══ -->
-  <section class="gl" id="galerie">
-    <div class="c">
-      <div class="gl__hd r">
-        <span class="ey">Einblicke</span>
-        <h2 class="gl__t">Unsere Werkstatt in Eichenau</h2>
+  <section class="gallery" id="galerie">
+    <div class="container">
+      <div class="gallery__header reveal">
+        <span class="eyebrow">Einblicke</span>
+        <h2 class="gallery__title">Unsere Werkstatt in Eichenau</h2>
       </div>
-      <div class="slider r">
+      <div class="slider reveal">
         <div class="slider__track" id="sliderTrack">
           <div class="slider__slide">
-            <img class="slider__img" src="images/DiaShow/dellen-entfernen-muenchen-400x284.jpg" alt="Dellenentfernung München – Delluxe-Dellen GmbH" loading="lazy" />
-            <div class="slider__ov"></div>
+            <img class="slider__image" src="images/DiaShow/dellen-entfernen-muenchen-400x284.jpg" alt="Dellenentfernung München – Delluxe-Dellen GmbH" loading="lazy" />
+            <div class="slider__overlay"></div>
           </div>
           <div class="slider__slide">
-            <img class="slider__img" src="images/DiaShow/delluxe-sonstiger-service-400x450" alt="Lackfreie Dellenreparatur Eichenau – Delluxe-Dellen" loading="lazy" />
-            <div class="slider__ov"></div>
+            <img class="slider__image" src="images/DiaShow/delluxe-sonstiger-service-400x450" alt="Lackfreie Dellenreparatur Eichenau – Delluxe-Dellen" loading="lazy" />
+            <div class="slider__overlay"></div>
           </div>
           <div class="slider__slide">
-            <img class="slider__img" src="images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg" alt="Dellenentfernung ohne Lackieren – PDR Meisterbetrieb" loading="lazy" />
-            <div class="slider__ov"></div>
+            <img class="slider__image" src="images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg" alt="Dellenentfernung ohne Lackieren – PDR Meisterbetrieb" loading="lazy" />
+            <div class="slider__overlay"></div>
           </div>
           <div class="slider__slide">
-            <img class="slider__img" src="images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg" alt="Mobiler Dellenservice München – Delluxe-Dellen" loading="lazy" />
-            <div class="slider__ov"></div>
+            <img class="slider__image" src="images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg" alt="Mobiler Dellenservice München – Delluxe-Dellen" loading="lazy" />
+            <div class="slider__overlay"></div>
           </div>
         </div>
-        <button class="slider__btn slider__prev" id="sliderPrev" aria-label="Vorheriges Bild">&#8249;</button>
-        <button class="slider__btn slider__next" id="sliderNext" aria-label="Nächstes Bild">&#8250;</button>
+        <button class="slider__btn slider__btn--prev" id="sliderPrev" aria-label="Vorheriges Bild">&#8249;</button>
+        <button class="slider__btn slider__btn--next" id="sliderNext" aria-label="Nächstes Bild">&#8250;</button>
       </div>
       <div class="slider__dots" id="sliderDots">
-        <div class="slider__dot active"></div>
+        <div class="slider__dot slider__dot--active"></div>
         <div class="slider__dot"></div>
         <div class="slider__dot"></div>
         <div class="slider__dot"></div>
@@ -552,41 +580,35 @@
   </section>
 
   <!-- ═══ NACHHALTIGKEIT ═══ -->
-  <section class="na" id="nachhaltigkeit">
-    <div class="c">
-      <div class="na__in">
-        <div class="r">
-          <span class="ey">Green Repair</span>
-          <h2 class="na__t">Nachhaltige Dellenreparatur ohne Lack</h2>
-          <p class="na__x">Lackfreie Reparatur, eigene PV-Anlage, elektrische Mobilität und transparente digitale Abwicklung.</p>
-          <div class="ms">
-            <div class="m">
-              <div class="m__l">Photovoltaik</div>
-              <div class="m__v">Eigene PV</div>
-              <div class="m__s">Solaranlage auf dem Dach</div>
-            </div>
-            <div class="m">
-              <div class="m__l">E-Flotte</div>
-              <div class="m__v">100&nbsp;%</div>
-              <div class="m__s">elektrisch unterwegs</div>
-            </div>
-            <div class="m">
-              <div class="m__l">Abwicklung</div>
-              <div class="m__v">digital</div>
-              <div class="m__s">transparent &amp; schnell</div>
-            </div>
-            <div class="m">
-              <div class="m__l">Prinzip</div>
-              <div class="m__v">ohne Lack</div>
-              <div class="m__s">materialschonend</div>
-            </div>
-          </div>
+  <section class="sustainability" id="nachhaltigkeit">
+    <div class="container">
+      <div class="sustainability__inner">
+        <div class="reveal">
+          <span class="eyebrow" style="color: var(--delluxe_green);">Green Repair</span>
+          <h2 class="sustainability__title">Nachhaltige Dellenreparatur ohne Lack</h2>
+          <p class="sustainability__text">Lackfreie Reparatur, eigene PV-Anlage, elektrische Mobilität und transparente digitale Abwicklung.</p>
+          <a href="#nachhaltigkeit" class="btn btn--secondary">Nachhaltigkeit erleben</a>
         </div>
-        <div class="r" style="transition-delay:0.15s">
-          <div class="lp">
-            <div class="lp__ic">&#127807;</div>
-            <div class="lp__t">Kein Lack. Kein Abfall. Kein Kompromiss.</div>
-            <p class="lp__x">PDR vermeidet Lösungsmittel, Schleifstaub und Chemikalien. Kombiniert mit unserer Photovoltaikanlage und dem vollständig elektrischen Fuhrpark ist Delluxe-Dellen einer der umweltschonendsten Karosseriebetriebe in der Region.</p>
+        <div class="reveal metrics-grid">
+          <div class="metric-card">
+            <div class="metric-card__label">Photovoltaik</div>
+            <div class="metric-card__value">Eigene PV</div>
+            <div class="metric-card__sub">Solaranlage auf dem Dach</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__label">E-Flotte</div>
+            <div class="metric-card__value">100&nbsp;%</div>
+            <div class="metric-card__sub">elektrisch unterwegs</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__label">Abwicklung</div>
+            <div class="metric-card__value">digital</div>
+            <div class="metric-card__sub">transparent &amp; schnell</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__label">Prinzip</div>
+            <div class="metric-card__value">ohne Lack</div>
+            <div class="metric-card__sub">materialschonend</div>
           </div>
         </div>
       </div>
@@ -594,43 +616,43 @@
   </section>
 
   <!-- ═══ BEWERTUNGEN ═══ -->
-  <section class="bw" id="bewertungen">
-    <div class="c">
-      <div class="bw__hd r">
-        <span class="ey">Kundenstimmen</span>
-        <h2 class="bw__t">Beulendoktor mit 5.0 auf Google</h2>
+  <section class="reviews" id="bewertungen">
+    <div class="container">
+      <div class="reviews__header reveal">
+        <span class="eyebrow">Kundenstimmen</span>
+        <h2 class="reviews__title">Beulendoktor mit 5.0 auf Google</h2>
       </div>
-      <div class="rv">
-        <div class="rc r">
-          <div class="rc__s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="rc__q">Perfekte Arbeit, absolut sauber ausgeführt. Besonders überzeugend war die Kombination aus Präzision und schneller Abwicklung.</p>
-          <div class="rc__a">
-            <div class="rc__av">M</div>
+      <div class="reviews__grid">
+        <div class="review-card reveal">
+          <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-card__quote">Perfekte Arbeit, absolut sauber ausgeführt. Besonders überzeugend war die Kombination aus Präzision und schneller Abwicklung.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">M</div>
             <div>
-              <div class="rc__nm">M. Schneider</div>
-              <div class="rc__sr">Google Bewertung</div>
+              <div class="review-card__name">M. Schneider</div>
+              <div class="review-card__source">Google Bewertung</div>
             </div>
           </div>
         </div>
-        <div class="rc r" style="transition-delay:0.1s">
-          <div class="rc__s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="rc__q">Hagelschaden am BMW komplett beseitigt, man sieht nichts mehr. Top Beratung, faire Preise und die Abwicklung mit der Versicherung lief reibungslos.</p>
-          <div class="rc__a">
-            <div class="rc__av">T</div>
+        <div class="review-card reveal" style="transition-delay:0.1s">
+          <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-card__quote">Hagelschaden am BMW komplett beseitigt, man sieht nichts mehr. Top Beratung, faire Preise und die Abwicklung mit der Versicherung lief reibungslos.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">T</div>
             <div>
-              <div class="rc__nm">T. Wagner</div>
-              <div class="rc__sr">Google Bewertung</div>
+              <div class="review-card__name">T. Wagner</div>
+              <div class="review-card__source">Google Bewertung</div>
             </div>
           </div>
         </div>
-        <div class="rc r" style="transition-delay:0.2s">
-          <div class="rc__s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="rc__q">Parkdelle an der Tür in nur zwei Stunden weg &ndash; ohne Lackieren. Absoluter Profi, klare Empfehlung für jeden in München West.</p>
-          <div class="rc__a">
-            <div class="rc__av">S</div>
+        <div class="review-card reveal" style="transition-delay:0.2s">
+          <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-card__quote">Parkdelle an der Tür in nur zwei Stunden weg &ndash; ohne Lackieren. Absoluter Profi, klare Empfehlung für jeden in München West.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">S</div>
             <div>
-              <div class="rc__nm">S. Bauer</div>
-              <div class="rc__sr">Google Bewertung</div>
+              <div class="review-card__name">S. Bauer</div>
+              <div class="review-card__source">Google Bewertung</div>
             </div>
           </div>
         </div>
@@ -639,46 +661,46 @@
   </section>
 
   <!-- ═══ FAQ ═══ -->
-  <section class="fq">
-    <div class="c">
-      <div class="fq__hd r">
-        <span class="ey">FAQ</span>
-        <h2 class="fq__t">Häufige Fragen</h2>
+  <section class="faq">
+    <div class="container">
+      <div class="faq__header reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="faq__title">Was sie wissen sollten</h2>
       </div>
-      <div class="fq__list r">
-        <div class="fq__item">
-          <button class="fq__q">Was kostet eine Dellenreparatur beim Beulendoktor?<span class="fq__ic">+</span></button>
-          <div class="fq__a"><p>Kleine Dellen kosten 50&ndash;80&thinsp;&euro;, mittlere 80&ndash;150&thinsp;&euro;, Hagelschäden je nach Umfang 300&ndash;1.500&thinsp;&euro;. PDR ist bis zu 70&thinsp;% günstiger als konventionelle Lackierung &ndash; und der Originallack bleibt erhalten.</p></div>
+      <div class="faq__list reveal">
+        <div class="faq__item">
+          <button class="faq__question">Was kostet eine Dellenreparatur beim Beulendoktor?<span class="faq__icon">+</span></button>
+          <div class="faq__answer"><p>Kleine Dellen kosten 50&ndash;80&thinsp;&euro;, mittlere 80&ndash;150&thinsp;&euro;, Hagelschäden je nach Umfang 300&ndash;1.500&thinsp;&euro;. PDR ist bis zu 70&thinsp;% günstiger als konventionelle Lackierung &ndash; und der Originallack bleibt erhalten.</p></div>
         </div>
-        <div class="fq__item">
-          <button class="fq__q">Übernimmt die Versicherung die Kosten für Hagelschäden?<span class="fq__ic">+</span></button>
-          <div class="fq__a"><p>Ja. Die Teilkaskoversicherung übernimmt Hagelschäden in der Regel vollständig &ndash; ohne Verlust des Schadenfreiheitsrabattes. Wir unterstützen Sie bei der Abwicklung.</p></div>
+        <div class="faq__item">
+          <button class="faq__question">Übernimmt die Versicherung die Kosten für Hagelschäden?<span class="faq__icon">+</span></button>
+          <div class="faq__answer"><p>Ja. Die Teilkaskoversicherung übernimmt Hagelschäden in der Regel vollständig &ndash; ohne Verlust des Schadenfreiheitsrabattes. Wir unterstützen Sie bei der Abwicklung.</p></div>
         </div>
-        <div class="fq__item">
-          <button class="fq__q">Wie lange dauert eine Dellenreparatur?<span class="fq__ic">+</span></button>
-          <div class="fq__a"><p>Einzelne kleine Dellen sind in 1&ndash;3 Stunden behoben. Umfangreiche Hagelschäden benötigen je nach Fahrzeug 2&ndash;4 Tage. Sie erhalten in jedem Fall eine genaue Zeitangabe vor Beginn der Arbeiten.</p></div>
+        <div class="faq__item">
+          <button class="faq__question">Wie lange dauert eine Dellenreparatur?<span class="faq__icon">+</span></button>
+          <div class="faq__answer"><p>Einzelne kleine Dellen sind in 1&ndash;3 Stunden behoben. Umfangreiche Hagelschäden benötigen je nach Fahrzeug 2&ndash;4 Tage. Sie erhalten in jedem Fall eine genaue Zeitangabe vor Beginn der Arbeiten.</p></div>
         </div>
-        <div class="fq__item">
-          <button class="fq__q">Kann jede Delle ohne Lackieren repariert werden?<span class="fq__ic">+</span></button>
-          <div class="fq__a"><p>In den meisten Fällen ja &ndash; vorausgesetzt, der Originallack ist intakt und das Metall nicht überdehnt. Ausnahmen: scharfkantige Dellen, Karosserierippen und bereits nachlackierte Stellen. Wir begutachten Ihr Fahrzeug kostenfrei.</p></div>
+        <div class="faq__item">
+          <button class="faq__question">Kann jede Delle ohne Lackieren repariert werden?<span class="faq__icon">+</span></button>
+          <div class="faq__answer"><p>In den meisten Fällen ja &ndash; vorausgesetzt, der Originallack ist intakt und das Metall nicht überdehnt. Ausnahmen: scharfkantige Dellen, Karosserierippen und bereits nacklackierte Stellen. Wir begutachten Ihr Fahrzeug kostenfrei.</p></div>
         </div>
-        <div class="fq__item">
-          <button class="fq__q">Welche Gebiete rund um München bedient ihr?<span class="fq__ic">+</span></button>
-          <div class="fq__a"><p>Unser Meisterbetrieb in Eichenau bedient München und den gesamten Münchner Westen: Germering, Puchheim, Fürstenfeldbruck, Starnberg und den Landkreis Fürstenfeldbruck im Umkreis von ca. 35&thinsp;km.</p></div>
+        <div class="faq__item">
+          <button class="faq__question">Welche Gebiete rund um München bedient ihr?<span class="faq__icon">+</span></button>
+          <div class="faq__answer"><p>Unser Meisterbetrieb in Eichenau bedient München und den gesamten Münchner Westen: Germering, Puchheim, Fürstenfeldbruck, Starnberg und den Landkreis Fürstenfeldbruck im Umkreis von ca. 35&thinsp;km.</p></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ CTA / KONTAKT ═══ -->
-  <section class="ct" id="kontakt">
-    <div class="c">
-      <div class="ct__b r">
-        <h2 class="ct__t">Beulendoktor anfragen</h2>
-        <p class="ct__x">Foto senden, Angebot erhalten. Direkt per Telefon oder WhatsApp.</p>
-        <div class="ct__a">
-          <a href="tel:+4981418908558" class="b bp">&#128222;&ensp;08141 890 8558</a>
-          <a href="https://wa.me/4917622835683" class="b bg" target="_blank" rel="noopener">
+  <section class="cta" id="kontakt">
+    <div class="container">
+      <div class="cta__box reveal">
+        <h2 class="cta__title">Beulendoktor anfragen</h2>
+        <p class="cta__text">Foto senden, Angebot erhalten. Direkt per Telefon oder WhatsApp.</p>
+        <div class="cta__actions">
+          <a href="tel:+4981418908558" class="btn btn--primary">&#128222;&ensp;08141 890 8558</a>
+          <a href="https://wa.me/4917622835683" class="btn btn--green" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
             WhatsApp
           </a>
@@ -688,18 +710,18 @@
   </section>
 
   <!-- ═══ FOOTER ═══ -->
-  <footer class="ft">
-    <div class="c">
-      <div class="ft__g">
-        <div class="ft__br">
-          <a class="nv__l" href="#" style="text-decoration:none">
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" style="text-decoration:none">
             <img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Delluxe-Dellen GmbH Logo" height="36" loading="lazy" />
           </a>
           <p>Meisterbetrieb für lackfreie Dellenreparatur in Eichenau bei München.<br>Ringstraße 19 · 82223 Eichenau<br>08141 890 8558</p>
         </div>
         <div>
-          <div class="ft__ti">Leistungen</div>
-          <ul class="ft__l">
+          <div class="footer__col-title">Leistungen</div>
+          <ul class="footer__links">
             <li><a href="#">Dellenreparatur</a></li>
             <li><a href="#">Hagelschaden</a></li>
             <li><a href="#">Smart Repair</a></li>
@@ -707,8 +729,8 @@
           </ul>
         </div>
         <div>
-          <div class="ft__ti">Unternehmen</div>
-          <ul class="ft__l">
+          <div class="footer__col-title">Unternehmen</div>
+          <ul class="footer__links">
             <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
             <li><a href="#galerie">Galerie</a></li>
             <li><a href="#bewertungen">Bewertungen</a></li>
@@ -716,8 +738,8 @@
           </ul>
         </div>
         <div>
-          <div class="ft__ti">Direktkontakt</div>
-          <ul class="ft__l">
+          <div class="footer__col-title">Direktkontakt</div>
+          <ul class="footer__links">
             <li><a href="tel:+4981418908558">Telefon</a></li>
             <li><a href="https://wa.me/4917622835683" target="_blank" rel="noopener">WhatsApp</a></li>
             <li><a href="#">Impressum</a></li>
@@ -725,9 +747,9 @@
           </ul>
         </div>
       </div>
-      <div class="ft__btm">
-        <span class="ft__copy">&copy; 2026 Delluxe-Dellen GmbH &middot; Meisterbetrieb für lackfreie Dellenreparatur in Eichenau bei München</span>
-        <div class="ft__bl">
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 Delluxe-Dellen GmbH &middot; Meisterbetrieb für lackfreie Dellenreparatur in Eichenau bei München</span>
+        <div class="footer__bottom-links">
           <a href="#">Impressum</a>
           <a href="#">Datenschutz</a>
           <a href="#">AGB</a>
@@ -737,55 +759,65 @@
   </footer>
 
   <!-- ═══ WHATSAPP FLOAT ═══ -->
-  <a class="wa" href="https://wa.me/4917622835683" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/4917622835683" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
     WhatsApp
   </a>
 
   <script>
-    // Nav scroll effect
-    const nav = document.getElementById('nav');
+    // Nav: transparent → Glasmorphism beim Scrollen
+    const navbar = document.getElementById('navbar');
+
+    // Hero Parallax
+    const heroBg = document.querySelector('.hero__bg');
+    function updateParallax() {
+      const y = window.scrollY * 0.35;
+      heroBg.style.transform = `scale(1.06) translateY(${y}px)`;
+    }
+
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('ns', window.scrollY > 30);
+      navbar.classList.toggle('navbar--scrolled', window.scrollY > 30);
+      updateParallax();
     }, { passive: true });
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    // Scroll Reveal: Elemente einblenden wenn sichtbar
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.r').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // Slider
-    const track = document.getElementById('sliderTrack');
-    const dots  = document.querySelectorAll('.slider__dot');
-    let current = 0;
-    const total = dots.length;
+    // Slider: Peek-Karussell mit Prev/Next und Auto-Play
+    const sliderTrack = document.getElementById('sliderTrack');
+    const sliderDots  = document.querySelectorAll('.slider__dot');
+    let currentSlide  = 0;
+    const totalSlides = sliderDots.length;
 
-    function goTo(n) {
-      current = (n + total) % total;
-      const slideW = track.parentElement.offsetWidth * 0.82 + 16; // 82% + gap
-      const offset = track.parentElement.offsetWidth * 0.09; // zentrieren
-      track.style.transform = `translateX(${offset - current * slideW}px)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    function goToSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+      const slideWidth  = sliderTrack.parentElement.offsetWidth * 0.82 + 16; // 82% Breite + Gap
+      const centerOffset = sliderTrack.parentElement.offsetWidth * 0.09;      // Zentrierung
+      sliderTrack.style.transform = `translateX(${centerOffset - currentSlide * slideWidth}px)`;
+      sliderDots.forEach((dot, i) => dot.classList.toggle('slider__dot--active', i === currentSlide));
     }
-    goTo(0); // initiale Position setzen
 
-    document.getElementById('sliderPrev').addEventListener('click', () => goTo(current - 1));
-    document.getElementById('sliderNext').addEventListener('click', () => goTo(current + 1));
-    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+    goToSlide(0); // Initiale Position
+    document.getElementById('sliderPrev').addEventListener('click', () => goToSlide(currentSlide - 1));
+    document.getElementById('sliderNext').addEventListener('click', () => goToSlide(currentSlide + 1));
+    sliderDots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
+    setInterval(() => goToSlide(currentSlide + 1), 4000); // Auto-Play alle 4 Sekunden
 
-    // Auto-play alle 4 Sekunden
-    setInterval(() => goTo(current + 1), 4000);
-
-    // FAQ accordion
-    document.querySelectorAll('.fq__q').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.fq__item');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.fq__item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
+    // FAQ: Accordion
+    document.querySelectorAll('.faq__question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item   = button.closest('.faq__item');
+        const isOpen = item.classList.contains('faq__item--open');
+        document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('faq__item--open'));
+        if (!isOpen) item.classList.add('faq__item--open');
       });
     });
   </script>
