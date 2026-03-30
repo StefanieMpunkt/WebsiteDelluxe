@@ -257,12 +257,13 @@
     .services__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
     .service-card {
-      background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 1px solid var(--white_transparent10);
+      background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 0px solid var(--white_transparent10);
       border-radius: var(--radius); padding: 36px;
       display: flex; flex-direction: column; gap: 14px;
-      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+      background-size: cover; background-position: center;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
     }
-    .service-card:hover { border-color: var(--softgreen_transparent50); transform: translateY(-3px); box-shadow: 0 3px 12px var(--white_transparent10); }
+    .service-card:hover { transform: translateY(-3px); border-color: var(--softgreen_transparent50); box-shadow: 0 3px 12px var(--white_transparent10); }
     .service-card__number      { font-size: 11px; color: var(--mediumgrey); letter-spacing: 0.06em; }
     .service-card__title       { font-family: 'Bodoni Moda', serif; font-size: 26px; font-weight: 400; color: var(--delluxe_white); margin-top: 18px; }
     .service-card__description { font-size: 14px; color: var(--softgrey70); line-height: 1.65; }
@@ -314,7 +315,7 @@
     .metric-card { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 1px solid var(--white_transparent10);
       border-radius: var(--radius); padding: 16px;
       display: flex; flex-direction: column; gap: 14px;
-      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+      transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
     }
     .metric-card:hover { border-color: var(--softgreen_transparent50); transform: translateY(-3px); box-shadow: 0 3px 12px var(--white_transparent10); }
     .metric-card__label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--softgrey50); margin-bottom: 10px; }
@@ -518,31 +519,81 @@
         <p class="section-header__text">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
       </div>
       <div class="services__grid">
-        <article class="service-card reveal">
+        <article class="service-card reveal" style="background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');">
           <span class="service-card__number">I</span>
           <h3 class="service-card__title">Lackfreie Dellenreparatur</h3>
           <p class="service-card__description">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
           <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
-        <article class="service-card reveal" style="transition-delay:0.1s">
+        <article class="service-card reveal" style="transition-delay:0.1s; background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');">
           <span class="service-card__number">II</span>
           <h3 class="service-card__title">Hagelschaden</h3>
           <p class="service-card__description">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
           <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
-        <article class="service-card reveal" style="transition-delay:0.2s">
+        <article class="service-card reveal" style="transition-delay:0.2s; background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');">
           <span class="service-card__number">III</span>
           <h3 class="service-card__title">Smart Repair</h3>
           <p class="service-card__description">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
           <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
-        <article class="service-card reveal" style="transition-delay:0.3s">
+        <article class="service-card reveal" style="transition-delay:0.3s; background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');">
           <span class="service-card__number">IV</span>
           <h3 class="service-card__title">Leasingrückgabe</h3>
           <p class="service-card__description">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
           <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
       </div>
+    </div>
+  </section>
+<!--Variante B Service Cards-->
+<section class="services" id="leistungen2">
+    <div class="container">
+  <section style="position: relative; overflow: hidden;">
+    <!-- Parallax-Hintergrund -->
+    <div style="position: absolute; inset: 0; background: url('images/delluxe-dellenentfernen-1536x533.jpg') center/cover no-repeat; background-attachment: fixed; z-index: 0;"></div>
+    <!-- Overlay -->
+    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.65) 100%); z-index: 1;"></div>
+    <!-- Inhalt -->
+    <div class="container" style="position: relative; z-index: 2; padding-top: 100px; padding-bottom: 100px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+
+        <!-- Links: Leistungen -->
+        <div style="display: flex; flex-direction: column; gap: 0;">
+          <div style="padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.12);">
+            <span class="service-card__title">Lackfreie Dellenreparatur</span>
+            <p class="service-card__description">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
+            <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
+          </div>
+          <div style="padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.12);">
+            <span class="service-card__title">Hagelschaden</span>
+            <p class="service-card__description">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
+            <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
+          </div>
+          <div style="padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.12);">
+            <span class="service-card__title">Smart Repair</span>
+            <p class="service-card__description">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
+            <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
+          </div>
+          <div style="padding: 24px 0;">
+            <span class="service-card__title">Leasingrückgabe</span>
+            <p class="service-card__description">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
+            <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Rechts: Heading & Text -->
+        <div>
+          <span class="eyebrow">Leistungen</span>
+          <h2 class="section-header__title">Lackfreie Dellenreparatur in München</h2>
+          <br>
+          <p class="section-header__text">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
     </div>
   </section>
 
@@ -584,41 +635,94 @@
     </div>
   </section>
 
-  <!-- ═══ NACHHALTIGKEIT ═══ -->
-  <section class="sustainability" id="nachhaltigkeit">
+  <!-- ═══ Nachhaltigkeit neu ═══ -->
+  <section class="services" id="nachhaltigkeit">
     <div class="container">
-      <div class="sustainability__inner">
-        <div class="reveal">
+      <div class="section-header reveal">
+        <div>
           <span class="eyebrow" style="color: var(--delluxe_green);">Green Repair</span>
-          <h2 class="sustainability__title">Nachhaltige Dellenreparatur ohne Lack</h2>
-          <p class="sustainability__text">Lackfreie Reparatur, eigene PV-Anlage, elektrische Mobilität und transparente digitale Abwicklung.</p>
+          <h2 class="section-header__title">Nachhaltige Dellenreparatur ohne Lack</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
+          <p class="section-header__text">Lackfreie Reparatur, eigene PV-Anlage, elektrische Mobilität und transparente digitale Abwicklung.</p>
           <a href="#nachhaltigkeit" class="btn btn--secondary">Nachhaltigkeit erleben</a>
         </div>
-        <div class="reveal metrics-grid">
-          <div class="metric-card">
-            <div class="metric-card__label">Photovoltaik</div>
-            <div class="metric-card__value">Eigene PV</div>
-            <div class="metric-card__sub">Solaranlage auf dem Dach</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-card__label">E-Flotte</div>
-            <div class="metric-card__value">100&nbsp;%</div>
-            <div class="metric-card__sub">elektrisch unterwegs</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-card__label">Abwicklung</div>
-            <div class="metric-card__value">digital</div>
-            <div class="metric-card__sub">transparent &amp; schnell</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-card__label">Prinzip</div>
-            <div class="metric-card__value">ohne Lack</div>
-            <div class="metric-card__sub">materialschonend</div>
-          </div>
+      </div>
+<!--Variante A-->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; text-align: center;">
+        <div style="padding: 32px 32px 32px 0; border-right: 1px solid var(--delluxe_green);">
+          <div class="metric-card__label">Photovoltaik</div>
+          <div class="metric-card__value">Eigene PV</div>
+          <div class="metric-card__sub">Solaranlage auf dem Dach</div>
+        </div>
+        <div style="padding: 32px; border-right: 1px solid var(--delluxe_green);">
+          <div class="metric-card__label">E-Flotte</div>
+          <div class="metric-card__value">100&nbsp;%</div>
+          <div class="metric-card__sub">elektrisch unterwegs</div>
+        </div>
+        <div style="padding: 32px; border-right: 1px solid var(--delluxe_green);">
+          <div class="metric-card__label">Abwicklung</div>
+          <div class="metric-card__value">digital</div>
+          <div class="metric-card__sub">transparent &amp; schnell</div>
+        </div>
+        <div style="padding: 32px 0 32px 32px;">
+          <div class="metric-card__label">Prinzip</div>
+          <div class="metric-card__value">ohne Lack</div>
+          <div class="metric-card__sub">materialschonend</div>
         </div>
       </div>
+
+      <!--Variante B-->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; text-align: center;">
+        <div style="padding: 32px 32px 32px 0; border-right: 1px solid var(--white_transparent10);">
+          <div class="metric-card__label">Photovoltaik</div>
+          <div class="metric-card__value">Eigene PV</div>
+          <div class="metric-card__sub">Solaranlage auf dem Dach</div>
+        </div>
+        <div style="padding: 32px; border-right: 1px solid var(--white_transparent10);">
+          <div class="metric-card__label">E-Flotte</div>
+          <div class="metric-card__value">100&nbsp;%</div>
+          <div class="metric-card__sub">elektrisch unterwegs</div>
+        </div>
+        <div style="padding: 32px; border-right: 1px solid var(--white_transparent10);">
+          <div class="metric-card__label">Abwicklung</div>
+          <div class="metric-card__value">digital</div>
+          <div class="metric-card__sub">transparent &amp; schnell</div>
+        </div>
+        <div style="padding: 32px 0 32px 32px;">
+          <div class="metric-card__label">Prinzip</div>
+          <div class="metric-card__value">ohne Lack</div>
+          <div class="metric-card__sub">materialschonend</div>
+        </div>
+      </div>
+
+<!--Variante C-->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; text-align: center;">
+        <div style="padding: 32px 32px 32px 0; border-right: 1px solid var(--softgrey50); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
+          <div class="metric-card__label">Photovoltaik</div>
+          <div class="metric-card__value">Eigene PV</div>
+          <div class="metric-card__sub">Solaranlage auf dem Dach</div>
+        </div>
+        <div style="padding: 32px; border-right: 1px solid var(--softgrey50); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
+          <div class="metric-card__label">E-Flotte</div>
+          <div class="metric-card__value">100&nbsp;%</div>
+          <div class="metric-card__sub">elektrisch unterwegs</div>
+        </div>
+        <div style="padding: 32px; border-right: 1px solid var(--softgrey50); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
+          <div class="metric-card__label">Abwicklung</div>
+          <div class="metric-card__value">digital</div>
+          <div class="metric-card__sub">transparent &amp; schnell</div>
+        </div>
+        <div style="padding: 32px 0 32px 32px; background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
+          <div class="metric-card__label">Prinzip</div>
+          <div class="metric-card__value">ohne Lack</div>
+          <div class="metric-card__sub">materialschonend</div>
+        </div>
+      </div>
+
     </div>
   </section>
+
 
   <!-- ═══ BEWERTUNGEN ═══ -->
   <section class="reviews" id="bewertungen">
@@ -627,41 +731,69 @@
         <span class="eyebrow">Kundenstimmen</span>
         <h2 class="reviews__title">Beulendoktor mit 5.0 auf Google</h2>
       </div>
-      <div class="reviews__grid">
-        <div class="review-card reveal">
-          <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-card__quote">Perfekte Arbeit, absolut sauber ausgeführt. Besonders überzeugend war die Kombination aus Präzision und schneller Abwicklung.</p>
-          <div class="review-card__author">
-            <div class="review-card__avatar">M</div>
-            <div>
-              <div class="review-card__name">M. Schneider</div>
-              <div class="review-card__source">Google Bewertung</div>
-            </div>
-          </div>
-        </div>
-        <div class="review-card reveal" style="transition-delay:0.1s">
-          <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-card__quote">Hagelschaden am BMW komplett beseitigt, man sieht nichts mehr. Top Beratung, faire Preise und die Abwicklung mit der Versicherung lief reibungslos.</p>
-          <div class="review-card__author">
-            <div class="review-card__avatar">T</div>
-            <div>
-              <div class="review-card__name">T. Wagner</div>
-              <div class="review-card__source">Google Bewertung</div>
-            </div>
-          </div>
-        </div>
-        <div class="review-card reveal" style="transition-delay:0.2s">
-          <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-card__quote">Parkdelle an der Tür in nur zwei Stunden weg &ndash; ohne Lackieren. Absoluter Profi, klare Empfehlung für jeden in München West.</p>
-          <div class="review-card__author">
-            <div class="review-card__avatar">S</div>
-            <div>
-              <div class="review-card__name">S. Bauer</div>
-              <div class="review-card__source">Google Bewertung</div>
-            </div>
+
+      <!-- VARIANTE A: Großes Pull-Quote -->
+      <div style="margin-top: 80px; border-top: 1px solid var(--white_transparent10); padding-top: 64px;">
+        <div style="max-width: 780px; margin: 0 auto; text-align: center;" id="pullquote">
+          <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p style="font-family: 'Bodoni Moda', serif; font-size: clamp(22px, 2.8vw, 36px); font-weight: 300; color: var(--delluxe_white); line-height: 1.5; font-style: italic;">&bdquo;Perfekte Arbeit, absolut sauber ausgeführt. Besonders überzeugend war die Kombination aus Präzision und schneller Abwicklung.&ldquo;</p>
+          <div style="margin-top: 32px; font-size: 13px; color: var(--softgrey50);">M. Schneider &nbsp;·&nbsp; Google Bewertung</div>
+          <div style="display: flex; justify-content: center; gap: 12px; margin-top: 32px;">
+            <button onclick="showQuote(-1)" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--white_transparent15); background: none; color: var(--softgrey70); font-size: 18px; cursor: pointer;">&#8249;</button>
+            <button onclick="showQuote(1)"  style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--white_transparent15); background: none; color: var(--softgrey70); font-size: 18px; cursor: pointer;">&#8250;</button>
           </div>
         </div>
       </div>
+
+      <!-- VARIANTE B: Spalten mit Trennlinien -->
+      <div style="margin-top: 80px; border-top: 1px solid var(--white_transparent10); padding-top: 64px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;">
+          <div style="padding-right: 40px; border-right: 1px solid var(--white_transparent10); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
+            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Perfekte Arbeit, absolut sauber ausgeführt. Besonders überzeugend war die Kombination aus Präzision und schneller Abwicklung.&ldquo;</p>
+            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">M. Schneider</div>
+            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
+          </div>
+          <div style="padding: 0 40px; border-right: 1px solid var(--white_transparent10); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
+            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Hagelschaden am BMW komplett beseitigt, man sieht nichts mehr. Top Beratung, faire Preise und die Abwicklung mit der Versicherung lief reibungslos.&ldquo;</p>
+            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">T. Wagner</div>
+            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
+          </div>
+          <div style="padding-left: 40px; background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
+            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Parkdelle an der Tür in nur zwei Stunden weg &ndash; ohne Lackieren. Absoluter Profi, klare Empfehlung für jeden in München West.&ldquo;</p>
+            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">S. Bauer</div>
+            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
+          </div>
+        </div>
+      </div>
+
+            <!-- VARIANTE C: Spalten mit Trennlinien -->
+      <div style="margin-top: 80px; border-top: 1px solid var(--white_transparent10); padding-top: 64px; text-align: center;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;">
+          <div style="padding-right: 40px; border-right: 1px solid var(--softgreen);">
+            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Perfekte Arbeit, absolut sauber ausgeführt. Besonders überzeugend war die Kombination aus Präzision und schneller Abwicklung.&ldquo;</p>
+            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">M. Schneider</div>
+            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
+          </div>
+          <div style="padding: 0 40px; border-right: 1px solid var(--softgreen);">
+            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Hagelschaden am BMW komplett beseitigt, man sieht nichts mehr. Top Beratung, faire Preise und die Abwicklung mit der Versicherung lief reibungslos.&ldquo;</p>
+            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">T. Wagner</div>
+            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
+          </div>
+          <div style="padding-left: 40px;">
+            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Parkdelle an der Tür in nur zwei Stunden weg &ndash; ohne Lackieren. Absoluter Profi, klare Empfehlung für jeden in München West.&ldquo;</p>
+            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">S. Bauer</div>
+            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
+          </div>
+        </div>
+      </div>
+
+      
     </div>
   </section>
 
