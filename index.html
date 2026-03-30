@@ -144,22 +144,27 @@
        NAVIGATION
     ════════════════════════════ */
     .navbar {
-      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
-      width: calc(100% - 48px); max-width: var(--max-width);
-      height: 64px; padding: 0 24px;
+      position: fixed; top: 0; left: 0;
+      width: 100%;
+      height: 80px; padding: 0px 10%;
       display: flex; align-items: center; justify-content: space-between;
-      border-radius: 999px;
-      border: 1px solid transparent;
       background: transparent;
-      backdrop-filter: blur(0px);
-      transition: background 0.45s, border-color 0.45s, backdrop-filter 0.45s;
+      transition: background 0.45s;
       z-index: 200;
     }
-    .navbar.navbar--scrolled {
-      background: var(--black_transparent20);
-      border-color: var(--white_transparent10);
+    .navbar::after {
+      content: '';
+      position: absolute; inset: 0 0 -60px 0;
       backdrop-filter: blur(10px) saturate(1.4);
+      mask-image: linear-gradient(to bottom, var(--delluxe_black) 50%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, var(--delluxe_black) 50%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.55s ease;
+      pointer-events: none;
+      z-index: -1;
     }
+    .navbar.navbar--scrolled { background: linear-gradient(to bottom, var(--black_transparent85) 0%, transparent 100%); }
+    .navbar.navbar--scrolled::after { opacity: 1; }
 
     .navbar__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 
@@ -555,7 +560,7 @@
             <div class="slider__overlay"></div>
           </div>
           <div class="slider__slide">
-            <img class="slider__image" src="images/DiaShow/delluxe-sonstiger-service-400x450" alt="Lackfreie Dellenreparatur Eichenau – Delluxe-Dellen" loading="lazy" />
+            <img class="slider__image" src="images/DiaShow/delluxe-sonstiger-service-400x450.jpg" alt="Lackfreie Dellenreparatur Eichenau – Delluxe-Dellen" loading="lazy" />
             <div class="slider__overlay"></div>
           </div>
           <div class="slider__slide">
