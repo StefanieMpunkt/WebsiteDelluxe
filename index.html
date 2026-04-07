@@ -197,8 +197,10 @@
     .hero__overlay {
       position: absolute; inset: 0;
       background:
-        linear-gradient(in oklab to bottom, var(--delluxe_black) 10%, rgba(12,12,12,5%) 50%, var(--delluxe_black) 100%),
-        linear-gradient(to right, var(--delluxe_black) 0%, transparent 20%, transparent 80%, var(--delluxe_black) 100%);
+        /*das macht eine Linie, deshalb der radiale Gradient, der macht allerdings eine Ellipse, wenn er zu klein ist
+        linear-gradient(to bottom, var(--delluxe_black) 10%, rgba(12,12,12,10%) 50%, var(--delluxe_black) 100%),*/
+        linear-gradient(to right, var(--delluxe_black) 0%, transparent 30%, transparent 70%, var(--delluxe_black) 100%),
+        radial-gradient(ellipse 150% 90% at center, transparent 0%, var(--delluxe_black) 50%);
     }
     .hero__content {
       position: relative; z-index: 2;
