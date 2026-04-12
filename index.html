@@ -69,6 +69,7 @@
       --softgreen_transparent10: #dcffe810;
       --softgreen_transparent50: #dcffe850;
       --delluxe_black:        #0c0c0c;
+      --delluxe_black_transparent5:        #0c0c0c05;
       --delluxe_black_transparent55:        #0c0c0c55;
       --delluxe_black_transparent85:        #0c0c0c85;
       --delluxe_white:        #f5f5f2;
@@ -84,7 +85,8 @@
       --white_transparent15:  #FFFFFF26;
       
       --max-width:          1240px;
-      --radius:             20px;
+      --radius:             3px;
+      --card-gap:           24px;
     }
 
     html { scroll-behavior: smooth; }
@@ -109,11 +111,11 @@
     .eyebrow {
       display: inline-block;
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--softgrey50);
-      margin-bottom: 18px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
     }
 
     /* ── SCROLL REVEAL ── */
@@ -126,7 +128,7 @@
 
     /* ── BUTTONS ── */
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
       padding: 13px 28px; border-radius: 999px;
       font-size: 14px; font-weight: 500;
       font-family: 'Instrument Sans', sans-serif;
@@ -146,15 +148,23 @@
     .navbar {
       position: fixed; top: 0; left: 0;
       width: 100%;
-      height: calc(80px + env(safe-area-inset-top)); padding: env(safe-area-inset-top) 10% 0;
+      height: calc(60px + env(safe-area-inset-top)); padding: env(safe-area-inset-top) 10% 0;
       display: flex; align-items: center; justify-content: space-between;
       background: transparent;
       transition: background 0.45s;
       z-index: 200;
     }
+    .navbar::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: env(safe-area-inset-top);
+      background: linear-gradient(to bottom, var(--delluxe_black) 0%, transparent 100%);
+      backdrop-filter: blur(10px) saturate(1.4);
+      z-index: 1;
+    }
     .navbar::after {
       content: '';
-      position: absolute; inset: 0 0 -60px 0;
+      position: absolute; inset: 0 0 -40px 0;
       backdrop-filter: blur(10px) saturate(1.4);
       mask-image: linear-gradient(to bottom, var(--delluxe_black) 50%, transparent 100%);
       -webkit-mask-image: linear-gradient(to bottom, var(--delluxe_black) 50%, transparent 100%);
@@ -215,9 +225,9 @@
     .hero__title {
       font-family: 'Bodoni Moda', serif;
       font-size: clamp(48px, 7.5vw, 100px);
-      line-height: .94;
+      line-height: 0.9;
       letter-spacing: -.05em;
-      font-weight: 550;
+      font-weight: 500;
       margin-bottom: 20px;
     }
     .hero__title-line1 { display: block; color: var(--delluxe_white);}
@@ -235,7 +245,7 @@
     /* ════════════════════════════
        STATEMENT
     ════════════════════════════ */
-    .statement { padding: 120px 0; border-bottom: 1px solid var(--black_transparent10); }
+    .statement { padding: 60px 0; border-bottom: 1px solid var(--black_transparent10); }
     .statement__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
     .statement__title {
       font-family: 'Bodoni Moda', serif;
@@ -243,50 +253,47 @@
       font-weight: 300; line-height: 1.25; color: var(--delluxe_white);
       max-width: var(--max-width); width: 100%; text-align: center;
     }
-    .statement__title strong { font-weight: 500; }
-    .statement__title em { font-style: italic; color: var(--delluxe_green); }
+    .statement__title strong { font-weight: 600; }
+    .statement__title italic_green { font-style: italic; color: var(--delluxe_green); }
     .statement__buttons { padding: 18px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
     /* ════════════════════════════
        LEISTUNGEN
     ════════════════════════════ */
-    .services { padding: 120px 0; }
+    .services { padding: 60px 0; }
 
-    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 52px; }
-    .section-header__title { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; line-height: 1.1; color: var(--delluxe_white); }
-    .section-header__text  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; padding-top: 8px; }
+    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
+    .section-title { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(32px, 3.8vw, 52px); line-height: 1.1; letter-spacing: -.05em; color: var(--delluxe_white); }
+    .section-text  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; margin-bottom: 16px;}
 
-    .services__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .services__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--card-gap); }
 
     .service-card {
-      background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 0px solid var(--white_transparent10);
+      background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%);
       border-radius: var(--radius); padding: 36px;
       display: flex; flex-direction: column; gap: 14px;
-      background-size: cover; background-position: center;
-      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    .service-card:hover { transform: translateY(-3px); border-color: var(--softgreen_transparent50); box-shadow: 0 3px 12px var(--white_transparent10); }
+    .service-card:hover { transform: translateY(-3px); box-shadow: 3px 3px 12px var(--white_transparent10); }
     .service-card__number      { font-size: 11px; color: var(--mediumgrey); letter-spacing: 0.06em; }
-    .service-card__title       { font-family: 'Bodoni Moda', serif; font-size: 26px; font-weight: 400; color: var(--delluxe_white); margin-top: 18px; }
-    .service-card__description { font-size: 14px; color: var(--softgrey70); line-height: 1.65; }
+    .subtitle { font-family: 'Bodoni Moda', serif; font-size: 30px; font-weight: 400; color: var(--delluxe_white); line-height: 1; margin-bottom: 16px;}
     .service-card__link        { margin-top: auto; color: var(--delluxe_green); font-size: 14px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
     .service-card__link:hover  { gap: 10px; }
 
     /* ════════════════════════════
        GALERIE / SLIDER
     ════════════════════════════ */
-    .gallery { padding: 0 0 120px; }
+    .gallery { padding: 60px 0; }
     .gallery__header { margin-bottom: 40px; }
-    .gallery__title  { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; color: var(--delluxe_white); }
 
-    .slider { position: relative; height: 480px; overflow: hidden; }
-    .slider__track { display: flex; height: 100%; gap: 16px; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-    .slider__slide {
-      min-width: 82%; height: 100%; position: relative; flex-shrink: 0;
-      border-radius: var(--radius); overflow: hidden; background: var(--delluxe_black);
-    }
+
+    .slider { position: relative; overflow: hidden;}
+    .slider__track { display: flex; height: 480px; gap: var(--card-gap); will-change: transform; align-items: center; }
+    .slider__track.is-animating { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+    .slider__slide { height: 80%; position: relative; flex-shrink: 0; border-radius: var(--radius); overflow: hidden; background: var(--delluxe_black); transition: filter 0.5s, opacity 0.5s, height 0.5s; filter: blur(4px); opacity: 0.45; }
+    .slider__slide.is-active { height: 100%; filter: blur(0); opacity: 1;}
     .slider__image   { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-    .slider__overlay { position: absolute; inset: 0; background: linear-gradient(to top, var(--delluxe_black_transparent55) 0%, transparent 50%); pointer-events: none; }
+    .slider__overlay { display: none; }
 
     .slider__btn {
       position: absolute; top: 50%; transform: translateY(-50%);
@@ -300,17 +307,13 @@
     .slider__btn--prev { left: 16px; }
     .slider__btn--next { right: 16px; }
 
-    .slider__dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
-    .slider__dot  { width: 6px; height: 6px; border-radius: 50%; background: var(--black_transparent20); cursor: pointer; transition: background 0.2s, transform 0.2s; }
-    .slider__dot.slider__dot--active { background: var(--delluxe_green); transform: scale(1.3); }
-
     /* ════════════════════════════
        NACHHALTIGKEIT
     ════════════════════════════ */
-    .sustainability { padding: 120px 0; background: var(--delluxe_black); border-top: 1px solid var(--black_transparent10); border-bottom: 1px solid var(--black_transparent10); }
+    .sustainability { padding: 60px 0; background: var(--delluxe_black); border-top: 1px solid var(--black_transparent10); border-bottom: 1px solid var(--black_transparent10); }
     .sustainability__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .sustainability__title { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; line-height: 1.1; color: var(--delluxe_white); margin-bottom: 20px; }
-    .sustainability__text  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; margin-bottom: 36px; }
+
+    .sustainability__text  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; margin-bottom: 32px; }
 
     .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
@@ -320,60 +323,61 @@
       transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
     }
     .metric-card:hover { border-color: var(--softgreen_transparent50); transform: translateY(-3px); box-shadow: 0 3px 12px var(--white_transparent10); }
-    .metric-card__label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--softgrey50); margin-bottom: 10px; }
-    .metric-card__value { font-family: 'Bodoni Moda', serif; font-size: 32px; font-weight: 400; color: var(--delluxe_white); line-height: 1; margin-bottom: 10px;}
-    .metric-card__sub   { font-size: 14px; color: var(--softgrey80); line-height: 1.65;}
 
     .large-panel { background: var(--delluxe_black); border: 1px solid var(--black_transparent10); border-radius: var(--radius); padding: 48px; transition: transform 0.25s, border-color 0.25s; }
     .large-panel:hover { transform: translateY(-3px); border-color: var(--black_transparent20); }
-    .large-panel__icon  { width: 48px; height: 48px; background: var(--softgreen_transparent10); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 24px; }
-    .large-panel__title { font-family: 'Bodoni Moda', serif; font-size: 26px; font-weight: 400; color: var(--delluxe_white); margin-bottom: 14px; line-height: 1.2; }
+    .large-panel__icon  { width: 48px; height: 48px; background: var(--softgreen_transparent10); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+    .large-panel__title { font-family: 'Bodoni Moda', serif; font-size: 26px; font-weight: 400; color: var(--delluxe_white); margin-bottom: 16px; line-height: 1.2; }
     .large-panel__text  { font-size: 14px; color: var(--softgrey70); line-height: 1.75; }
 
     /* ════════════════════════════
        BEWERTUNGEN
     ════════════════════════════ */
-    .reviews { padding: 120px 0; }
-    .reviews__header { text-align: left; margin-bottom: 56px; }
-    .reviews__title  { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; color: var(--delluxe_white); }
-    .reviews__grid   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .reviews { padding: 60px 0; }
+    .reviews__header { text-align: left; margin-bottom: 48px; }
+    .reviews__slider { position: relative; overflow: hidden; padding-top: 32px; margin-top: -16px; padding-bottom: 16px; margin-bottom: -16px; }
+    .reviews__track  { display: flex; gap: var(--card-gap); will-change: transform; }
+    .reviews__track.is-animating { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+    .reviews__slide  { flex-shrink: 0; transition: filter 0.5s, opacity 0.5s, transform 0.5s; filter: blur(4px); opacity: 0.45; }
+    .reviews__slide.is-active { filter: blur(0); opacity: 1; transform: translateY(-32px); box-shadow: 3px 3px 12px var(--white_transparent10);}
 
-    .review-card { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 1px solid var(--white_transparent10); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.25s, background 0.25s, transform 0.25s; }
-    .review-card:hover { border-color: var(--softgreen_transparent50); transform: translateY(-3px); box-shadow: 0 3px 12px var(--white_transparent10); }
-    .review-card__stars  { color: var(--gold); font-size: 15px; letter-spacing: 2px; }
-    .review-card__quote  { font-size: 15px; color: var(--softgrey80); line-height: 1.7; font-style: italic; flex: 1; }
-    .review-card__quote::before { content: '\201E'; }
-    .review-card__quote::after  { content: '\201C'; }
-    .review-card__author { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--black_transparent10); }
-    .review-card__avatar { width: 36px; height: 36px; background: var(--softgreen_transparent10); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--delluxe_green); flex-shrink: 0; }
-    .review-card__name   { font-size: 13px; font-weight: 500; color: var(--delluxe_white); }
+    /*.review-card { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 1px solid var(--white_transparent10); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.25s, background 0.25s, transform 0.25s; }*/
+    .review-card { background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%); 
+    border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px;}
+    /*.review-card:hover { transform: translateY(-3px); box-shadow: 3px 3px 12px var(--white_transparent10); }*/
+    .review-card__meta   { display: flex; align-items: center; gap: 12px; }
+    .review-card__stars  { color: var(--gold); font-size: 13px; letter-spacing: 2px; }
     .review-card__source { font-size: 11px; color: var(--mediumgrey); }
+    .review-card__quote  { font-size: 15px; color: var(--softgrey80); line-height: 1.7; font-style: italic; }
 
     /* ════════════════════════════
        FAQ
     ════════════════════════════ */
-    .faq { padding: 0 0 120px; }
+    .faq { padding: 60px 0; }
     .faq__header { margin-bottom: 48px; }
-    .faq__title  { font-family: 'Bodoni Moda', serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 300; color: var(--delluxe_white); }
+
     .faq__list   { display: flex; flex-direction: column; gap: 8px; }
 
-    .faq__item { background: var(--delluxe_black); border: 1px solid var(--black_transparent10); border-radius: var(--radius); overflow: hidden; transition: border-color 0.2s; }
-    .faq__item.faq__item--open { border-color: var(--delluxe_green_transparent25); }
+    .faq__item { background: transparent;}
 
-    .faq__question { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; background: none; border: none; color: var(--delluxe_white); font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500; text-align: left; cursor: pointer; gap: 20px; transition: color 0.2s; }
-    .faq__question:hover { color: var(--delluxe_green); }
+    .faq__question { width: 80%; display: flex; align-items: center; justify-content: space-between; padding: 24px 24px;
+      background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%); 
+    border-radius: var(--radius);
+      font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500; text-align: left; cursor: pointer; gap: 20px; transition: color 0.2s; }
+    .faq__item.faq__item--open .faq__question { border-color: transparent; color: var(--softgreen);}
+    .faq__question:hover .faq__icon { border-color: var(--delluxe_green); color: var(--delluxe_green); }
 
     .faq__icon { width: 28px; height: 28px; border: 1px solid var(--white_transparent15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; color: var(--softgrey70); transition: transform 0.3s, border-color 0.2s, color 0.2s; }
     .faq__item.faq__item--open .faq__icon { transform: rotate(45deg); border-color: var(--delluxe_green); color: var(--delluxe_green); }
 
-    .faq__answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 28px; }
-    .faq__item.faq__item--open .faq__answer { max-height: 300px; padding: 0 28px 24px; }
+    .faq__answer { width: 80%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 28px; }
+    .faq__item.faq__item--open .faq__answer { color: var(--delluxe_green_transparent25); max-height: 300px; padding: 0 28px 24px; }
     .faq__answer p { font-size: 14px; color: var(--softgrey70); line-height: 1.75; padding-top: 16px; border-top: 1px solid var(--black_transparent10); }
 
     /* ════════════════════════════
        CTA
     ════════════════════════════ */
-    .cta { padding: 0 0 120px; }
+    .cta { padding: 60px 0; }
     .cta__box {
       background: var(--delluxe_black);
       border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius);
@@ -386,16 +390,16 @@
       pointer-events: none;
     }
     .cta__title   { font-family: 'Bodoni Moda', serif; font-size: clamp(36px, 4.5vw, 64px); font-weight: 300; color: var(--delluxe_white); margin-bottom: 16px; position: relative; }
-    .cta__text    { font-size: 15px; color: var(--softgrey70); margin-bottom: 40px; position: relative; }
+    .cta__text    { font-size: 15px; color: var(--softgrey70); margin-bottom: 48px; position: relative; }
     .cta__actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
 
     /* ════════════════════════════
        FOOTER
     ════════════════════════════ */
     .footer { background: var(--delluxe_black); border-top: 1px solid var(--black_transparent10); padding: 64px 0 40px; }
-    .footer__grid  { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 56px; }
+    .footer__grid  { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
     .footer__brand p { font-size: 13px; color: var(--softgrey70); line-height: 1.75; margin-top: 16px; max-width: 260px; }
-    .footer__col-title  { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mediumgrey); margin-bottom: 18px; }
+    .footer__col-title  { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mediumgrey); margin-bottom: 16px; }
     .footer__links      { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .footer__links a    { font-size: 14px; color: var(--softgrey70); text-decoration: none; transition: color 0.2s; }
     .footer__links a:hover { color: var(--delluxe_white); }
@@ -433,7 +437,7 @@
       .navbar__links, .navbar__social, .navbar__phone { display: none; }
       .hero__title { font-size: clamp(52px, 14vw, 80px); }
       .statement__inner, .section-header, .sustainability__inner { grid-template-columns: 1fr; gap: 32px; }
-      .services__grid, .reviews__grid { grid-template-columns: 1fr; }
+      .services__grid { grid-template-columns: 1fr; }
       .metrics-grid { grid-template-columns: 1fr 1fr; }
       .footer__grid { grid-template-columns: 1fr 1fr; }
       .cta__box { padding: 48px 24px; }
@@ -488,7 +492,9 @@
         <span class="hero__subtitle-dot"></span>
         <span>Eichenau bei München</span>
         <span class="hero__subtitle-dot"></span>
-        <span><span class="hero__subtitle-star">&#9733;</span> 5.0 Google</span>
+        <span><span class="hero__subtitle-star">&#9733;</span> 4.9 auf Google</span>
+        <span class="hero__subtitle-dot"></span>
+        <span>4.9 <span class="hero__subtitle-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span> auf Google</span>
       </div>
     </div>
   </section>
@@ -501,7 +507,7 @@
           <span class="eyebrow" style="display: block; text-align: center;">Warum Delluxe-Dellen</span>
           <h2 class="statement__title">
             Ihr Originallack ist <strong>unersetzlich.</strong><br>
-            Konventionelle Reparaturen greifen in<br>Material und Oberfläche ein. Wir sind<br>die <em>schonende Alternative.</em>
+            Konventionelle Reparaturen greifen in<br>Material und Oberfläche ein. Wir sind<br>die <italic_green>schonende Alternative.</italic_green>
           </h2>
           <div class="statement__buttons">
             <a href="#kontakt" class="btn btn--green">Jetzt anfragen</a>
@@ -516,86 +522,40 @@
       <div class="section-header reveal">
         <div>
           <span class="eyebrow">Leistungen</span>
-          <h2 class="section-header__title">Lackfreie Dellenreparatur in München</h2>
+          <h2 class="section-title">Lackfreie Dellenreparatur in München</h2>
         </div>
-        <p class="section-header__text">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <p class="section-text">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
+          <a href="#Leistungen" class="btn btn--secondary">Alle Leistungen</a>
+        </div>
       </div>
       <div class="services__grid">
-        <article class="service-card reveal" style="background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');">
+        <article class="service-card reveal" style="background-size: cover; background-position: center; background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');">
           <span class="service-card__number">I</span>
-          <h3 class="service-card__title">Lackfreie Dellenreparatur</h3>
-          <p class="service-card__description">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
-          <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
+          <h3 class="subtitle">Lackfreie Dellenreparatur</h3>
+          <p class="section-text">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
+          <!--<a href="#" class="service-card__link">Mehr erfahren &rarr;</a>-->
+          <a href="#Dellenreparatur" class="btn btn--ghost btn--small">Mehr erfahren</a>
         </article>
-        <article class="service-card reveal" style="transition-delay:0.1s; background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');">
+        <article class="service-card reveal" style="transition-delay:0.1s; background-size: cover; background-position: center; background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');">
           <span class="service-card__number">II</span>
-          <h3 class="service-card__title">Hagelschaden</h3>
-          <p class="service-card__description">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
+          <h3 class="subtitle">Hagelschaden</h3>
+          <p class="section-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
           <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
-        <article class="service-card reveal" style="transition-delay:0.2s; background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');">
+        <article class="service-card reveal" style="transition-delay:0.2s; background-size: cover; background-position: center; background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');">
           <span class="service-card__number">III</span>
-          <h3 class="service-card__title">Smart Repair</h3>
-          <p class="service-card__description">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
+          <h3 class="subtitle">Smart Repair</h3>
+          <p class="section-text">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
           <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
-        <article class="service-card reveal" style="transition-delay:0.3s; background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');">
+        <article class="service-card reveal" style="transition-delay:0.3s; background-size: cover; background-position: center; background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');">
           <span class="service-card__number">IV</span>
-          <h3 class="service-card__title">Leasingrückgabe</h3>
-          <p class="service-card__description">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
+          <h3 class="subtitle">Leasingrückgabe</h3>
+          <p class="section-text">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
           <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
       </div>
-    </div>
-  </section>
-<!--Variante B Service Cards-->
-<section class="services" id="leistungen2">
-    <div class="container">
-  <section style="position: relative; overflow: hidden;">
-    <!-- Parallax-Hintergrund -->
-    <div style="position: absolute; inset: 0; background: url('images/delluxe-dellenentfernen-1536x533.jpg') center/cover no-repeat; background-attachment: fixed; z-index: 0;"></div>
-    <!-- Overlay -->
-    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.65) 100%); z-index: 1;"></div>
-    <!-- Inhalt -->
-    <div class="container" style="position: relative; z-index: 2; padding-top: 100px; padding-bottom: 100px;">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
-
-        <!-- Links: Leistungen -->
-        <div style="display: flex; flex-direction: column; gap: 0;">
-          <div style="padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.12);">
-            <span class="service-card__title">Lackfreie Dellenreparatur</span>
-            <p class="service-card__description">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
-            <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
-          </div>
-          <div style="padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.12);">
-            <span class="service-card__title">Hagelschaden</span>
-            <p class="service-card__description">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
-            <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
-          </div>
-          <div style="padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.12);">
-            <span class="service-card__title">Smart Repair</span>
-            <p class="service-card__description">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
-            <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
-          </div>
-          <div style="padding: 24px 0;">
-            <span class="service-card__title">Leasingrückgabe</span>
-            <p class="service-card__description">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
-            <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Rechts: Heading & Text -->
-        <div>
-          <span class="eyebrow">Leistungen</span>
-          <h2 class="section-header__title">Lackfreie Dellenreparatur in München</h2>
-          <br>
-          <p class="section-header__text">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
     </div>
   </section>
 
@@ -604,7 +564,7 @@
     <div class="container">
       <div class="gallery__header reveal">
         <span class="eyebrow">Einblicke</span>
-        <h2 class="gallery__title">Unsere Werkstatt in Eichenau</h2>
+        <h2 class="section-title">Unsere Werkstatt in Eichenau</h2>
       </div>
       <div class="slider reveal">
         <div class="slider__track" id="sliderTrack">
@@ -628,12 +588,6 @@
         <button class="slider__btn slider__btn--prev" id="sliderPrev" aria-label="Vorheriges Bild">&#8249;</button>
         <button class="slider__btn slider__btn--next" id="sliderNext" aria-label="Nächstes Bild">&#8250;</button>
       </div>
-      <div class="slider__dots" id="sliderDots">
-        <div class="slider__dot slider__dot--active"></div>
-        <div class="slider__dot"></div>
-        <div class="slider__dot"></div>
-        <div class="slider__dot"></div>
-      </div>
     </div>
   </section>
 
@@ -643,82 +597,35 @@
       <div class="section-header reveal">
         <div>
           <span class="eyebrow" style="color: var(--delluxe_green);">Green Repair</span>
-          <h2 class="section-header__title">Nachhaltige Dellenreparatur ohne Lack</h2>
+          <h2 class="section-title">Nachhaltige Dellenreparatur ohne Lack</h2>
         </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
-          <p class="section-header__text">Lackfreie Reparatur, eigene PV-Anlage, elektrische Mobilität und transparente digitale Abwicklung.</p>
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <p class="section-text">Lackfreie Reparatur, eigene PV-Anlage, elektrische Mobilität und transparente digitale Abwicklung.</p>
           <a href="#nachhaltigkeit" class="btn btn--secondary">Nachhaltigkeit erleben</a>
-        </div>
-      </div>
-<!--Variante A-->
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; text-align: center;">
-        <div style="padding: 32px 32px 32px 0; border-right: 1px solid var(--delluxe_green);">
-          <div class="metric-card__label">Photovoltaik</div>
-          <div class="metric-card__value">Eigene PV</div>
-          <div class="metric-card__sub">Solaranlage auf dem Dach</div>
-        </div>
-        <div style="padding: 32px; border-right: 1px solid var(--delluxe_green);">
-          <div class="metric-card__label">E-Flotte</div>
-          <div class="metric-card__value">100&nbsp;%</div>
-          <div class="metric-card__sub">elektrisch unterwegs</div>
-        </div>
-        <div style="padding: 32px; border-right: 1px solid var(--delluxe_green);">
-          <div class="metric-card__label">Abwicklung</div>
-          <div class="metric-card__value">digital</div>
-          <div class="metric-card__sub">transparent &amp; schnell</div>
-        </div>
-        <div style="padding: 32px 0 32px 32px;">
-          <div class="metric-card__label">Prinzip</div>
-          <div class="metric-card__value">ohne Lack</div>
-          <div class="metric-card__sub">materialschonend</div>
         </div>
       </div>
 
       <!--Variante B-->
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; text-align: center;">
-        <div style="padding: 32px 32px 32px 0; border-right: 1px solid var(--white_transparent10);">
-          <div class="metric-card__label">Photovoltaik</div>
-          <div class="metric-card__value">Eigene PV</div>
-          <div class="metric-card__sub">Solaranlage auf dem Dach</div>
+        <div style="padding: 32px 32px 32px 0; border-right: 1px solid var(--softgreen_transparent50);">
+          <div class="eyebrow">Photovoltaik</div>
+          <div class="subtitle">Eigene PV</div>
+          <div class="section-text">Solaranlage auf dem Dach</div>
         </div>
-        <div style="padding: 32px; border-right: 1px solid var(--white_transparent10);">
-          <div class="metric-card__label">E-Flotte</div>
-          <div class="metric-card__value">100&nbsp;%</div>
-          <div class="metric-card__sub">elektrisch unterwegs</div>
+        <div style="padding: 32px; border-right: 1px solid var(--softgreen_transparent50);">
+          <div class="eyebrow">E-Flotte</div>
+          <div class="subtitle">100&nbsp;%</div>
+          <div class="section-text">elektrisch unterwegs</div>
         </div>
-        <div style="padding: 32px; border-right: 1px solid var(--white_transparent10);">
-          <div class="metric-card__label">Abwicklung</div>
-          <div class="metric-card__value">digital</div>
-          <div class="metric-card__sub">transparent &amp; schnell</div>
+        <div style="padding: 32px; border-right: 1px solid var(--softgreen_transparent50);">
+          <div class="eyebrow">Abwicklung</div>
+          <div class="subtitle">digital</div>
+          <div class="section-text">transparent &amp; schnell</div>
         </div>
         <div style="padding: 32px 0 32px 32px;">
-          <div class="metric-card__label">Prinzip</div>
-          <div class="metric-card__value">ohne Lack</div>
-          <div class="metric-card__sub">materialschonend</div>
-        </div>
-      </div>
-
-<!--Variante C-->
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; text-align: center;">
-        <div style="padding: 32px 32px 32px 0; border-right: 1px solid var(--softgrey50); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
-          <div class="metric-card__label">Photovoltaik</div>
-          <div class="metric-card__value">Eigene PV</div>
-          <div class="metric-card__sub">Solaranlage auf dem Dach</div>
-        </div>
-        <div style="padding: 32px; border-right: 1px solid var(--softgrey50); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
-          <div class="metric-card__label">E-Flotte</div>
-          <div class="metric-card__value">100&nbsp;%</div>
-          <div class="metric-card__sub">elektrisch unterwegs</div>
-        </div>
-        <div style="padding: 32px; border-right: 1px solid var(--softgrey50); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
-          <div class="metric-card__label">Abwicklung</div>
-          <div class="metric-card__value">digital</div>
-          <div class="metric-card__sub">transparent &amp; schnell</div>
-        </div>
-        <div style="padding: 32px 0 32px 32px; background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
-          <div class="metric-card__label">Prinzip</div>
-          <div class="metric-card__value">ohne Lack</div>
-          <div class="metric-card__sub">materialschonend</div>
+          <div class="eyebrow">Prinzip</div>
+          <div class="subtitle">ohne Lack</div>
+          <div class="section-text">materialschonend</div>
         </div>
       </div>
 
@@ -731,71 +638,72 @@
     <div class="container">
       <div class="reviews__header reveal">
         <span class="eyebrow">Kundenstimmen</span>
-        <h2 class="reviews__title">Beulendoktor mit 5.0 auf Google</h2>
+        <h2 class="section-title">Beulendoktor mit 4.9 auf Google</h2>
       </div>
 
-      <!-- VARIANTE A: Großes Pull-Quote -->
-      <div style="margin-top: 80px; border-top: 1px solid var(--white_transparent10); padding-top: 64px;">
-        <div style="max-width: 780px; margin: 0 auto; text-align: center;" id="pullquote">
-          <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p style="font-family: 'Bodoni Moda', serif; font-size: clamp(22px, 2.8vw, 36px); font-weight: 300; color: var(--delluxe_white); line-height: 1.5; font-style: italic;">&bdquo;Perfekte Arbeit, absolut sauber ausgeführt. Besonders überzeugend war die Kombination aus Präzision und schneller Abwicklung.&ldquo;</p>
-          <div style="margin-top: 32px; font-size: 13px; color: var(--softgrey50);">M. Schneider &nbsp;·&nbsp; Google Bewertung</div>
-          <div style="display: flex; justify-content: center; gap: 12px; margin-top: 32px;">
-            <button onclick="showQuote(-1)" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--white_transparent15); background: none; color: var(--softgrey70); font-size: 18px; cursor: pointer;">&#8249;</button>
-            <button onclick="showQuote(1)"  style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--white_transparent15); background: none; color: var(--softgrey70); font-size: 18px; cursor: pointer;">&#8250;</button>
+      <div class="reviews__slider">
+        <div class="reviews__track" id="reviewsTrack">
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">Dominik Urbaniak</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2025-11"></span>
+              </div>
+              <p class="review-card__quote">Hatte mir eine blöde Delle am Kofferraum beim ausparken geholt. Ich habe mich aufgrund der Rezension vom Taxifahrer und der professionellen Website für Delluxe Dellen entschieden. Ich wurde super und transparent über die Schritte und Vorgehensweise informiert. Besonders gefallen hat mir, dass sich Zeit genommen wurde und alle möglichen Szenarien durchgegangen wurden. Dadurch habe ich mich sehr gut aufgehoben gefühlt. Das ganze drum herum war TOP - genau wie das Ergebnis.</p>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">Lucas Breinlinger</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2026-02"></span>
+              </div>
+              <p class="review-card__quote">Sehr professionell, sehr freundlich. Alle Zusagen inkl. Preis wurden eingehalten.
+                <br><br>Ich bin aufgrund zweier Dellen zu Dellen Deluxe gekommen. Eine wurde schon vorab von einem anderen Dienstleister bearbeitet, dieser konnte sie jedoch nicht restlos entfernen.
+Nach einem kurzem Besuch bei Dellen Deluxe sind beide Dellen glücklicherweise Geschichte.<br><br>Vielen Dank !</p>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">David Matzner</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2025-12"></span>
+              </div>
+              <p class="review-card__quote">Know-how und Perfektion vereint. Meine Anlaufstelle seit Jahren wenn es um kompetente Dellenreparatur geht. Ob Mega-Hagelschaden oder Parkrempler, ich wurde vom Ergebnis noch nie enttäuscht und freue mich auf lange weitere Zusammenarbeit!</p>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">Angi Stimmelmayr</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2025-09"></span>
+              </div>
+              <p class="review-card__quote">Super Arbeit, überaus freundlich und hilfsbereit!!!<br>
+War mit meinem 10 Jahre alten Golf bei Hr. Rizmann und seinem Mitarbeiter Andi.<br>
+Fahrzeug sollte wegen Verkauf gleich von mehreren Wehwehchen befreit werden. Parkdelle an der Türe, alte eingebrannte Vogelcodestellen am Lack, Ein bzw. Ausladespuren am Stoßfänger hinten, rostiger AHK-Kopf sowie ein alter Hagelschaden am Dach.
+Und nun zitiere ich die Worte des Käufers als er das Fahrezeug nach der Behandlung bei Delluxe Dellen GmbH bei mir abholte: Der steht ja da wie ein Neuwagen.
+Vielen Dank liebes Delluxe Dellen Team.<br>
+Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. Mehr kann man nicht sagen!!! Weiter so!!!</p>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">Yi Yu</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2025-04"></span>
+              </div>
+              <p class="review-card__quote">Kleine Delle an der Tür wurde schnell und professionell entfernt, danach ist die Delle perfekt verschwunden. Sehr freundliches Personal! Absolut zu empfehlen! Vorher besser immer anrufen um einen Termin zu bekommen, alles sehr unkompliziert gelaufen.</p>
+            </div>
           </div>
         </div>
+        <button class="slider__btn slider__btn--prev" id="reviewsPrev" aria-label="Vorherige Bewertung">&#8249;</button>
+        <button class="slider__btn slider__btn--next" id="reviewsNext" aria-label="Nächste Bewertung">&#8250;</button>
       </div>
-
-      <!-- VARIANTE B: Spalten mit Trennlinien -->
-      <div style="margin-top: 80px; border-top: 1px solid var(--white_transparent10); padding-top: 64px;">
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;">
-          <div style="padding-right: 40px; border-right: 1px solid var(--white_transparent10); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
-            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Perfekte Arbeit, absolut sauber ausgeführt. Besonders überzeugend war die Kombination aus Präzision und schneller Abwicklung.&ldquo;</p>
-            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">M. Schneider</div>
-            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
-          </div>
-          <div style="padding: 0 40px; border-right: 1px solid var(--white_transparent10); background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
-            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Hagelschaden am BMW komplett beseitigt, man sieht nichts mehr. Top Beratung, faire Preise und die Abwicklung mit der Versicherung lief reibungslos.&ldquo;</p>
-            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">T. Wagner</div>
-            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
-          </div>
-          <div style="padding-left: 40px; background: radial-gradient(ellipse 75% 75% at center, var(--delluxe_green_transparent25) 0%, var(--delluxe_black) 90%);">
-            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Parkdelle an der Tür in nur zwei Stunden weg &ndash; ohne Lackieren. Absoluter Profi, klare Empfehlung für jeden in München West.&ldquo;</p>
-            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">S. Bauer</div>
-            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
-          </div>
-        </div>
-      </div>
-
-            <!-- VARIANTE C: Spalten mit Trennlinien -->
-      <div style="margin-top: 80px; border-top: 1px solid var(--white_transparent10); padding-top: 64px; text-align: center;">
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;">
-          <div style="padding-right: 40px; border-right: 1px solid var(--softgreen);">
-            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Perfekte Arbeit, absolut sauber ausgeführt. Besonders überzeugend war die Kombination aus Präzision und schneller Abwicklung.&ldquo;</p>
-            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">M. Schneider</div>
-            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
-          </div>
-          <div style="padding: 0 40px; border-right: 1px solid var(--softgreen);">
-            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Hagelschaden am BMW komplett beseitigt, man sieht nichts mehr. Top Beratung, faire Preise und die Abwicklung mit der Versicherung lief reibungslos.&ldquo;</p>
-            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">T. Wagner</div>
-            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
-          </div>
-          <div style="padding-left: 40px;">
-            <div style="color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p style="font-size: 15px; color: var(--softgrey80); line-height: 1.75; font-style: italic;">&bdquo;Parkdelle an der Tür in nur zwei Stunden weg &ndash; ohne Lackieren. Absoluter Profi, klare Empfehlung für jeden in München West.&ldquo;</p>
-            <div style="margin-top: 24px; font-size: 13px; font-weight: 500; color: var(--delluxe_white);">S. Bauer</div>
-            <div style="font-size: 11px; color: var(--softgrey50); margin-top: 2px;">Google Bewertung</div>
-          </div>
-        </div>
-      </div>
-
-      
     </div>
   </section>
 
@@ -803,8 +711,8 @@
   <section class="faq">
     <div class="container">
       <div class="faq__header reveal">
-        <span class="eyebrow">FAQ</span>
-        <h2 class="faq__title">Was sie wissen sollten</h2>
+        <span class="eyebrow">Häufige Fragen</span>
+        <h2 class="section-title">Was sie wissen sollten</h2>
       </div>
       <div class="faq__list reveal">
         <div class="faq__item">
@@ -930,25 +838,127 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // Slider: Peek-Karussell mit Prev/Next und Auto-Play
+    // Slider: Infinite Loop mit Auto-Play und Prev/Next
     const sliderTrack = document.getElementById('sliderTrack');
-    const sliderDots  = document.querySelectorAll('.slider__dot');
-    let currentSlide  = 0;
-    const totalSlides = sliderDots.length;
+    const origSlides  = [...sliderTrack.children];
+    const slideCount  = origSlides.length;
 
-    function goToSlide(index) {
-      currentSlide = (index + totalSlides) % totalSlides;
-      const slideWidth  = sliderTrack.parentElement.offsetWidth * 0.82 + 16; // 82% Breite + Gap
-      const centerOffset = sliderTrack.parentElement.offsetWidth * 0.09;      // Zentrierung
-      sliderTrack.style.transform = `translateX(${centerOffset - currentSlide * slideWidth}px)`;
-      sliderDots.forEach((dot, i) => dot.classList.toggle('slider__dot--active', i === currentSlide));
+    // Slides dreifach für beidseitigen nahtlosen Loop
+    origSlides.forEach(s => sliderTrack.insertBefore(s.cloneNode(true), sliderTrack.firstChild));
+    origSlides.forEach(s => sliderTrack.appendChild(s.cloneNode(true)));
+
+    let current = slideCount; // Startet in der duplizierten Mitte für beidseitigen Peek
+    let autoPlay;
+
+    const GAP = 24;
+    const SLIDE_RATIO = 0.8;
+
+    function sContainerW() { return sliderTrack.parentElement.offsetWidth; }
+    function sSlideElemW()  { return sContainerW() * SLIDE_RATIO; }
+    function sPeek()        { return (sContainerW() - sSlideElemW()) / 2; }
+    function slideWidth()   { return sSlideElemW() + GAP; }
+
+    function setSlideWidths() {
+      const w = sSlideElemW() + 'px';
+      [...sliderTrack.children].forEach(s => s.style.width = w);
+    }
+    setSlideWidths();
+    window.addEventListener('resize', () => { setSlideWidths(); goTo(current, false); });
+
+    function goTo(index, animate = true) {
+      if (animate) sliderTrack.classList.add('is-animating');
+      else sliderTrack.classList.remove('is-animating');
+      current = index;
+      sliderTrack.style.transform = `translateX(${sPeek() - current * slideWidth()}px)`;
+      [...sliderTrack.children].forEach((s, i) => s.classList.toggle('is-active', i === current));
     }
 
-    goToSlide(0); // Initiale Position
-    document.getElementById('sliderPrev').addEventListener('click', () => goToSlide(currentSlide - 1));
-    document.getElementById('sliderNext').addEventListener('click', () => goToSlide(currentSlide + 1));
-    sliderDots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
-    setInterval(() => goToSlide(currentSlide + 1), 4000); // Auto-Play alle 4 Sekunden
+    function next() {
+      current++;
+      goTo(current);
+      if (current >= slideCount * 2) {
+        setTimeout(() => { goTo(slideCount, false); }, 620);
+      }
+    }
+
+    function prev() {
+      current--;
+      goTo(current);
+      if (current <= 0) {
+        setTimeout(() => { goTo(slideCount, false); }, 620);
+      }
+    }
+
+    function startAutoPlay() { autoPlay = setInterval(next, 4000); }
+    function stopAutoPlay()  { clearInterval(autoPlay); }
+
+    goTo(slideCount, false);
+    startAutoPlay();
+
+    document.getElementById('sliderPrev').addEventListener('click', () => { stopAutoPlay(); prev(); startAutoPlay(); });
+    document.getElementById('sliderNext').addEventListener('click', () => { stopAutoPlay(); next(); startAutoPlay(); });
+
+    // Reviews: Zeitangabe berechnen
+    document.querySelectorAll('[data-review-date]').forEach(el => {
+      const [year, month] = el.dataset.reviewDate.split('-').map(Number);
+      const now = new Date();
+      const months = (now.getFullYear() - year) * 12 + (now.getMonth() + 1 - month);
+      if (months < 1) el.textContent = 'diesen Monat';
+      else if (months < 12) el.textContent = `vor ${months} Monat${months > 1 ? 'en' : ''}`;
+      else {
+        const years = Math.floor(months / 12);
+        el.textContent = `vor ${years} Jahr${years > 1 ? 'en' : ''}`;
+      }
+    });
+
+    // Reviews: Infinite Slider mit Blur
+    const reviewsTrack = document.getElementById('reviewsTrack');
+    const origReviews  = [...reviewsTrack.children];
+    const reviewCount  = origReviews.length;
+
+    origReviews.forEach(s => reviewsTrack.insertBefore(s.cloneNode(true), reviewsTrack.firstChild));
+    origReviews.forEach(s => reviewsTrack.appendChild(s.cloneNode(true)));
+
+    let rCurrent = reviewCount;
+    let rAutoPlay;
+
+    function rContainerW() { return reviewsTrack.parentElement.offsetWidth; }
+    function rSlideElemW() { return rContainerW() * SLIDE_RATIO; }
+    function rPeek()       { return (rContainerW() - rSlideElemW()) / 2; }
+    function rSlideWidth() { return rSlideElemW() + GAP; }
+
+    function rSetWidths() {
+      const w = rSlideElemW() + 'px';
+      [...reviewsTrack.children].forEach(s => s.style.width = w);
+    }
+    rSetWidths();
+    window.addEventListener('resize', () => { rSetWidths(); rGoTo(rCurrent, false); });
+
+    function rGoTo(index, animate = true) {
+      if (animate) reviewsTrack.classList.add('is-animating');
+      else reviewsTrack.classList.remove('is-animating');
+      rCurrent = index;
+      reviewsTrack.style.transform = `translateX(${rPeek() - rCurrent * rSlideWidth()}px)`;
+      [...reviewsTrack.children].forEach((s, i) => s.classList.toggle('is-active', i === rCurrent));
+    }
+
+    function rNext() {
+      rCurrent++;
+      rGoTo(rCurrent);
+      if (rCurrent >= reviewCount * 2) setTimeout(() => rGoTo(reviewCount, false), 620);
+    }
+
+    function rPrev() {
+      rCurrent--;
+      rGoTo(rCurrent);
+      if (rCurrent <= 0) setTimeout(() => rGoTo(reviewCount, false), 620);
+    }
+
+    rGoTo(reviewCount, false);
+    rAutoPlay = setInterval(rNext, 5000);
+
+    document.getElementById('reviewsPrev').addEventListener('click', () => { clearInterval(rAutoPlay); rPrev(); rAutoPlay = setInterval(rNext, 5000); });
+    document.getElementById('reviewsNext').addEventListener('click', () => { clearInterval(rAutoPlay); rNext(); rAutoPlay = setInterval(rNext, 5000); });
 
     // FAQ: Accordion
     document.querySelectorAll('.faq__question').forEach(button => {
