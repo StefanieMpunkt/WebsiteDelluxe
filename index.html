@@ -1481,12 +1481,15 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       });
     }
 
-    // Anfragen-Float: über Footer schweben
+    // Anfragen-Float: über Footer schweben + Desktop Scroll-Hide
     (function () {
       const floatBtn = document.querySelector('.anfragen-float');
       const footer   = document.querySelector('.footer');
       if (!floatBtn || !footer) return;
       const DEFAULT_BOTTOM = 48;
+      const mqDesktop = window.matchMedia('(min-width: 821px)');
+      let floatScrollTimer;
+
       function updateFloatPos() {
         const footerTop = footer.getBoundingClientRect().top;
         const overlap   = window.innerHeight - footerTop;
@@ -1494,6 +1497,11 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
           floatBtn.style.bottom = overlap + 'px';
         } else {
           floatBtn.style.bottom = DEFAULT_BOTTOM + 'px';
+        }
+        if (mqDesktop.matches) {
+          floatBtn.classList.add('scrollhide');
+          clearTimeout(floatScrollTimer);
+          floatScrollTimer = setTimeout(() => floatBtn.classList.remove('scrollhide'), 200);
         }
       }
       window.addEventListener('scroll', updateFloatPos, { passive: true });
