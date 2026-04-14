@@ -159,13 +159,13 @@
       position: absolute; top: 0; left: 0; right: 0;
       height: env(safe-area-inset-top);
       background: linear-gradient(to bottom, var(--delluxe_black) 0%, transparent 100%);
-      backdrop-filter: blur(10px) saturate(1.4);
+      backdrop-filter: blur(8px) saturate(1.4);
       z-index: 1;
     }
     .navbar::after {
       content: '';
       position: absolute; inset: 0 0 -40px 0;
-      backdrop-filter: blur(10px) saturate(1.4);
+      backdrop-filter: blur(8px) saturate(1.4);
       mask-image: linear-gradient(to bottom, var(--delluxe_black) 50%, transparent 100%);
       -webkit-mask-image: linear-gradient(to bottom, var(--delluxe_black) 50%, transparent 100%);
       opacity: 0;
@@ -294,11 +294,20 @@
     .services__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--card-gap); }
 
     .service-card {
+      position: relative; overflow: hidden;
       background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%);
       border-radius: var(--radius); padding: 36px;
       display: flex; flex-direction: column; gap: 14px;
       transition: transform 0.25s, box-shadow 0.25s;
     }
+    .service-card__bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: filter 0.4s, opacity 0.4s;
+      z-index: 0;
+    }
+    .service-card:hover .service-card__bg { filter: blur(4px); opacity: 0.45; }
+    .service-card > *:not(.service-card__bg) { position: relative; z-index: 1; }
     .service-card:hover { transform: translateY(-3px); box-shadow: 3px 3px 12px var(--white_transparent10); }
     .service-card__number      { font-size: 11px; color: var(--mediumgrey); letter-spacing: 0.06em; }
     .subtitle { font-family: 'Bodoni Moda', serif; font-size: 30px; font-weight: 400; color: var(--delluxe_white); line-height: 1; margin-bottom: 16px;}
@@ -315,7 +324,7 @@
     .slider { position: relative; overflow: hidden; visibility: hidden; }
     .slider__track { display: flex; height: clamp(260px, 55vw, 480px); gap: var(--card-gap); will-change: transform; align-items: center; }
     .slider__track.is-animating { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-    .slider__slide { height: 80%; position: relative; flex-shrink: 0; border-radius: var(--radius); overflow: hidden; background: var(--delluxe_black); transition: filter 0.5s, opacity 0.5s, height 0.5s; filter: blur(4px); opacity: 0.45; }
+    .slider__slide { height: 80%; position: relative; flex-shrink: 0; border-radius: var(--radius); overflow: hidden; background: var(--delluxe_black); transition: filter 0.5s, opacity 0.5s, height 0.5s; filter: blur(8px); opacity: 0.45; }
     .slider__slide.is-active { height: 100%; filter: blur(0); opacity: 1;}
     .slider__image   { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
     .slider__overlay { display: none; }
@@ -332,6 +341,14 @@
     .slider__btn--prev { left: 16px; }
     .slider__btn--next { right: 16px; }
 
+    .slider__progress { display: none; height: 2px; background: var(--white_transparent10); margin-top: 16px; border-radius: 2px; overflow: hidden; }
+    .slider__progress-fill { height: 100%; width: 0; background: var(--softgreen); border-radius: 2px; transition: width 0.4s ease; }
+
+    .slider-dots { display: none; justify-content: center; gap: 8px; }
+    .slider-dots .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--white_transparent10); border: 1px solid var(--white_transparent15); cursor: pointer; transition: background 0.2s; }
+    .slider-dots .dot.active { background: var(--softgreen); border-color: var(--delluxe_green); }
+
+
     /* ════════════════════════════
        NACHHALTIGKEIT
     ════════════════════════════ */
@@ -341,7 +358,6 @@
     .sustainability__text  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; margin-bottom: 32px; }
 
     .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .services__dots { display: none; }
 
     .metric-card { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 1px solid var(--white_transparent10);
       border-radius: var(--radius); padding: 16px;
@@ -364,7 +380,7 @@
     .reviews__slider { position: relative; overflow: hidden; padding-top: 32px; margin-top: -16px; padding-bottom: 16px; margin-bottom: -16px; visibility: hidden; }
     .reviews__track  { display: flex; gap: var(--card-gap); will-change: transform; }
     .reviews__track.is-animating { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-    .reviews__slide  { flex-shrink: 0; align-self: flex-start; transition: filter 0.5s, opacity 0.5s, transform 0.5s; filter: blur(4px); opacity: 0.45; }
+    .reviews__slide  { flex-shrink: 0; align-self: flex-start; transition: filter 0.5s, opacity 0.5s, transform 0.5s; filter: blur(8px); opacity: 0.45; }
     .no-transition .reviews__slide,
     .no-transition .slider__slide { transition: none; }
     .reviews__slide.is-active { filter: blur(0); opacity: 1; transform: translateY(-32px); box-shadow: 3px 3px 12px var(--white_transparent10);}
@@ -373,7 +389,7 @@
     .review-card { background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%);
     border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px;}
     /*.review-card:hover { transform: translateY(-3px); box-shadow: 3px 3px 12px var(--white_transparent10); }*/
-    .review-card__meta   { display: flex; align-items: center; gap: 12px; }
+    .review-card__meta   { display: flex; align-items: center; gap: 12px; margin-top: -36px;}
     .review-card__stars  { color: var(--gold); font-size: 13px; letter-spacing: 2px; }
     .review-card__source { font-size: 12px; color: var(--mediumgrey); }
     .review-card__quote  { font-size: 15px; color: var(--softgrey80); line-height: 1.7; font-style: italic; }
@@ -452,7 +468,7 @@
     /* ════════════════════════════
        FOOTER
     ════════════════════════════ */
-    .footer { background: var(--delluxe_black); border-top: 1px solid var(--black_transparent10); padding: 60px 0 24px; }
+    .footer { background: var(--delluxe_black); border-top: 1px solid var(--black_transparent10); padding: 0 0 24px; }
     .footer__table { width: 100%; border-collapse: collapse; table-layout: fixed; }
     .footer__table th, .footer__table td { vertical-align: top; padding-right: 40px; }
     .footer__table th:first-child, .footer__table td:first-child { width: 35%; }
@@ -488,6 +504,41 @@
     .anfragen-float:hover .anfragen-float__trigger { border-color: transparent; box-shadow: none; transform: none; }
 
     /* ════════════════════════════
+       MOBILE NAV
+    ════════════════════════════ */
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      background: none; border: none; padding: 4px; cursor: pointer; width: 32px; height: 32px;
+    }
+    .navbar__hamburger .bar {
+      display: block; width: 20px; height: 1.5px;
+      background: var(--delluxe_white); border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .navbar--open .navbar__hamburger .bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .navbar--open .navbar__hamburger .bar:nth-child(2) { opacity: 0; }
+    .navbar--open .navbar__hamburger .bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .navbar__mobile-panel {
+      display: none;
+      position: fixed; top: calc(60px + env(safe-area-inset-top)); left: 0; right: 0; z-index: 199;
+      background: rgba(12, 12, 12, 0.92);
+      backdrop-filter: blur(8px) saturate(1.4); -webkit-backdrop-filter: blur(10px) saturate(1.4);
+      max-height: 0; overflow: hidden; pointer-events: none;
+      transition: max-height 0.35s ease;
+    }
+    .navbar__mobile-panel.is-open { max-height: 500px; pointer-events: auto; }
+    .navbar__mobile-links { display: flex; flex-direction: column; padding: 20px 20px 0; }
+    .navbar__mobile-link {
+      font-size: 20px; font-weight: 500; color: var(--softgrey80); text-decoration: none;
+      padding: 14px 0; border-bottom: 1px solid var(--white_transparent10); transition: color 0.2s;
+    }
+    .navbar__mobile-link:last-child { border-bottom: none; }
+    .navbar__mobile-link:active { color: var(--delluxe_white); }
+    .navbar__mobile-actions { display: flex; flex-direction: column; gap: 8px; padding: 16px 20px 28px; }
+
+    /* ════════════════════════════
        RESPONSIVE
     ════════════════════════════ */
     @media (max-width: 1120px) {
@@ -495,25 +546,23 @@
     }
     @media (max-width: 820px) {
       .container { padding: 0 20px; }
-      .navbar { width: calc(100% - 24px); padding: 10px 16px; }
-      .navbar__links, .navbar__social, .navbar__phone { display: none; }
-      .navbar__dropdown-trigger { display: none; }
-      .navbar__dropdown-menu {
-        position: static; opacity: 1; pointer-events: auto; transform: none;
-        flex-direction: row; background: none; backdrop-filter: none;
-        border: none; padding: 0; gap: 6px; min-width: 0;
-        transition: none;
-      }
+      .navbar { width: calc(100% - 24px); padding: 10px 16px; justify-content: flex-end; transition: background 0.45s, transform 0.3s ease; }
+      .navbar__logo { display: none; }
+      .navbar__links, .navbar__phone { display: none; }
+      .navbar__hamburger { display: flex; }
+      .navbar__mobile-panel { display: block; }
+      .navbar--open { justify-content: space-between; }
+      .navbar--open .navbar__logo { display: flex; }
+      .navbar--open .navbar__social { display: none; }
+      .navbar--scrollhide { transform: translateY(-110%); }
       .navbar__dropdown-item { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--white_transparent10); background: var(--black_transparent10); }
-      .navbar--scrolled .navbar__dropdown-menu { display: none; }
       .hero__title { font-size: clamp(52px, 14vw, 80px); }
       .statement__inner, .section-header, .sustainability__inner { grid-template-columns: 1fr; gap: 32px; }
-      .services__grid { display: flex; overflow-x: scroll; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 12px; padding-bottom: 4px; }
+      .services__grid { display: flex; overflow-x: scroll; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 12px; padding: 0 6% 4px; }
       .services__grid::-webkit-scrollbar { display: none; }
       .service-card { flex: 0 0 88%; scroll-snap-align: center; }
-      .services__dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
-      .services__dots .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--white_transparent10); border: 1px solid var(--white_transparent15); cursor: pointer; transition: background 0.2s; }
-      .services__dots .dot.active { background: var(--softgreen); border-color: var(--softgreen); }
+      .slider-dots { display: flex; margin-top: 16px; }
+      #reviewsDots { margin-top: 0; margin-bottom: 16px; }
       .metrics-grid { grid-template-columns: 1fr 1fr; }
       .sustain-cards { display: flex !important; overflow-x: scroll; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin-top: 32px !important; gap: 0; }
       .sustain-cards::-webkit-scrollbar { display: none; }
@@ -522,6 +571,8 @@
       .subtitle { font-size: 22px; }
       .service-card { padding: 24px; }
       .faq__question, .faq__answer { width: 100%; }
+      .slider__btn { display: none; }
+      .slider__progress { display: block; }
       .footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 8px; }
 
       .footer__table thead { display: block; margin-bottom: 8px; }
@@ -567,8 +618,22 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.07a4.85 4.85 0 0 1-1-.38z"/></svg>
         </a>
       </div>
+      <button class="navbar__hamburger" id="navHamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </header>
+
+  <div class="navbar__mobile-panel" id="navMobilePanel" aria-hidden="true">
+    <nav class="navbar__mobile-links">
+      <a href="#leistungen" class="navbar__mobile-link">Leistungen</a>
+      <a href="#nachhaltigkeit" class="navbar__mobile-link">Nachhaltigkeit</a>
+      <a href="#galerie" class="navbar__mobile-link">Galerie</a>
+      <a href="#kontakt" class="navbar__mobile-link">Kontakt</a>
+    </nav>
+  </div>
 
   <!-- ═══ HERO ═══ -->
   <section class="hero" aria-label="Hero">
@@ -632,34 +697,38 @@
         </div>
       </div>
       <div class="services__grid" id="servicesGrid">
-        <article class="service-card reveal" style="background-size: cover; background-position: center; background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');">
+        <article class="service-card reveal">
+          <div class="service-card__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');"></div>
           <span class="service-card__number">I</span>
           <h3 class="subtitle">Lackfreie Dellenreparatur</h3>
           <p class="section-text">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
           <!--<a href="#" class="service-card__link">Mehr erfahren &rarr;</a>-->
           <a href="#Dellenreparatur" class="btn btn--ghost btn--small">Mehr erfahren</a>
         </article>
-        <article class="service-card reveal" style="transition-delay:0.1s; background-size: cover; background-position: center; background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');">
+        <article class="service-card reveal" style="transition-delay:0.1s;">
+          <div class="service-card__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
           <span class="service-card__number">II</span>
           <h3 class="subtitle">Hagelschaden</h3>
           <p class="section-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
           <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
-        <article class="service-card reveal" style="transition-delay:0.2s; background-size: cover; background-position: center; background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');">
+        <article class="service-card reveal" style="transition-delay:0.2s;">
+          <div class="service-card__bg" style="background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
           <span class="service-card__number">III</span>
           <h3 class="subtitle">Smart Repair</h3>
           <p class="section-text">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
           <!--<a href="#" class="service-card__link">Mehr erfahren &rarr;</a>-->
           <a href="#Smart Repapair" class="btn btn--ghost btn--small">Mehr erfahren</a>
         </article>
-        <article class="service-card reveal" style="transition-delay:0.3s; background-size: cover; background-position: center; background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');">
+        <article class="service-card reveal" style="transition-delay:0.3s;">
+          <div class="service-card__bg" style="background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');"></div>
           <span class="service-card__number">IV</span>
           <h3 class="subtitle">Leasingrückgabe</h3>
           <p class="section-text">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
           <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
         </article>
       </div>
-      <div class="services__dots" id="servicesDots"></div>
+      <div class="slider-dots" id="servicesDots"></div>
     </div>
   </section>
 
@@ -692,6 +761,7 @@
         <button class="slider__btn slider__btn--prev" id="sliderPrev" aria-label="Vorheriges Bild">&#8249;</button>
         <button class="slider__btn slider__btn--next" id="sliderNext" aria-label="Nächstes Bild">&#8250;</button>
       </div>
+      <div class="slider__progress"><div class="slider__progress-fill" id="sliderProgressFill"></div></div>
     </div>
   </section>
 
@@ -732,7 +802,7 @@
           <div class="section-text">materialschonend</div>
         </div>
       </div>
-      <div class="services__dots" id="sustainDots"></div>
+      <div class="slider-dots" id="sustainDots"></div>
 
     </div>
   </section>
@@ -746,6 +816,7 @@
         <h2 class="section-title">Beulendoktor mit 4.9 auf Google</h2>
       </div>
 
+      <div class="slider-dots" id="reviewsDots"></div>
       <div class="reviews__slider">
         <div class="reviews__track" id="reviewsTrack">
           <div class="reviews__slide">
@@ -1072,6 +1143,19 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
         });
         servicesDots.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === closest));
       });
+      let sTouchStartX = 0;
+      servicesGrid.addEventListener('touchstart', e => { sTouchStartX = e.touches[0].clientX; }, { passive: true });
+      servicesGrid.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - sTouchStartX;
+        const center = servicesGrid.scrollLeft + servicesGrid.offsetWidth / 2;
+        let closest = 0, minDist = Infinity;
+        cards.forEach((card, i) => {
+          const dist = Math.abs(card.offsetLeft + card.offsetWidth / 2 - center);
+          if (dist < minDist) { minDist = dist; closest = i; }
+        });
+        if (dx < -40 && closest === cards.length - 1) cards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        if (dx > 40 && closest === 0) cards[cards.length - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }, { passive: true });
     }
 
     // Sustain Cards Dots (Mobile)
@@ -1097,6 +1181,19 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
         });
         sustainDots.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === closest));
       });
+      let scTouchStartX = 0;
+      sustainCards.addEventListener('touchstart', e => { scTouchStartX = e.touches[0].clientX; }, { passive: true });
+      sustainCards.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - scTouchStartX;
+        const center = sustainCards.scrollLeft + sustainCards.offsetWidth / 2;
+        let closest = 0, minDist = Infinity;
+        cards.forEach((card, i) => {
+          const dist = Math.abs(card.offsetLeft + card.offsetWidth / 2 - center);
+          if (dist < minDist) { minDist = dist; closest = i; }
+        });
+        if (dx < -40 && closest === cards.length - 1) cards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        if (dx > 40 && closest === 0) cards[cards.length - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }, { passive: true });
     }
 
     // Nav: transparent → Glasmorphism beim Scrollen
@@ -1114,6 +1211,44 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       updateParallax();
     }, { passive: true });
 
+    // Mobile NavBar: Hamburger + Scroll-Hide
+    (function () {
+      const hamburger = document.getElementById('navHamburger');
+      const panel     = document.getElementById('navMobilePanel');
+      if (!hamburger || !panel) return;
+      const mq = window.matchMedia('(max-width: 820px)');
+
+      function openMenu() {
+        navbar.classList.add('navbar--open');
+        panel.classList.add('is-open');
+        panel.setAttribute('aria-hidden', 'false');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'Menü schließen');
+      }
+      function closeMenu() {
+        navbar.classList.remove('navbar--open');
+        panel.classList.remove('is-open');
+        panel.setAttribute('aria-hidden', 'true');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Menü öffnen');
+      }
+
+      hamburger.addEventListener('click', () => {
+        navbar.classList.contains('navbar--open') ? closeMenu() : openMenu();
+      });
+      panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+      // Scroll-Hide (nur mobile)
+      let scrollTimer;
+      window.addEventListener('scroll', () => {
+        if (!mq.matches) return;
+        if (navbar.classList.contains('navbar--open')) closeMenu();
+        navbar.classList.add('navbar--scrollhide');
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => navbar.classList.remove('navbar--scrollhide'), 200);
+      }, { passive: true });
+    })();
+
     // Scroll Reveal: Elemente einblenden wenn sichtbar
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1126,9 +1261,12 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // Slider: Infinite Loop mit Auto-Play und Prev/Next
+    const isMobile = () => window.matchMedia('(max-width: 820px)').matches;
+
     const sliderTrack = document.getElementById('sliderTrack');
     const origSlides  = [...sliderTrack.children];
     const slideCount  = origSlides.length;
+    const sliderProgressFill = document.getElementById('sliderProgressFill');
 
     // Slides dreifach für beidseitigen nahtlosen Loop
     origSlides.forEach(s => sliderTrack.insertBefore(s.cloneNode(true), sliderTrack.firstChild));
@@ -1163,6 +1301,8 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       sliderTrack.style.transform = `translateX(${sPeek() - current * slideWidth()}px)`;
       [...sliderTrack.children].forEach((s, i) => s.classList.toggle('is-active', i === current));
       if (!animate) requestAnimationFrame(() => requestAnimationFrame(() => sliderTrack.classList.remove('no-transition')));
+      const realIdx = ((index - slideCount) % slideCount + slideCount) % slideCount;
+      if (sliderProgressFill) sliderProgressFill.style.width = ((realIdx + 1) / slideCount * 100) + '%';
     }
 
     function next() {
@@ -1181,7 +1321,7 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       }
     }
 
-    function startAutoPlay() { autoPlay = setInterval(next, 4000); }
+    function startAutoPlay() { if (!isMobile()) autoPlay = setInterval(next, 4000); }
     function stopAutoPlay()  { clearInterval(autoPlay); }
 
     sliderTrack.classList.add('no-transition');
@@ -1191,9 +1331,18 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       sliderTrack.closest('.slider').style.visibility = 'visible';
     }));
     startAutoPlay();
+    window.addEventListener('resize', () => { isMobile() ? stopAutoPlay() : startAutoPlay(); }, { passive: true });
 
     document.getElementById('sliderPrev').addEventListener('click', () => { stopAutoPlay(); prev(); startAutoPlay(); });
     document.getElementById('sliderNext').addEventListener('click', () => { stopAutoPlay(); next(); startAutoPlay(); });
+
+    // Galerie: Touch-Swipe (mobile)
+    let sTouchX = 0;
+    sliderTrack.parentElement.addEventListener('touchstart', e => { sTouchX = e.touches[0].clientX; }, { passive: true });
+    sliderTrack.parentElement.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - sTouchX;
+      if (Math.abs(dx) > 40) { stopAutoPlay(); dx < 0 ? next() : prev(); }
+    }, { passive: true });
 
     // Reviews: Zeitangabe berechnen
     document.querySelectorAll('[data-review-date]').forEach(el => {
@@ -1212,6 +1361,16 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
     const reviewsTrack = document.getElementById('reviewsTrack');
     const origReviews  = [...reviewsTrack.children];
     const reviewCount  = origReviews.length;
+
+    // Reviews-Dots erstellen
+    const rDotsEl = document.getElementById('reviewsDots');
+    if (rDotsEl) {
+      origReviews.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'dot' + (i === 0 ? ' active' : '');
+        rDotsEl.appendChild(dot);
+      });
+    }
 
     origReviews.forEach(s => reviewsTrack.insertBefore(s.cloneNode(true), reviewsTrack.firstChild));
     origReviews.forEach(s => reviewsTrack.appendChild(s.cloneNode(true)));
@@ -1242,6 +1401,8 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       reviewsTrack.style.transform = `translateX(${rPeek() - rCurrent * rSlideWidth()}px)`;
       [...reviewsTrack.children].forEach((s, i) => s.classList.toggle('is-active', i === rCurrent));
       if (!animate) requestAnimationFrame(() => requestAnimationFrame(() => reviewsTrack.classList.remove('no-transition')));
+      const rRealIdx = ((index - reviewCount) % reviewCount + reviewCount) % reviewCount;
+      if (rDotsEl) rDotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === rRealIdx));
     }
 
     function rNext() {
@@ -1267,6 +1428,14 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
     document.getElementById('reviewsPrev').addEventListener('click', () => { clearInterval(rAutoPlay); rPrev(); rAutoPlay = setInterval(rNext, 5000); });
     document.getElementById('reviewsNext').addEventListener('click', () => { clearInterval(rAutoPlay); rNext(); rAutoPlay = setInterval(rNext, 5000); });
 
+    // Reviews: Touch-Swipe (mobile)
+    let rTouchX = 0;
+    reviewsTrack.parentElement.addEventListener('touchstart', e => { rTouchX = e.touches[0].clientX; }, { passive: true });
+    reviewsTrack.parentElement.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - rTouchX;
+      if (Math.abs(dx) > 40) { clearInterval(rAutoPlay); dx < 0 ? rNext() : rPrev(); rAutoPlay = setInterval(rNext, 5000); }
+    }, { passive: true });
+
     // Footer Akkordeon (Mobile)
     const footerAcc = document.querySelector('.footer__accordion');
     if (footerAcc) {
@@ -1284,6 +1453,25 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
         });
       });
     }
+
+    // Anfragen-Float: über Footer schweben
+    (function () {
+      const floatBtn = document.querySelector('.anfragen-float');
+      const footer   = document.querySelector('.footer');
+      if (!floatBtn || !footer) return;
+      const DEFAULT_BOTTOM = 36;
+      function updateFloatPos() {
+        const footerTop = footer.getBoundingClientRect().top;
+        const overlap   = window.innerHeight - footerTop;
+        if (overlap > 36) {
+          floatBtn.style.bottom = overlap + 'px';
+        } else {
+          floatBtn.style.bottom = DEFAULT_BOTTOM + 'px';
+        }
+      }
+      window.addEventListener('scroll', updateFloatPos, { passive: true });
+      updateFloatPos();
+    })();
 
     // FAQ: Accordion
     document.querySelectorAll('.faq__question').forEach(button => {
