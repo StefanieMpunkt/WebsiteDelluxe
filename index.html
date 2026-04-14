@@ -63,23 +63,19 @@
 
     :root {
       --delluxe_green:        #6cd141;
-      --delluxe_green_transparent10: #6cd14110;
       --delluxe_green_transparent25: #6cd14125;
       --softgreen:            #dcffe8;
       --softgreen_transparent10: #dcffe810;
       --softgreen_transparent50: #dcffe850;
       --delluxe_black:        #0c0c0c;
-      --delluxe_black_transparent5:        #0c0c0c05;
       --delluxe_black_transparent55:        #0c0c0c55;
       --delluxe_black_transparent85:        #0c0c0c85;
       --delluxe_white:        #f5f5f2;
-      --softblack:            #1c1c1c;
       --gold:                 #f5c518;
       --mediumgrey:           #444444;
       --softgrey80:           #F5F5F2CC;
       --softgrey70:           #F5F5F2B3;
-      --softgrey50:           #f5f5f285;
-      --black_transparent10:  #0000001A;
+      --softgrey50:           #f5f5f28e;
       --black_transparent20:  #00000033;
       --white_transparent10:  #FFFFFF1A;
       --white_transparent15:  #FFFFFF26;
@@ -138,7 +134,7 @@
     .btn:hover { color: var(--delluxe_white); box-shadow: 0 3px 12px var(--white_transparent10); transform: translateY(-1px); }
     .btn--primary { background: var(--delluxe_white); color: var(--delluxe_black); }
     .btn--green   { background: var(--softgreen); color: var(--delluxe_black); }
-    .btn--ghost   { background: var(--black_transparent10); border: 1px solid var(--white_transparent15); color: var(--softgrey80); backdrop-filter: blur(8px); }
+    .btn--ghost   { background: var(--black_transparent20); border: 1px solid var(--white_transparent15); color: var(--softgrey70); backdrop-filter: blur(8px); }
     .btn--small   { padding: 6px 18px; font-size: 15px; }
     /*.btn--secondary { background: var(--softblack); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); }*/
     .btn--secondary { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); }
@@ -173,37 +169,23 @@
     }
     .navbar__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
     .navbar__links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 32px; }
-    .navbar__links a { font-size: 15px; color: var(--softgrey80); text-decoration: none; transition: color 0.2s; }
+    .navbar__links a { font-size: 15px; color: var(--softgrey70); text-decoration: none; transition: color 0.2s; }
     .navbar__links a:hover { color: var(--delluxe_white); }
     .navbar__right { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
     .navbar__social { display: flex; align-items: center; gap: 14px; }
-    .navbar__social a { color: var(--softgrey80); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; }
+    .navbar__social a { color: var(--softgrey70); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; }
     .navbar__social a:hover { color: var(--delluxe_white); }
 
-    .navbar__dropdown { position: relative; }
-    .navbar__dropdown-trigger { cursor: pointer; }
-    .navbar__dropdown-menu {
-      position: absolute; top: 100%; right: 0;
-      display: flex; flex-direction: column; gap: 8px;
-      padding: 8px 0 0;
-      opacity: 0; pointer-events: none;
-      transform: translateY(-6px);
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .navbar__dropdown:hover .navbar__dropdown-menu {
-      opacity: 1; pointer-events: auto; transform: translateY(0);
-    }
-    .navbar__dropdown:hover .navbar__dropdown-trigger { border-color: transparent; box-shadow: none; }
-    .navbar__dropdown-item {
+    .anfragen-float__item {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 8px 18px; border-radius: 999px;
-      font-size: 13px; font-weight: 500; font-family: 'Instrument Sans', sans-serif;
-      color: var(--softgrey80); text-decoration: none; white-space: nowrap;
-      background: var(--black_transparent10); border: 1px solid var(--white_transparent15);
+      font-size: 15px; font-family: 'Instrument Sans', sans-serif;
+      color: var(--softgrey70); text-decoration: none; white-space: nowrap;
+      background: var(--black_transparent20); border: 1px solid var(--white_transparent15);
       backdrop-filter: blur(8px);
       transition: box-shadow 0.2s, transform 0.2s;
     }
-    .navbar__dropdown-item:hover { color: var(--delluxe_white); box-shadow: 0 3px 12px var(--white_transparent10); transform: translateY(-1px); }
+    .anfragen-float__item:hover { color: var(--delluxe_white); box-shadow: 0 3px 12px var(--white_transparent10); transform: translateY(-1px); }
 
     /* ════════════════════════════
        HERO
@@ -218,7 +200,7 @@
        Kombination von scale() + opacity-Animation erzeugt GPU-Compositing-Spalt. */
     .hero__bg {
       position: absolute; inset: 0;
-      background: var(--softblack) url('images/dellenreparatur.jpg') center/cover no-repeat;
+      background: var(--delluxe_black_transparent85) url('images/dellenreparatur.jpg') center/cover no-repeat;
       transform: scale(1.06); /* Nicht ändern – verhindert weiße Ränder bei voller Viewport-Breite */
     }
     .hero__overlay {
@@ -262,7 +244,7 @@
     /* ════════════════════════════
        STATEMENT
     ════════════════════════════ */
-    .statement { padding: 60px 0; border-bottom: 1px solid var(--black_transparent10); }
+    .statement { padding: 60px 0; border-bottom: 1px solid var(--black_transparent20); }
     .statement__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
     .statement__title {
       font-family: 'Bodoni Moda', serif;
@@ -281,8 +263,8 @@
 
     .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
     .section-title { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(32px, 3.8vw, 52px); line-height: 1.1; letter-spacing: -.05em; color: var(--delluxe_white); }
-    .section-text, .footer__links a  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; }
-    .section-text  { margin-bottom: 16px; }
+    .section-text { font-size: 15px; color: var(--softgrey80); line-height: 1.75; margin-bottom: 16px; }
+    .footer__links a  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; }
 
     .services__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--card-gap); }
 
@@ -325,7 +307,7 @@
     .slider__btn {
       position: absolute; top: 50%; transform: translateY(-50%);
       width: 44px; height: 44px;
-      background: var(--delluxe_black_transparent55); border: 1px solid var(--black_transparent10);
+      background: var(--delluxe_black_transparent55); border: 1px solid var(--black_transparent20);
       border-radius: 50%; color: var(--delluxe_white); font-size: 18px;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       transition: background 0.2s; z-index: 10; backdrop-filter: blur(8px);
@@ -345,7 +327,7 @@
     /* ════════════════════════════
        NACHHALTIGKEIT
     ════════════════════════════ */
-    .sustainability { padding: 60px 0; background: var(--delluxe_black); border-top: 1px solid var(--black_transparent10); border-bottom: 1px solid var(--black_transparent10); }
+    .sustainability { padding: 60px 0; background: var(--delluxe_black); border-top: 1px solid var(--black_transparent20); border-bottom: 1px solid var(--black_transparent20); }
     .sustainability__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 
     .sustainability__text  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; margin-bottom: 32px; }
@@ -358,12 +340,6 @@
       transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
     }
     .metric-card:hover { border-color: var(--softgreen_transparent50); transform: translateY(-3px); box-shadow: 0 3px 12px var(--white_transparent10); }
-
-    .large-panel { background: var(--delluxe_black); border: 1px solid var(--black_transparent10); border-radius: var(--radius); padding: 48px; transition: transform 0.25s, border-color 0.25s; }
-    .large-panel:hover { transform: translateY(-3px); border-color: var(--black_transparent20); }
-    .large-panel__icon  { width: 48px; height: 48px; background: var(--softgreen_transparent10); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
-    .large-panel__title { font-family: 'Bodoni Moda', serif; font-size: 26px; font-weight: 400; color: var(--delluxe_white); margin-bottom: 16px; line-height: 1.2; }
-    .large-panel__text  { font-size: 14px; color: var(--softgrey70); line-height: 1.75; }
 
     /* ════════════════════════════
        BEWERTUNGEN
@@ -385,7 +361,7 @@
     .review-card__meta   { display: flex; align-items: center; gap: 12px; margin-top: -36px;}
     .review-card__stars  { color: var(--gold); font-size: 13px; letter-spacing: 2px; }
     .review-card__source { font-size: 12px; color: var(--mediumgrey); }
-    .review-card__quote  { font-size: 15px; color: var(--softgrey80); line-height: 1.7; font-style: italic; }
+    .review-card__quote  { font-size: 15px; color: var(--softgrey70); line-height: 1.7; font-style: italic; }
 
     /* ════════════════════════════
        FAQ
@@ -426,7 +402,7 @@
     .faq-full__question:hover .faq__icon { border-color: var(--delluxe_green); color: var(--delluxe_green); }
     .faq-full__answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 28px; }
     .faq-full__item.faq__item--open .faq-full__answer { max-height: 300px; padding: 0 28px 24px; }
-    .faq-full__answer p { font-size: 14px; color: var(--softgrey70); line-height: 1.75; padding-top: 16px; border-top: 1px solid var(--black_transparent10); }
+    .faq-full__answer p { font-size: 14px; color: var(--softgrey70); line-height: 1.75; padding-top: 16px; border-top: 1px solid var(--black_transparent20); }
 
     /* ── FAQ VARIANTE 4: Mit Bild ── */
     .faq-image { padding: 60px 0; }
@@ -461,7 +437,7 @@
     /* ════════════════════════════
        FOOTER
     ════════════════════════════ */
-    .footer { background: var(--delluxe_black); border-top: 1px solid var(--black_transparent10); padding: 0 0 24px; }
+    .footer { background: var(--delluxe_black); border-top: 1px solid var(--black_transparent20); padding: 0 0 24px; }
     .footer__table { width: 100%; border-collapse: collapse; table-layout: fixed; }
     .footer__table th, .footer__table td { vertical-align: top; padding-right: 40px; }
     .footer__table th:first-child, .footer__table td:first-child { width: 35%; }
@@ -471,7 +447,7 @@
     .footer__links      { list-style: none; display: flex; flex-direction: column;}
     .footer__links a    { text-decoration: none; transition: color 0.2s; }
     .footer__links a:hover { color: var(--delluxe_white); }
-    .footer__bottom       { border-top: 1px solid var(--black_transparent10); padding-top: 36px; display: flex; align-items: center; justify-content: center; }
+    .footer__bottom       { border-top: 1px solid var(--black_transparent20); padding-top: 36px; display: flex; align-items: center; justify-content: center; }
     .footer__copyright    { font-size: 12px; color: var(--mediumgrey); }
 
     /* ════════════════════════════
@@ -480,9 +456,9 @@
     .anfragen-float { position: fixed; bottom: 48px; right: max(30px, calc((100vw - var(--max-width)) / 2)); z-index: 300; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 10px; transition: bottom 0.3s ease; }
     .anfragen-float__trigger {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--black_transparent10); border: 1px solid var(--white_transparent15);
+      background: var(--black_transparent20); border: 1px solid var(--white_transparent15);
       border-radius: 999px; padding: 8px 18px;
-      font-size: 15px; font-weight: 500; font-family: 'Instrument Sans', sans-serif; color: var(--softgrey80);
+      font-size: 15px; font-weight: 500; font-family: 'Instrument Sans', sans-serif; color: var(--softgrey70);
       cursor: pointer; backdrop-filter: blur(8px);
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
@@ -524,7 +500,7 @@
     .navbar__mobile-panel.is-open { max-height: 500px; pointer-events: auto; }
     .navbar__mobile-links { display: flex; flex-direction: column; padding: 20px 20px 0; }
     .navbar__mobile-link {
-      font-size: 15px; font-weight: 500; color: var(--softgrey80); text-decoration: none;
+      font-size: 15px; font-weight: 500; color: var(--softgrey70); text-decoration: none;
       padding: 8px 0; border-bottom: 1px solid var(--white_transparent10); transition: color 0.2s;
     }
     .navbar__mobile-link:last-child { border-bottom: none; }
@@ -553,7 +529,7 @@
       .navbar__mobile-bar.is-open .navbar__mobile-logo { visibility: visible; }
       .navbar__mobile-right { display: flex; align-items: center; gap: 16px; }
       .navbar__mobile-social { display: flex; align-items: center; gap: 14px; }
-      .navbar__mobile-social a { color: var(--softgrey80); display: flex; align-items: center; transition: color 0.2s; }
+      .navbar__mobile-social a { color: var(--softgrey70); display: flex; align-items: center; transition: color 0.2s; }
       .navbar__hamburger { display: flex; background: none; border: none; padding: 4px; cursor: pointer; flex-direction: column; gap: 5px; align-items: center; justify-content: center; }
       .navbar__mobile-bar.is-open .navbar__mobile-social { display: none; }
       .navbar__mobile-bar.is-open .navbar__hamburger .bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -562,7 +538,7 @@
       .navbar__mobile-bar { display: flex; }
       .navbar__mobile-panel { display: block; }
       .navbar__mobile-bar.scrollhide { transform: translateY(-110%); }
-      .navbar__dropdown-item { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--white_transparent10); background: var(--black_transparent10); }
+      .anfragen-float__item { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--white_transparent10); background: var(--black_transparent20); }
       .hero__title { font-size: clamp(52px, 14vw, 80px); }
       .statement__inner, .section-header, .sustainability__inner { grid-template-columns: 1fr; gap: 32px; }
       .services__grid { display: flex; overflow-x: scroll; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 12px; padding: 0 6% 4px; }
@@ -590,7 +566,7 @@
       .footer__accordion { display: block; }
       .footer__acc-trigger {
         width: 100%; display: flex; align-items: center; justify-content: space-between;
-        background: none; border: none; border-top: 1px solid var(--black_transparent10);
+        background: none; border: none; border-top: 1px solid var(--black_transparent20);
         padding: 4px 0; cursor: pointer;
         font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mediumgrey);
       }
@@ -1122,7 +1098,7 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
             <li><a href="#">Datenschutz</a></li>
           </ul></div>
         </div>
-        <div style="border-top: 1px solid var(--black_transparent10); margin-top: 0;"></div>
+        <div style="border-top: 1px solid var(--black_transparent20); margin-top: 0;"></div>
       </div>
 
       <div class="footer__bottom">
@@ -1135,9 +1111,9 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
   <div class="anfragen-float">
     <button class="anfragen-float__trigger"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Anfragen</button>
     <div class="anfragen-float__menu">
-      <a href="https://wa.me/4917622835683" class="navbar__dropdown-item" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp</a>
-      <a href="tel:+4981418908558" class="navbar__dropdown-item"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>08141 890 8558</a>
-      <a href="#kontakt" class="navbar__dropdown-item"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>Mail</a>
+      <a href="https://wa.me/4917622835683" class="anfragen-float__item" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp</a>
+      <a href="tel:+4981418908558" class="anfragen-float__item"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>08141 890 8558</a>
+      <a href="#kontakt" class="anfragen-float__item"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>Mail</a>
     </div>
   </div>
 
