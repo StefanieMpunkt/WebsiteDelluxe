@@ -110,7 +110,6 @@
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--softgrey50);
-      text-transform: uppercase;
       margin-bottom: 16px;
     }
 
@@ -125,18 +124,16 @@
     /* ── BUTTONS ── */
     .btn {
       display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
-      padding: 13px 28px; border-radius: 999px;
-      font-size: 14px; font-weight: 500;
+      padding: 12px 18px; border-radius: 999px;
+      font-size: 15px; font-weight: 500;
       font-family: 'Instrument Sans', sans-serif;
       cursor: pointer; text-decoration: none; border: none;
       transition: opacity 0.2s, transform 0.2s;
     }
     .btn:hover { color: var(--delluxe_white); box-shadow: 0 3px 12px var(--white_transparent10); transform: translateY(-1px); }
-    .btn--primary { background: var(--delluxe_white); color: var(--delluxe_black); }
     .btn--green   { background: var(--softgreen); color: var(--delluxe_black); }
     .btn--ghost   { background: var(--black_transparent20); border: 1px solid var(--white_transparent15); color: var(--softgrey70); backdrop-filter: blur(8px); }
     .btn--small   { padding: 6px 18px; font-size: 15px; }
-    /*.btn--secondary { background: var(--softblack); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); }*/
     .btn--secondary { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); }
     /* ════════════════════════════
        NAVIGATION
@@ -354,10 +351,8 @@
     .no-transition .slider__slide { transition: none; }
     .reviews__slide.is-active { filter: blur(0); opacity: 1; transform: translateY(-32px); box-shadow: 3px 3px 12px var(--white_transparent10);}
 
-    /*.review-card { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); border: 1px solid var(--white_transparent10); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.25s, background 0.25s, transform 0.25s; }*/
     .review-card { background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%);
-    border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px;}
-    /*.review-card:hover { transform: translateY(-3px); box-shadow: 3px 3px 12px var(--white_transparent10); }*/
+    border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px; }
     .review-card__meta   { display: flex; align-items: center; gap: 12px; margin-top: -36px;}
     .review-card__stars  { color: var(--gold); font-size: 13px; letter-spacing: 2px; }
     .review-card__source { font-size: 12px; color: var(--mediumgrey); }
@@ -401,7 +396,7 @@
       font-family: 'Instrument Sans', sans-serif; font-size: 18px; color: var(--delluxe_white); font-weight: 500; cursor: pointer; transition: color 0.2s; }
     .faq-full__question:hover .faq__icon { border-color: var(--delluxe_green); color: var(--delluxe_green); }
     .faq-full__answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 28px; }
-    .faq-full__item.faq__item--open .faq-full__answer { max-height: 300px; padding: 0 28px 24px; }
+    .faq-full__item.faq-full__item--open .faq-full__answer { max-height: 300px; padding: 0 28px 24px; }
     .faq-full__answer p { font-size: 14px; color: var(--softgrey70); line-height: 1.75; padding-top: 16px; border-top: 1px solid var(--black_transparent20); }
 
     /* ── FAQ VARIANTE 4: Mit Bild ── */
@@ -453,12 +448,12 @@
     /* ════════════════════════════
        WHATSAPP FLOAT
     ════════════════════════════ */
-    .anfragen-float { position: fixed; bottom: 48px; right: max(30px, calc((100vw - var(--max-width)) / 2)); z-index: 300; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 10px; transition: bottom 0.3s ease; }
+    .anfragen-float { position: fixed; bottom: 48px; right: max(30px, calc((100vw - var(--max-width)) / 2)); z-index: 300; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 10px; }
     .anfragen-float__trigger {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--black_transparent20); border: 1px solid var(--white_transparent15);
-      border-radius: 999px; padding: 8px 18px;
-      font-size: 15px; font-weight: 500; font-family: 'Instrument Sans', sans-serif; color: var(--softgrey70);
+      border-radius: 999px; padding: 12px 16px;
+      font-size: 15px; font-family: 'Instrument Sans', sans-serif; color: var(--softgrey70);
       cursor: pointer; backdrop-filter: blur(8px);
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
@@ -486,10 +481,6 @@
       background: var(--delluxe_white); border-radius: 2px;
       transition: transform 0.25s, opacity 0.25s;
     }
-    .navbar--open .navbar__hamburger .bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .navbar--open .navbar__hamburger .bar:nth-child(2) { opacity: 0; }
-    .navbar--open .navbar__hamburger .bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
     .navbar__mobile-panel {
       display: none;
       position: fixed; top: 60px; left: 0; right: 0; z-index: 199;
@@ -535,7 +526,6 @@
       .navbar__mobile-bar.is-open .navbar__hamburger .bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
       .navbar__mobile-bar.is-open .navbar__hamburger .bar:nth-child(2) { opacity: 0; }
       .navbar__mobile-bar.is-open .navbar__hamburger .bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-      .navbar__mobile-bar { display: flex; }
       .navbar__mobile-panel { display: block; }
       .navbar__mobile-bar.scrollhide { transform: translateY(-110%); }
       .anfragen-float__item { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--white_transparent10); background: var(--black_transparent20); }
@@ -543,7 +533,7 @@
       .statement__inner, .section-header, .sustainability__inner { grid-template-columns: 1fr; gap: 32px; }
       .services__grid { display: flex; overflow-x: scroll; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 12px; padding: 0 6% 4px; }
       .services__grid::-webkit-scrollbar { display: none; }
-      .service-card { flex: 0 0 88%; scroll-snap-align: center; }
+      .service-card { flex: 0 0 88%; scroll-snap-align: center; padding: 24px; }
       .slider-dots { display: flex; margin-top: 16px; }
       #reviewsDots { margin-top: 0; margin-bottom: 16px; }
       .metrics-grid { grid-template-columns: 1fr 1fr; }
@@ -552,7 +542,6 @@
       .sustain-card { flex: 0 0 85%; scroll-snap-align: center; border-right: none !important; border-top: 1px solid var(--softgreen_transparent50); border-bottom: 1px solid var(--softgreen_transparent50); padding: 24px !important; }
       .cta__box { padding: 48px 24px; }
       .subtitle { font-size: 22px; }
-      .service-card { padding: 24px; }
       .faq__question, .faq__answer { width: 100%; }
       .slider__btn { display: none; }
       .slider__progress { display: block; }
@@ -1488,9 +1477,9 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
     document.querySelectorAll('.faq-full__question').forEach(button => {
       button.addEventListener('click', () => {
         const item   = button.closest('.faq-full__item');
-        const isOpen = item.classList.contains('faq__item--open');
-        document.querySelectorAll('.faq-full__item').forEach(i => i.classList.remove('faq__item--open'));
-        if (!isOpen) item.classList.add('faq__item--open');
+        const isOpen = item.classList.contains('faq-full__item--open');
+        document.querySelectorAll('.faq-full__item').forEach(i => i.classList.remove('faq-full__item--open'));
+        if (!isOpen) item.classList.add('faq-full__item--open');
         const icon = button.querySelector('.faq__icon');
         document.querySelectorAll('.faq-full__question .faq__icon').forEach(ic => ic.textContent = '+');
         if (!isOpen) icon.textContent = '×';
