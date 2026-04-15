@@ -70,6 +70,7 @@
       --delluxe_black:        #0c0c0c;
       --delluxe_black_transparent55:        #0c0c0c55;
       --delluxe_black_transparent85:        #0c0c0c85;
+      --delluxe_black_transparentC0: #0c0c0cc0;
       --delluxe_white:        #f5f5f2;
       --gold:                 #f5c518;
       --mediumgrey:           #444444;
@@ -343,20 +344,46 @@
     ════════════════════════════ */
     .reviews { padding: 60px 0; }
     .reviews__header { text-align: left; margin-bottom: 48px; }
-    .reviews__slider { position: relative; overflow: hidden; padding-top: 32px; margin-top: -16px; padding-bottom: 16px; margin-bottom: -16px; visibility: hidden; }
+    .reviews__slider { position: relative; overflow: hidden;}
     .reviews__track  { display: flex; gap: var(--card-gap); will-change: transform; }
     .reviews__track.is-animating { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
     .reviews__slide  { flex-shrink: 0; align-self: flex-start; transition: filter 0.5s, opacity 0.5s, transform 0.5s; filter: blur(8px); opacity: 0.45; }
     .no-transition .reviews__slide,
     .no-transition .slider__slide { transition: none; }
-    .reviews__slide.is-active { filter: blur(0); opacity: 1; transform: translateY(-32px); box-shadow: 3px 3px 12px var(--white_transparent10);}
+    .reviews__slide.is-active { filter: blur(0); opacity: 1;}
 
-    .review-card { background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%);
-    border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .review-card { border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px; }
     .review-card__meta   { display: flex; align-items: center; gap: 12px; margin-top: -36px;}
     .review-card__stars  { color: var(--gold); font-size: 13px; letter-spacing: 2px; }
     .review-card__source { font-size: 12px; color: var(--mediumgrey); }
     .review-card__quote  { font-size: 15px; color: var(--softgrey70); line-height: 1.7; font-style: italic; }
+
+    /* ════════════════════════════
+       BEWERTUNGEN V2 (::after Technik)
+    ════════════════════════════ */
+    .reviews--v2 .reviews__slider {
+      background: url('images/Reviews.jpg') center / 79.5% 300px no-repeat;
+    }
+    .reviews--v2 .review-card {
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      background-color: var(--delluxe_black_transparentC0);
+    }
+    .reviews--v2 .review-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+    .reviews--v2 .reviews__slide.is-active .review-card::after {
+      opacity: 0.23;
+      scale: 1.02;
+      background: url('images/Reviews.jpg') center / cover no-repeat fixed;
+    }
+    .reviews--v2 .review-card > * {
+      position: relative;
+      z-index: 1;
+    }
 
     /* ════════════════════════════
        FAQ
@@ -902,6 +929,81 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
     </div>
   </section>
 
+  <!-- ═══ BEWERTUNGEN V2 (::after Technik) ═══ -->
+  <section class="reviews reviews--v2" id="bewertungen-v2">
+    <div class="container">
+      <div class="reviews__header reveal">
+        <span class="eyebrow">Kundenstimmen V2</span>
+        <h2 class="section-title">Beulendoktor mit 4.9 auf Google</h2>
+      </div>
+
+      <div class="slider-dots" id="reviewsDotsV2"></div>
+      <div class="reviews__slider">
+        <div class="reviews__track" id="reviewsTrackV2">
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">Dominik Urbaniak</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2025-11"></span>
+              </div>
+              <p class="review-card__quote">Hatte mir eine blöde Delle am Kofferraum beim ausparken geholt. Ich habe mich aufgrund der Rezension vom Taxifahrer und der professionellen Website für Delluxe Dellen entschieden. Ich wurde super und transparent über die Schritte und Vorgehensweise informiert. Besonders gefallen hat mir, dass sich Zeit genommen wurde und alle möglichen Szenarien durchgegangen wurden. Dadurch habe ich mich sehr gut aufgehoben gefühlt. Das ganze drum herum war TOP - genau wie das Ergebnis.</p>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">Lucas Breinlinger</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2026-02"></span>
+              </div>
+              <p class="review-card__quote">Sehr professionell, sehr freundlich. Alle Zusagen inkl. Preis wurden eingehalten.
+                <br><br>Ich bin aufgrund zweier Dellen zu Dellen Deluxe gekommen. Eine wurde schon vorab von einem anderen Dienstleister bearbeitet, dieser konnte sie jedoch nicht restlos entfernen.
+Nach einem kurzem Besuch bei Dellen Deluxe sind beide Dellen glücklicherweise Geschichte.<br><br>Vielen Dank !</p>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">David Matzner</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2025-12"></span>
+              </div>
+              <p class="review-card__quote">Know-how und Perfektion vereint. Meine Anlaufstelle seit Jahren wenn es um kompetente Dellenreparatur geht. Ob Mega-Hagelschaden oder Parkrempler, ich wurde vom Ergebnis noch nie enttäuscht und freue mich auf lange weitere Zusammenarbeit!</p>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">Angi Stimmelmayr</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2025-09"></span>
+              </div>
+              <p class="review-card__quote">Super Arbeit, überaus freundlich und hilfsbereit!!!<br>
+War mit meinem 10 Jahre alten Golf bei Hr. Rizmann und seinem Mitarbeiter Andi.<br>
+Fahrzeug sollte wegen Verkauf gleich von mehreren Wehwehchen befreit werden. Parkdelle an der Türe, alte eingebrannte Vogelcodestellen am Lack, Ein bzw. Ausladespuren am Stoßfänger hinten, rostiger AHK-Kopf sowie ein alter Hagelschaden am Dach.
+Und nun zitiere ich die Worte des Käufers als er das Fahrezeug nach der Behandlung bei Delluxe Dellen GmbH bei mir abholte: Der steht ja da wie ein Neuwagen.
+Vielen Dank liebes Delluxe Dellen Team.<br>
+Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. Mehr kann man nicht sagen!!! Weiter so!!!</p>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="review-card">
+              <span class="eyebrow">Yi Yu</span>
+              <div class="review-card__meta">
+                <span class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="review-card__source" data-review-date="2025-04"></span>
+              </div>
+              <p class="review-card__quote">Kleine Delle an der Tür wurde schnell und professionell entfernt, danach ist die Delle perfekt verschwunden. Sehr freundliches Personal! Absolut zu empfehlen! Vorher besser immer anrufen um einen Termin zu bekommen, alles sehr unkompliziert gelaufen.</p>
+            </div>
+          </div>
+        </div>
+        <button class="slider__btn slider__btn--prev" id="reviewsPrevV2" aria-label="Vorherige Bewertung">&#8249;</button>
+        <button class="slider__btn slider__btn--next" id="reviewsNextV2" aria-label="Nächste Bewertung">&#8250;</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ FAQ ═══ -->
   <section class="faq">
     <div class="container">
@@ -1384,12 +1486,11 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       }
     });
 
-    // Reviews: Infinite Slider mit Blur
+    // Reviews: Infinite Slider
     const reviewsTrack = document.getElementById('reviewsTrack');
     const origReviews  = [...reviewsTrack.children];
     const reviewCount  = origReviews.length;
 
-    // Reviews-Dots erstellen
     const rDotsEl = document.getElementById('reviewsDots');
     if (rDotsEl) {
       origReviews.forEach((_, i) => {
@@ -1455,12 +1556,88 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
     document.getElementById('reviewsPrev').addEventListener('click', () => { clearInterval(rAutoPlay); rPrev(); rAutoPlay = setInterval(rNext, 5000); });
     document.getElementById('reviewsNext').addEventListener('click', () => { clearInterval(rAutoPlay); rNext(); rAutoPlay = setInterval(rNext, 5000); });
 
-    // Reviews: Touch-Swipe (mobile)
     let rTouchX = 0;
     reviewsTrack.parentElement.addEventListener('touchstart', e => { rTouchX = e.touches[0].clientX; }, { passive: true });
     reviewsTrack.parentElement.addEventListener('touchend', e => {
       const dx = e.changedTouches[0].clientX - rTouchX;
       if (Math.abs(dx) > 40) { clearInterval(rAutoPlay); dx < 0 ? rNext() : rPrev(); rAutoPlay = setInterval(rNext, 5000); }
+    }, { passive: true });
+
+    // Reviews V2: Infinite Slider (::after Technik)
+    const reviewsTrackV2 = document.getElementById('reviewsTrackV2');
+    const origReviewsV2  = [...reviewsTrackV2.children];
+    const reviewCountV2  = origReviewsV2.length;
+
+    const rDotsElV2 = document.getElementById('reviewsDotsV2');
+    if (rDotsElV2) {
+      origReviewsV2.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'dot' + (i === 0 ? ' active' : '');
+        rDotsElV2.appendChild(dot);
+      });
+    }
+
+    origReviewsV2.forEach(s => reviewsTrackV2.insertBefore(s.cloneNode(true), reviewsTrackV2.firstChild));
+    origReviewsV2.forEach(s => reviewsTrackV2.appendChild(s.cloneNode(true)));
+
+    let rCurrentV2 = reviewCountV2;
+    let rAutoPlayV2;
+
+    function rContainerWV2() { return reviewsTrackV2.parentElement.offsetWidth; }
+    function rSlideElemWV2() { return rContainerWV2() * SLIDE_RATIO; }
+    function rPeekV2()       { return (rContainerWV2() - rSlideElemWV2()) / 2; }
+    function rSlideWidthV2() { return rSlideElemWV2() + GAP; }
+
+    function rSetWidthsV2() {
+      const w = rSlideElemWV2() + 'px';
+      [...reviewsTrackV2.children].forEach(s => s.style.width = w);
+    }
+    rSetWidthsV2();
+    window.addEventListener('resize', () => { rSetWidthsV2(); rGoToV2(rCurrentV2, false); });
+
+    function rGoToV2(index, animate = true) {
+      if (animate) {
+        reviewsTrackV2.classList.add('is-animating');
+      } else {
+        reviewsTrackV2.classList.add('no-transition');
+        reviewsTrackV2.classList.remove('is-animating');
+      }
+      rCurrentV2 = index;
+      reviewsTrackV2.style.transform = `translateX(${rPeekV2() - rCurrentV2 * rSlideWidthV2()}px)`;
+      [...reviewsTrackV2.children].forEach((s, i) => s.classList.toggle('is-active', i === rCurrentV2));
+      if (!animate) requestAnimationFrame(() => requestAnimationFrame(() => reviewsTrackV2.classList.remove('no-transition')));
+      const rRealIdxV2 = ((index - reviewCountV2) % reviewCountV2 + reviewCountV2) % reviewCountV2;
+      if (rDotsElV2) rDotsElV2.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === rRealIdxV2));
+    }
+
+    function rNextV2() {
+      rCurrentV2++;
+      rGoToV2(rCurrentV2);
+      if (rCurrentV2 >= reviewCountV2 * 2) setTimeout(() => rGoToV2(reviewCountV2, false), 620);
+    }
+
+    function rPrevV2() {
+      rCurrentV2--;
+      rGoToV2(rCurrentV2);
+      if (rCurrentV2 <= 0) setTimeout(() => rGoToV2(reviewCountV2, false), 620);
+    }
+
+    reviewsTrackV2.classList.add('no-transition');
+    rGoToV2(reviewCountV2, false);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      reviewsTrackV2.classList.remove('no-transition');
+      reviewsTrackV2.closest('.reviews__slider').style.visibility = 'visible';
+    }));
+    rAutoPlayV2 = setInterval(rNextV2, 5000);
+
+    document.getElementById('reviewsPrevV2').addEventListener('click', () => { clearInterval(rAutoPlayV2); rPrevV2(); rAutoPlayV2 = setInterval(rNextV2, 5000); });
+    document.getElementById('reviewsNextV2').addEventListener('click', () => { clearInterval(rAutoPlayV2); rNextV2(); rAutoPlayV2 = setInterval(rNextV2, 5000); });
+
+    let rTouchXV2 = 0;
+    reviewsTrackV2.parentElement.addEventListener('touchstart', e => { rTouchXV2 = e.touches[0].clientX; }, { passive: true });
+    reviewsTrackV2.parentElement.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - rTouchXV2;
+      if (Math.abs(dx) > 40) { clearInterval(rAutoPlayV2); dx < 0 ? rNextV2() : rPrevV2(); rAutoPlayV2 = setInterval(rNextV2, 5000); }
     }, { passive: true });
 
     // Footer Akkordeon (Mobile)
