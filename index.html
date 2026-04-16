@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="images/Logo/Icon_passend.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Delluxe-Dellen GmbH – Lackfreie Dellenreparatur Eichenau bei München</title>
   <meta name="description" content="Meisterbetrieb für lackfreie Dellenreparatur (PDR) in Eichenau bei München. Hagelschaden, Smart Repair, Leasingrückgabe. ★ 5.0 Google. Jetzt anfragen." />
@@ -84,6 +85,7 @@
       --max-width:          1240px;
       --radius:             20px;
       --card-gap:           24px;
+      --section-padding:    120px;
     }
 
     html { scroll-behavior: smooth; }
@@ -242,7 +244,7 @@
     /* ════════════════════════════
        STATEMENT
     ════════════════════════════ */
-    .statement { padding: 60px 0; border-bottom: 1px solid var(--black_transparent20); }
+    .statement { padding: var(--section-padding) 0; border-bottom: 1px solid var(--black_transparent20); }
     .statement__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
     .statement__title {
       font-family: 'Bodoni Moda', serif;
@@ -257,7 +259,7 @@
     /* ════════════════════════════
        LEISTUNGEN
     ════════════════════════════ */
-    .services { padding: 60px 0; }
+    .services { padding: var(--section-padding) 0; }
 
     .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
     .section-title { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(32px, 3.8vw, 52px); line-height: 1.1; letter-spacing: -.05em; color: var(--delluxe_white); }
@@ -290,7 +292,7 @@
     /* ════════════════════════════
        GALERIE / SLIDER
     ════════════════════════════ */
-    .gallery { padding: 60px 0; }
+    .gallery { padding: var(--section-padding) 0; }
     .gallery__header { margin-bottom: 40px; }
 
 
@@ -325,7 +327,7 @@
     /* ════════════════════════════
        NACHHALTIGKEIT
     ════════════════════════════ */
-    .sustainability { padding: 60px 0; background: var(--delluxe_black); border-top: 1px solid var(--black_transparent20); border-bottom: 1px solid var(--black_transparent20); }
+    .sustainability { padding: var(--section-padding) 0; background: var(--delluxe_black); border-top: 1px solid var(--black_transparent20); border-bottom: 1px solid var(--black_transparent20); }
     .sustainability__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 
     .sustainability__text  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; margin-bottom: 32px; }
@@ -342,7 +344,7 @@
     /* ════════════════════════════
        BEWERTUNGEN
     ════════════════════════════ */
-    .reviews { padding: 60px 0; }
+    .reviews { padding: var(--section-padding) 0; }
     .reviews__header { text-align: left; margin-bottom: 48px; }
     .reviews__slider { position: relative; overflow: hidden; visibility: hidden; }
     .reviews__track  { display: flex; gap: var(--card-gap); will-change: transform; }
@@ -408,7 +410,7 @@
     /* ════════════════════════════
        FAQ
     ════════════════════════════ */
-    .faq { padding: 60px 0; }
+    .faq { padding: var(--section-padding) 0; }
     .faq__header { margin-bottom: 48px; }
 
     .faq__list   { display: flex; flex-direction: column; gap: 8px; }
@@ -432,7 +434,7 @@
        CTA
     ════════════════════════════ */
     /* ── FAQ VARIANTE 6: Fullwidth zentriert ── */
-    .faq-full { padding: 60px 0; text-align: center; }
+    .faq-full { padding: var(--section-padding) 0; text-align: center; }
     .faq-full__header { margin-bottom: 48px; }
     .faq-full__list { display: flex; flex-direction: column; gap: 0; }
     .faq-full__item { width: 100%; text-align: center; border-top: 1px solid var(--softgreen_transparent50); }
@@ -447,7 +449,7 @@
     .faq-full__answer p { font-size: 14px; color: var(--softgrey70); line-height: 1.75; padding-top: 16px; border-top: 1px solid var(--black_transparent20); }
 
     /* ── FAQ VARIANTE 4: Mit Bild ── */
-    .faq-image { padding: 60px 0; }
+    .faq-image { padding: var(--section-padding) 0; }
     .faq-image__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .faq-image__list { display: flex; flex-direction: column; gap: 4px; }
     .faq-image__item { padding: 20px 24px; border-radius: var(--radius); cursor: pointer; transition: background 0.2s; }
@@ -460,7 +462,7 @@
     .faq-image__visual img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s; }
 
     /* ── FAQ VARIANTE 5: Tab-Layout ── */
-    .faq-tabs { padding: 60px 0; }
+    .faq-tabs { padding: var(--section-padding) 0; }
     .faq-tabs__nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
     .faq-tabs__tab { padding: 10px 20px; border-radius: 999px; border: 1px solid var(--white_transparent10); background: none; color: var(--softgrey70); font-size: 14px; font-family: 'Instrument Sans', sans-serif; cursor: pointer; transition: all 0.2s; }
     .faq-tabs__tab.is-active { background: var(--delluxe_green); color: var(--delluxe_black); border-color: var(--delluxe_green); font-weight: 600; }
@@ -468,7 +470,7 @@
     .faq-tabs__panel.is-active { display: block; }
     .faq-tabs__answer { font-size: 16px; color: var(--softgrey80); line-height: 1.8; max-width: 760px; padding: 40px; background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%); border-radius: var(--radius); }
 
-    .cta { padding: 60px 0; }
+    .cta { padding: var(--section-padding) 0; }
     .cta__box {
       padding: 60px 60px; text-align: center; position: relative; overflow: hidden;
     }
@@ -722,8 +724,6 @@
         <span>Eichenau bei München</span>
         <span class="hero__subtitle-dot"></span>
         <span><span class="hero__subtitle-star">&#9733;</span> 4.9 auf Google</span>
-        <span class="hero__subtitle-dot"></span>
-        <span>4.9 <span class="hero__subtitle-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span> auf Google</span>
       </div>
     </div>
   </section>
@@ -740,10 +740,6 @@
           </h2>
           <div class="statement__buttons">
             <a href="#kontakt" class="btn btn--green">Jetzt anfragen</a>
-            <a href="https://wa.me/4917622835683" class="btn btn--secondary" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-              WhatsApp
-           </a>
                        <a href="https://wa.me/4917622835683" class="btn btn--secondary" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
               WhatsApp
@@ -839,7 +835,7 @@
     <div class="container">
       <div class="section-header reveal">
         <div>
-          <span class="eyebrow" style="color: var(--delluxe_green);">Green Repair</span>
+          <span class="eyebrow" style="color: var(--delluxe_green);"><svg viewBox="0 0 24 36" width="10" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px;margin-bottom:2px;transform:rotate(35deg)"><path d="M12 2 C8 6 2 12 2 20 C2 24 6 27 12 27 C18 27 22 24 22 20 C22 12 16 6 12 2Z"/><path d="M12 27 Q11 22 12 15"/><path d="M12 27 Q11 31 10 34"/></svg>Green Repair</span>
           <h2 class="section-title">Nachhaltige Dellenreparatur ohne Lack</h2>
         </div>
         <div style="display: flex; flex-direction: column; gap: 24px;">
@@ -1098,7 +1094,7 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
         <div class="cta__actions">
           <a href="#kontakt" class="btn btn--green"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>08141 890 8558</a>
           <a href="https://wa.me/4917622835683" class="btn btn--secondary" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
             WhatsApp
           </a>
         </div>
@@ -1183,8 +1179,8 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
   <div class="anfragen-float">
     <button class="anfragen-float__trigger"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Anfragen</button>
     <div class="anfragen-float__menu">
-      <a href="https://wa.me/4917622835683" class="anfragen-float__item" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp</a>
       <a href="tel:+4981418908558" class="anfragen-float__item"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>08141 890 8558</a>
+      <a href="https://wa.me/4917622835683" class="anfragen-float__item" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp</a>
       <a href="#kontakt" class="anfragen-float__item"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>Mail</a>
     </div>
   </div>
