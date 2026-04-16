@@ -82,7 +82,7 @@
       --white_transparent15:  #FFFFFF26;
       
       --max-width:          1240px;
-      --radius:             3px;
+      --radius:             20px;
       --card-gap:           24px;
     }
 
@@ -360,8 +360,16 @@
     .review-card__source { font-size: 12px; color: #e5e5e250; }
     .review-card__quote  { font-size: 15px; color: var(--softgrey70); line-height: 1.7; font-style: italic; }
 
-    .reviews .reviews__slider {
-      background: url('images/Reviews.jpg') center / 79.5% auto no-repeat;
+    .reviews .reviews__bg {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 79.5%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: url('images/Reviews.jpg') center / cover no-repeat;
+      border-radius: var(--radius);
+      z-index: 0;
+      pointer-events: none;
     }
     .reviews .review-card {
       height: 300px;
@@ -604,8 +612,8 @@
       .slider-dots { display: flex; margin-top: 16px; }
       #reviewsDotsV2 { margin-top: 0; margin-bottom: 16px; }
       .reviews .review-card { height: 600px; }
-      .reviews .reviews__slider { background-size: 100% 600px; }
-      .reviews .reviews__slide.is-active .review-card::after { background-size: 100% 600px; }
+      .reviews .reviews__bg { width: 100%; }
+      .reviews .reviews__slide.is-active .review-card::after { background-size: cover; }
       .metrics-grid { grid-template-columns: 1fr 1fr; }
       .sustain-cards { display: flex !important; overflow-x: scroll; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin-top: 32px !important; gap: 0; }
       .sustain-cards::-webkit-scrollbar { display: none; }
@@ -879,6 +887,7 @@
 
       <div class="slider-dots" id="reviewsDotsV2"></div>
       <div class="reviews__slider">
+        <div class="reviews__bg"></div>
         <div class="reviews__track" id="reviewsTrackV2">
           <div class="reviews__slide">
             <div class="review-card">
