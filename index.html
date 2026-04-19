@@ -63,6 +63,10 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      --test_green1: #a8e890;
+      --test_green2: #b8f0a0;
+      --test_green3: #c5f0b0;
+      --test_green4: #d4f5c0;
       --delluxe_green:        #6cd141;
       --delluxe_green_transparent25: #6cd14125;
       --softgreen:            #dcffe8fa;
@@ -155,6 +159,15 @@
 
     .btn--secondary_transparent { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); backdrop-filter: blur(8px);}
     .btn--secondary_transparent_green { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--delluxe_green); border: 1px solid var(--softgreen_transparent50); backdrop-filter: blur(8px);}
+
+.btn--green1 { background: var(--test_green1); color: var(--delluxe_black);border: none; }
+.btn--green2 { background: var(--test_green2); color: var(--delluxe_black);border: none; }
+.btn--green3 { background: var(--test_green3); color: var(--delluxe_black);border: none; }
+.btn--green4 { background: var(--test_green4); color: var(--delluxe_black);border: none; }
+.btn--secondary1 { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--test_green1); border: 1px solid var(--softgreen_transparent50); }
+.btn--secondary2 { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--test_green2); border: 1px solid var(--softgreen_transparent50); }
+.btn--secondary3 { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--test_green3); border: 1px solid var(--softgreen_transparent50); }
+.btn--secondary4 { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--test_green4); border: 1px solid var(--softgreen_transparent50); }
 
     .btn--outline {
       background: transparent;
@@ -843,8 +856,19 @@
             <a href="#" class="btn btn--ghostgreen">GhostgreenI</a>
             <a href="#" class="btn btn--ghostgreenII">GhostgreenII</a>
             <a href="#" class="btn btn--secondary_transparent_green">second grün trans</a>
+            </div><div class="btn-demo">
+            <a href="#" class="btn btn--green1">green 1</a>
+            <a href="#" class="btn btn--secondary1">green 1</a>
+            </div><div class="btn-demo">
+            <a href="#" class="btn btn--green2">green 2</a>
+            <a href="#" class="btn btn--secondary2">green 2</a>
+            </div><div class="btn-demo">
+            <a href="#" class="btn btn--green3">green 3</a>
+            <a href="#" class="btn btn--secondary3">green 3</a>
+            </div><div class="btn-demo">
+            <a href="#" class="btn btn--green4">green 4</a>
+            <a href="#" class="btn btn--secondary4">green 4</a>
           </div>
-
   </section>
 
   <!-- ═══ LEISTUNGEN ═══ -->
