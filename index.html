@@ -135,7 +135,15 @@
       transition: opacity 0.2s, transform 0.2s;
     }
     .btn:hover { color: var(--delluxe_white); box-shadow: 0 3px 12px var(--white_transparent10); transform: translateY(-1px); }
-    .btn--green   { background: var(--softgreen); color: var(--delluxe_black); }
+    .btn--green   { background: var(--softgreen); color: var(--delluxe_black); position: relative; }
+    .btn--green::before {
+      content: '';
+      position: absolute;
+      inset: 4px; /* Abstand nach außen */
+      border-radius: inherit; /* übernimmt den border-radius vom Elternelement */
+      border: 2px solid var(--delluxe_black);
+    }
+    .btn--green:hover { color: var(--delluxe_black)}
     .btn--ghost   { background: var(--black_transparent20); border: 1px solid var(--white_transparent15); color: var(--softgrey70); backdrop-filter: blur(8px); }
     .btn--small   { padding: 6px 18px; font-size: 15px; }
     .btn--secondary { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); }
