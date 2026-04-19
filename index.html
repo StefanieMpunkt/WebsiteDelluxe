@@ -356,7 +356,10 @@
     .slider__slide { height: 80%; position: relative; flex-shrink: 0; border-radius: var(--radius); overflow: hidden; background: var(--delluxe_black); transition: filter 0.5s, opacity 0.5s, height 0.5s; filter: blur(8px); opacity: 0.45; }
     .slider__slide.is-active { height: 100%; filter: blur(0); opacity: 1;}
     .slider__image   { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-    .slider__overlay { display: none; }
+    .slider__overlay {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%);
+    }
 
     .slider__btn {
       position: absolute; top: 50%; transform: translateY(-50%);
@@ -419,10 +422,11 @@
     .reviews .reviews__bg {
       position: absolute;
       top: 0; bottom: 0;
-      width: 79.5%;
+      width: 80%;
       left: 50%;
       transform: translateX(-50%);
-      background: url('images/Reviews.jpg') center / cover no-repeat;
+      background: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%),
+                  url('images/Reviews.jpg') center / cover no-repeat;
       border-radius: var(--radius);
       z-index: 0;
       pointer-events: none;
