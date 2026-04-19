@@ -150,6 +150,12 @@
 
     /* ── ALTERNATIVE BUTTON-VARIANTEN ── */
     /* Outline: kein Fill, nur softgreen-Rand */
+    .btn--ghostgreen   { background: var(--delluxe_green_transparent25); border: 1px solid var(--white_transparent15); color: var(--delluxe_green); backdrop-filter: blur(8px); }
+    .btn--ghostgreenII   { background: var(--delluxe_black_transparent55); border: 1px solid var(--white_transparent15); color: var(--delluxe_green); backdrop-filter: blur(8px); }
+
+    .btn--secondary_transparent { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); backdrop-filter: blur(8px);}
+    .btn--secondary_transparent_green { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--delluxe_green); border: 1px solid var(--softgreen_transparent50); backdrop-filter: blur(8px);}
+
     .btn--outline {
       background: transparent;
       border: 1.5px solid var(--softgreen);
@@ -318,7 +324,6 @@
 
     .service-card {
       position: relative; overflow: hidden;
-      background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%);
       border-radius: var(--radius); padding: 36px;
       display: flex; flex-direction: column; gap: 14px;
       transition: transform 0.25s, box-shadow 0.25s;
@@ -331,10 +336,11 @@
     }
     .service-card:hover .service-card__bg { filter: blur(4px); opacity: 0.45; }
     .service-card > *:not(.service-card__bg) { position: relative; z-index: 1; }
+    .service-card > .btn { margin-top: auto; align-self: flex-end; }
     .service-card:hover { transform: translateY(-3px);}
     .service-card__number      { font-size: 11px; color: var(--mediumgrey); letter-spacing: 0.06em; }
     .subtitle { font-family: 'Bodoni Moda', serif; font-size: 30px; font-weight: 400; color: var(--delluxe_white); line-height: 1; margin-bottom: 16px;}
-    .service-card__link        { margin-top: auto; color: var(--delluxe_green); font-size: 14px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
+    .service-card__link        { margin-top: auto; align-self: flex-end; color: var(--delluxe_green); font-size: 14px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
     .service-card__link:hover  { gap: 10px; }
 
     /* ════════════════════════════
@@ -829,7 +835,9 @@
             <a href="#" class="btn btn--solid-green">Solid Green</a>
             <a href="#" class="btn btn--white">White</a>
             <a href="#" class="btn btn--gold">Gold</a>
-            <a href="#" class="btn btn--ghost">Ghost</a>
+            <a href="#" class="btn btn--ghostgreen">GhostgreenI</a>
+            <a href="#" class="btn btn--ghostgreenII">GhostgreenII</a>
+            <a href="#" class="btn btn--secondary_transparent_green">second grün trans</a>
           </div>
 
   </section>
@@ -849,34 +857,35 @@
       </div>
       <div class="services__grid" id="servicesGrid">
         <article class="service-card reveal">
-          <div class="service-card__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');"></div>
+          <div class="service-card__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');"></div>
           <span class="service-card__number">I</span>
           <h3 class="subtitle">Lackfreie Dellenreparatur</h3>
           <p class="section-text">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
-          <!--<a href="#" class="service-card__link">Mehr erfahren &rarr;</a>-->
-          <a href="#Dellenreparatur" class="btn btn--ghost btn--small">Mehr erfahren</a>
+          <!--<a href="#" class="service-card__link">Mehr erfahren</a>-->
+          <a href="#Dellenreparatur" class="btn btn--secondary_transparent_green btn--small">Mehr erfahren</a>
         </article>
         <article class="service-card reveal" style="transition-delay:0.1s;">
-          <div class="service-card__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
+          <div class="service-card__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
           <span class="service-card__number">II</span>
           <h3 class="subtitle">Hagelschaden</h3>
           <p class="section-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
-          <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
+          <!--<a href="#" class="service-card__link">Mehr erfahren</a>-->
+          <a href="#Dellenreparatur" class="btn btn--ghostgreenII btn--small">Mehr erfahren</a>
         </article>
         <article class="service-card reveal" style="transition-delay:0.2s;">
-          <div class="service-card__bg" style="background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
+          <div class="service-card__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
           <span class="service-card__number">III</span>
           <h3 class="subtitle">Smart Repair</h3>
           <p class="section-text">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
           <!--<a href="#" class="service-card__link">Mehr erfahren &rarr;</a>-->
-          <a href="#Smart Repapair" class="btn btn--ghost btn--small">Mehr erfahren</a>
+          <a href="#Smart Repapair" class="btn btn--secondary_transparent btn--small">Mehr erfahren</a>
         </article>
         <article class="service-card reveal" style="transition-delay:0.3s;">
-          <div class="service-card__bg" style="background-image: radial-gradient(var(--delluxe_black_transparent85) 0%, var(--delluxe_black) 80%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');"></div>
+          <div class="service-card__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');"></div>
           <span class="service-card__number">IV</span>
           <h3 class="subtitle">Leasingrückgabe</h3>
           <p class="section-text">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
-          <a href="#" class="service-card__link">Mehr erfahren &rarr;</a>
+          <a href="#" class="service-card__link">Mehr erfahren</a>
         </article>
       </div>
       <div class="slider-dots" id="servicesDots"></div>
