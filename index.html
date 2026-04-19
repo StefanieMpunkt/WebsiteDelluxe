@@ -423,11 +423,12 @@
     .slider__btn--prev { left: 16px; }
     .slider__btn--next { right: 16px; }
 
-    .slider__progress { display: none; height: 2px; background: var(--white_transparent10); margin-top: 16px; border-radius: 2px; overflow: hidden; }
+    .slider__progress { display: block; height: 2px; background: var(--white_transparent10); margin-top: 16px; border-radius: 2px; overflow: hidden; }
     .slider__progress-fill { height: 100%; width: 0; background: var(--softgreen); border-radius: 2px; transition: width 0.4s ease; }
 
     .slider-dots { display: none; justify-content: center; gap: 8px; }
-    .slider-dots .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--white_transparent10); border: 1px solid var(--white_transparent15); cursor: pointer; transition: background 0.2s; }
+    #svcDots, #svcDotsMirror, #reviewsDotsV2 { display: flex; }
+.slider-dots .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--white_transparent10); border: 1px solid var(--white_transparent15); cursor: pointer; transition: background 0.2s; }
     .slider-dots .dot.active { background: var(--delluxe_green); border-color: var(--delluxe_green); }
 
 
@@ -756,7 +757,6 @@
       .subtitle { font-size: 22px; }
       .faq__question, .faq__answer { width: 100%; }
       .slider__btn { display: none; }
-      .slider__progress { display: block; }
       .anfragen-float { right: 18px; }
       .footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 8px; }
 
@@ -969,7 +969,7 @@
         <button class="svc-slider__btn svc-slider__btn--prev" id="svcPrev" aria-label="Vorherige Karte">&#8249;</button>
         <button class="svc-slider__btn svc-slider__btn--next" id="svcNext" aria-label="Nächste Karte">&#8250;</button>
       </div>
-      <div class="slider-dots" id="svcDots" style="margin-top: 20px;"></div>
+      <div class="slider-dots" id="svcDots" style="margin-top: 12px;"></div>
     </div>
   </section>
 
@@ -1698,6 +1698,7 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       const GAP        = 20;
       const PEEK_R     = 0.12;
       const dotsEl     = document.getElementById('svcDots');
+      const allDotsEls = [dotsEl].filter(Boolean);
       let visible      = 3;
       let current      = COUNT; // startet in der mittleren (originalen) Kopie
 
@@ -1720,23 +1721,23 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       }
 
       function buildDots() {
-        if (!dotsEl) return;
-        dotsEl.innerHTML = '';
-        for (let i = 0; i < COUNT; i++) {
-          const d = document.createElement('button');
-          d.className = 'dot';
-          d.setAttribute('aria-label', 'Karte ' + (i + 1));
-          d.addEventListener('click', () => svcGoTo(COUNT + i));
-          dotsEl.appendChild(d);
-        }
-        dotsEl.style.display = 'flex';
+        allDotsEls.forEach(el => {
+          el.innerHTML = '';
+          for (let i = 0; i < COUNT; i++) {
+            const d = document.createElement('button');
+            d.className = 'dot';
+            d.setAttribute('aria-label', 'Karte ' + (i + 1));
+            d.addEventListener('click', () => svcGoTo(COUNT + i));
+            el.appendChild(d);
+          }
+          el.style.display = 'flex';
+        });
         updateDots();
       }
 
       function updateDots() {
-        if (!dotsEl) return;
         const ri = realIdx();
-        dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === ri));
+        allDotsEls.forEach(el => el.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === ri)));
       }
 
       function svcGoTo(index, animate = true) {
