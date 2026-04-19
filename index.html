@@ -532,8 +532,7 @@
     .faq-full__header { margin-bottom: 48px; }
     .faq-full__list { display: flex; flex-direction: column; gap: 0; }
     .faq-full__item { width: 100%; text-align: center; }
-    .faq-full__item::before { content: ''; display: block; height: 1px; width: 90%; margin: 0 auto; }
-    .faq-full__item:last-child::after { content: ''; display: block; height: 1px; width: 90%; margin: 0 auto; }
+    .faq-full__item + .faq-full__item::before { content: ''; display: block; height: 1px; width: 90%; margin: 0 auto; background: var(--softgreen_transparent50); }
     .faq-full__question { width: 100%; display: flex; align-items: center; justify-content: center; gap: 20px; padding: 20px 24px;
       background: none;
       border: none; outline: none;
@@ -725,7 +724,7 @@
       .navbar__mobile-bar.scrollhide { transform: translateY(-15%); }
       .anfragen-float__item { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--white_transparent10); background: var(--black_transparent20); }
       .hero__title { font-size: clamp(52px, 14vw, 80px); }
-      .hero__subtitle {flex-wrap: wrap; gap: 6px 12px; }
+      .hero__subtitle {flex-wrap: wrap; gap: 6px 12px; font-size: 13px; }
       .hero__subtitle span { white-space: nowrap; } 
       .statement__inner, .section-header, .sustainability__inner { grid-template-columns: 1fr; gap: 32px; }
       .services__grid { display: flex; overflow-x: scroll; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 12px; padding: 0 6% 4px; }
@@ -1181,7 +1180,7 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
     </div>
   </section>
 
-  <!-- ═══ FAQ VARIANTE 6: Fullwidth zentriert ═══ -->
+  <!-- ═══ FAQ mobil ═══ -->
   <section class="faq-full">
     <div class="container">
       <div class="faq-full__header reveal">
@@ -1213,7 +1212,7 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
     </div>
   </section>
 
-  <!-- ═══ FAQ VARIANTE 4: Mit Bild ═══ -->
+  <!-- ═══ FAQ Desktop ═══ -->
   <section class="faq-image">
     <div class="container">
       <div class="faq__header reveal" style="margin-bottom: 48px;">
