@@ -358,7 +358,7 @@
     .slider__image   { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
     .slider__overlay {
       position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%);
+      background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%);
     }
 
     .slider__btn {
@@ -425,7 +425,7 @@
       width: 80%;
       left: 50%;
       transform: translateX(-50%);
-      background: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%),
+      background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%),
                   url('images/Reviews.jpg') center / cover no-repeat;
       border-radius: var(--radius);
       z-index: 0;
@@ -441,7 +441,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--delluxe_black_transparentC0);
+      background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparentC0) 50%, var(--delluxe_black) 100%);
       opacity: 0;
       transition: opacity 0.2s 0.2s;
       z-index: 1;
