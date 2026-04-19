@@ -520,35 +520,20 @@
     /* ════════════════════════════
        FAQ
     ════════════════════════════ */
-    .faq { padding: var(--section-padding) 0; }
     .faq__header { margin-bottom: 48px; }
-
-    .faq__list   { display: flex; flex-direction: column; gap: 8px; }
-
-    .faq__item { background: transparent;}
-
-    .faq__question { width: 80%; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;
-      background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%);
-      border: 1px solid; border-color: var(--softgreen_transparent10); outline: none; border-radius: var(--radius);
-      font-family: 'Instrument Sans', sans-serif; font-size: 18px; color: var(--delluxe_white); font-weight: 500; text-align: left; cursor: pointer; gap: 20px; transition: color 0.2s; }
-    .faq__question:hover .faq__icon { border-color: var(--delluxe_green); color: var(--delluxe_green); }
-
     .faq__icon { width: 28px; height: 28px; border: 1px solid var(--white_transparent15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; color: var(--softgrey70); transition: transform 0.3s, border-color 0.2s, color 0.2s; }
-    .faq__item.faq__item--open .faq__icon { transform: rotate(45deg); border-color: var(--delluxe_green); color: var(--delluxe_green); }
-
-    .faq__answer { width: 80%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 28px; }
-    .faq__item.faq__item--open .faq__answer { max-height: 300px; padding: 0 16px 24px; }
-    .faq__answer p { font-size: 15px; color: var(--softgrey70); line-height: 1.75; padding-top: 16px;}
 
     /* ════════════════════════════
        CTA
     ════════════════════════════ */
-    /* ── FAQ VARIANTE 6: Fullwidth zentriert ── */
-    .faq-full { padding: var(--section-padding) 0; text-align: center; }
+    /* ── FAQ VARIANTE 6: Fullwidth zentriert (nur Mobile) ── */
+    .faq-full { display: none; padding: var(--section-padding) 0; text-align: center; }
+    /* ── FAQ VARIANTE 4: Mit Bild (nur Desktop) ── */
     .faq-full__header { margin-bottom: 48px; }
     .faq-full__list { display: flex; flex-direction: column; gap: 0; }
-    .faq-full__item { width: 100%; text-align: center; border-top: 1px solid var(--softgreen_transparent50); }
-    .faq-full__item:last-child { border-bottom: 1px solid var(--softgreen_transparent50); }
+    .faq-full__item { width: 100%; text-align: center; }
+    .faq-full__item::before { content: ''; display: block; height: 1px; width: 90%; margin: 0 auto; }
+    .faq-full__item:last-child::after { content: ''; display: block; height: 1px; width: 90%; margin: 0 auto; }
     .faq-full__question { width: 100%; display: flex; align-items: center; justify-content: center; gap: 20px; padding: 20px 24px;
       background: none;
       border: none; outline: none;
@@ -558,18 +543,18 @@
     .faq-full__item.faq-full__item--open .faq-full__answer { max-height: 300px; padding: 0 28px 24px; }
     .faq-full__answer p { font-size: 14px; color: var(--softgrey70); line-height: 1.75; padding-top: 16px; border-top: 1px solid var(--black_transparent20); }
 
-    /* ── FAQ VARIANTE 4: Mit Bild ── */
     .faq-image { padding: var(--section-padding) 0; }
     .faq-image__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .faq-image__list { display: flex; flex-direction: column; gap: 4px; }
-    .faq-image__item { padding: 20px 24px; border-radius: var(--radius); cursor: pointer; transition: background 0.2s; }
-    .faq-image__item.is-active { background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%); }
+    .faq-image__list { display: flex; flex-direction: column; gap: 0; }
+    .faq-image__item { padding: 20px 24px; border-radius: 0; cursor: pointer; transition: background 0.2s; }
+    .faq-image__item + .faq-image__item { border-top: 1px solid var(--softgreen_transparent50); }
     .faq-image__q { font-size: 16px; font-weight: 500; color: var(--softgrey70); transition: color 0.2s; }
     .faq-image__item.is-active .faq-image__q { color: var(--delluxe_white); }
     .faq-image__a { font-size: 14px; color: var(--softgrey50); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.3s, padding 0.3s; }
     .faq-image__item.is-active .faq-image__a { max-height: 200px; padding-top: 10px; color: var(--softgrey70); }
-    .faq-image__visual { position: sticky; top: 120px; border-radius: var(--radius); overflow: hidden; height: 400px; }
-    .faq-image__visual img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s; }
+    .faq-image__visual { position: sticky; top: 120px; border-radius: var(--radius); overflow: hidden; height: 400px; isolation: isolate; }
+    .faq-image__visual img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s; display: block; }
+    .faq-image__visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%); pointer-events: none; }
 
     /* ── FAQ VARIANTE 5: Tab-Layout ── */
     .faq-tabs { padding: var(--section-padding) 0; }
@@ -757,7 +742,8 @@
       .sustain-card { flex: 0 0 85%; scroll-snap-align: center; border-right: none !important; border-top: 1px solid var(--softgreen_transparent50); border-bottom: 1px solid var(--softgreen_transparent50); padding: 24px !important; }
       .cta__box { padding: 48px 24px; }
       .subtitle { font-size: 22px; }
-      .faq__question, .faq__answer { width: 100%; }
+      .faq-full { display: block; }
+      .faq-image { display: none; }
       .slider__btn { display: none; }
       .anfragen-float { right: 18px; }
       .footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 8px; }
@@ -926,42 +912,42 @@
       <div class="svc-slider" id="svcSlider">
         <div class="svc-slider__track" id="svcTrack">
           <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');"></div>
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');"></div>
             <span class="service-card__number">I</span>
             <h3 class="subtitle">Lackfreie Dellenreparatur</h3>
             <p class="section-text">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
             <a href="#Dellenreparatur" class="btn btn--secondary_transparent_green btn--small">Mehr erfahren</a>
           </article>
           <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
             <span class="service-card__number">II</span>
             <h3 class="subtitle">Hagelschaden</h3>
             <p class="section-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
             <a href="#Dellenreparatur" class="btn btn--ghostgreenII btn--small">Mehr erfahren</a>
           </article>
           <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
             <span class="service-card__number">III</span>
             <h3 class="subtitle">Smart Repair</h3>
             <p class="section-text">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
             <a href="#Smart%20Repair" class="btn btn--secondary_transparent btn--small">Mehr erfahren</a>
           </article>
           <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');"></div>
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');"></div>
             <span class="service-card__number">IV</span>
             <h3 class="subtitle">Leasingrückgabe</h3>
             <p class="section-text">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
             <a href="#" class="service-card__link">Mehr erfahren</a>
           </article>
           <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
             <span class="service-card__number">V</span>
             <h3 class="subtitle">Hagelschaden</h3>
             <p class="section-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
             <a href="#Dellenreparatur" class="btn btn--ghost btn--small">Mehr erfahren</a>
           </article>
           <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) ,0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
             <span class="service-card__number">VI</span>
             <h3 class="subtitle">Smart Repair</h3>
             <p class="section-text">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
@@ -1195,38 +1181,6 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
     </div>
   </section>
 
-  <!-- ═══ FAQ ═══ -->
-  <section class="faq">
-    <div class="container">
-      <div class="faq__header reveal">
-        <span class="eyebrow">Häufige Fragen</span>
-        <h2 class="section-title">Was sie wissen sollten</h2>
-      </div>
-      <div class="faq__list reveal">
-        <div class="faq__item">
-          <button class="faq__question">Was kostet eine Dellenreparatur beim Beulendoktor?<span class="faq__icon">+</span></button>
-          <div class="faq__answer"><p>Kleine Dellen kosten 50&ndash;80&thinsp;&euro;, mittlere 80&ndash;150&thinsp;&euro;, Hagelschäden je nach Umfang 300&ndash;1.500&thinsp;&euro;. PDR ist bis zu 70&thinsp;% günstiger als konventionelle Lackierung &ndash; und der Originallack bleibt erhalten.</p></div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__question">Übernimmt die Versicherung die Kosten für Hagelschäden?<span class="faq__icon">+</span></button>
-          <div class="faq__answer"><p>Ja. Die Teilkaskoversicherung übernimmt Hagelschäden in der Regel vollständig &ndash; ohne Verlust des Schadenfreiheitsrabattes. Wir unterstützen Sie bei der Abwicklung.</p></div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__question">Wie lange dauert eine Dellenreparatur?<span class="faq__icon">+</span></button>
-          <div class="faq__answer"><p>Einzelne kleine Dellen sind in 1&ndash;3 Stunden behoben. Umfangreiche Hagelschäden benötigen je nach Fahrzeug 2&ndash;4 Tage. Sie erhalten in jedem Fall eine genaue Zeitangabe vor Beginn der Arbeiten.</p></div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__question">Kann jede Delle ohne Lackieren repariert werden?<span class="faq__icon">+</span></button>
-          <div class="faq__answer"><p>In den meisten Fällen ja &ndash; vorausgesetzt, der Originallack ist intakt und das Metall nicht überdehnt. Ausnahmen: scharfkantige Dellen, Karosserierippen und bereits nacklackierte Stellen. Wir begutachten Ihr Fahrzeug kostenfrei.</p></div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__question">Welche Gebiete rund um München bedient ihr?<span class="faq__icon">+</span></button>
-          <div class="faq__answer"><p>Unser Meisterbetrieb in Eichenau bedient München und den gesamten Münchner Westen: Germering, Puchheim, Fürstenfeldbruck, Starnberg und den Landkreis Fürstenfeldbruck im Umkreis von ca. 35&thinsp;km.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══ FAQ VARIANTE 6: Fullwidth zentriert ═══ -->
   <section class="faq-full">
     <div class="container">
@@ -1263,7 +1217,7 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
   <section class="faq-image">
     <div class="container">
       <div class="faq__header reveal" style="margin-bottom: 48px;">
-        <span class="eyebrow">Variante 4 · Mit Bild</span>
+        <span class="eyebrow">Häufige Fragen</span>
         <h2 class="section-title">Was sie wissen sollten</h2>
       </div>
       <div class="faq-image__inner reveal">
@@ -1870,15 +1824,6 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       updateFloatPos();
     })();
 
-    // FAQ: Accordion
-    document.querySelectorAll('.faq__question').forEach(button => {
-      button.addEventListener('click', () => {
-        const item   = button.closest('.faq__item');
-        const isOpen = item.classList.contains('faq__item--open');
-        document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('faq__item--open'));
-        if (!isOpen) item.classList.add('faq__item--open');
-      });
-    });
 
     // FAQ Variante 6: Fullwidth zentriert
     document.querySelectorAll('.faq-full__question').forEach(button => {
