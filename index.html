@@ -578,7 +578,9 @@
     .faq-tabs__tab.is-active { background: var(--delluxe_green); color: var(--delluxe_black); border-color: var(--delluxe_green); font-weight: 600; }
     .faq-tabs__panel { display: none; }
     .faq-tabs__panel.is-active { display: block; }
-    .faq-tabs__answer { font-size: 16px; color: var(--softgrey80); line-height: 1.8; max-width: 760px; padding: 40px; background: linear-gradient(180deg, var(--delluxe_black) 0%, var(--softgreen_transparent10) 50%, var(--delluxe_black) 100%); border-radius: var(--radius); }
+    .faq-tabs__answer { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; font-size: 16px; color: var(--softgrey80); line-height: 1.8; max-width: 760px; padding: 40px; border-radius: var(--radius); position: relative; overflow: hidden; }
+    .faq-tabs__answer > *:not(.svc-slide__bg) { position: relative; z-index: 1; }
+    .faq-tabs__answer .btn { align-self: flex-end; }
 
     .cta { padding: var(--section-padding) 0; }
     .cta__box {
@@ -973,6 +975,74 @@
     </div>
   </section>
 
+  <!-- ═══ LEISTUNGEN TABS ═══ -->
+  <section class="faq-tabs" id="leistungen-tabs">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <span class="eyebrow">Leistungen Tabs</span>
+          <h2 class="section-title">Lackfreie<br>Dellenreparatur<br>in München</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <p class="section-text">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
+          <a href="#Leistungen" class="btn btn--secondary">Alle Leistungen</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <nav class="faq-tabs__nav">
+          <button class="faq-tabs__tab is-active" data-tab="st1">Lackfreie Dellenreparatur</button>
+          <button class="faq-tabs__tab" data-tab="st2">Hagelschaden</button>
+          <button class="faq-tabs__tab" data-tab="st3">Smart Repair</button>
+          <button class="faq-tabs__tab" data-tab="st4">Leasingrückgabe</button>
+          <button class="faq-tabs__tab" data-tab="st5">Hagelschaden II</button>
+          <button class="faq-tabs__tab" data-tab="st6">Smart Repair II</button>
+        </nav>
+        <div class="faq-tabs__panel is-active" id="st1">
+          <div class="faq-tabs__answer">
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');"></div>
+            <p class="section-text">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
+            <a href="#Dellenreparatur" class="btn btn--ghost btn--small">Mehr erfahren</a>
+          </div>
+        </div>
+        <div class="faq-tabs__panel" id="st2">
+          <div class="faq-tabs__answer">
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
+            <p class="section-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
+            <a href="#Dellenreparatur" class="btn btn--ghost btn--small">Mehr erfahren</a>
+          </div>
+        </div>
+        <div class="faq-tabs__panel" id="st3">
+          <div class="faq-tabs__answer">
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
+            <p class="section-text">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
+            <a href="#Smart%20Repair" class="btn btn--ghost btn--small">Mehr erfahren</a>
+          </div>
+        </div>
+        <div class="faq-tabs__panel" id="st4">
+          <div class="faq-tabs__answer">
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');"></div>
+            <p class="section-text">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
+            <a href="#" class="btn btn--ghost btn--small">Mehr erfahren</a>
+          </div>
+        </div>
+        <div class="faq-tabs__panel" id="st5">
+          <div class="faq-tabs__answer">
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
+            <p class="section-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
+            <a href="#Dellenreparatur" class="btn btn--ghost btn--small">Mehr erfahren</a>
+          </div>
+        </div>
+        <div class="faq-tabs__panel" id="st6">
+          <div class="faq-tabs__answer">
+            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 7%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
+            <p class="section-text">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
+            <a href="#Smart%20Repair" class="btn btn--ghost btn--small">Mehr erfahren</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ GALERIE ═══ -->
   <section class="gallery" id="galerie">
     <div class="container">
@@ -1221,40 +1291,6 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
         </div>
         <div class="faq-image__visual">
           <img src="images/DiaShow/dellen-entfernen-muenchen-400x284.jpg" id="faqImg" alt="FAQ Bild" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FAQ VARIANTE 5: Tabs ═══ -->
-  <section class="faq-tabs">
-    <div class="container">
-      <div class="faq__header reveal" style="margin-bottom: 48px;">
-        <span class="eyebrow">Variante 5 · Tabs</span>
-        <h2 class="section-title">Was sie wissen sollten</h2>
-      </div>
-      <div class="reveal">
-        <nav class="faq-tabs__nav">
-          <button class="faq-tabs__tab is-active" data-tab="t1">Kosten</button>
-          <button class="faq-tabs__tab" data-tab="t2">Versicherung</button>
-          <button class="faq-tabs__tab" data-tab="t3">Dauer</button>
-          <button class="faq-tabs__tab" data-tab="t4">Lackieren</button>
-          <button class="faq-tabs__tab" data-tab="t5">Gebiet</button>
-        </nav>
-        <div class="faq-tabs__panel is-active" id="t1">
-          <div class="faq-tabs__answer">Kleine Dellen kosten 50–80&thinsp;€, mittlere 80–150&thinsp;€, Hagelschäden je nach Umfang 300–1.500&thinsp;€. PDR ist bis zu 70&thinsp;% günstiger als konventionelle Lackierung – und der Originallack bleibt erhalten.</div>
-        </div>
-        <div class="faq-tabs__panel" id="t2">
-          <div class="faq-tabs__answer">Ja. Die Teilkaskoversicherung übernimmt Hagelschäden in der Regel vollständig – ohne Verlust des Schadenfreiheitsrabattes. Wir unterstützen Sie bei der Abwicklung.</div>
-        </div>
-        <div class="faq-tabs__panel" id="t3">
-          <div class="faq-tabs__answer">Einzelne kleine Dellen sind in 1–3 Stunden behoben. Umfangreiche Hagelschäden benötigen je nach Fahrzeug 2–4 Tage. Sie erhalten in jedem Fall eine genaue Zeitangabe vor Beginn der Arbeiten.</div>
-        </div>
-        <div class="faq-tabs__panel" id="t4">
-          <div class="faq-tabs__answer">In den meisten Fällen ja – vorausgesetzt, der Originallack ist intakt und das Metall nicht überdehnt. Ausnahmen: scharfkantige Dellen, Karosserierippen und bereits nacklackierte Stellen. Wir begutachten Ihr Fahrzeug kostenfrei.</div>
-        </div>
-        <div class="faq-tabs__panel" id="t5">
-          <div class="faq-tabs__answer">Unser Meisterbetrieb in Eichenau bedient München und den gesamten Münchner Westen: Germering, Puchheim, Fürstenfeldbruck, Starnberg und den Landkreis Fürstenfeldbruck im Umkreis von ca. 35&thinsp;km.</div>
         </div>
       </div>
     </div>
@@ -1868,13 +1904,17 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
       });
     });
 
-    // FAQ Variante 5: Tabs
-    document.querySelectorAll('.faq-tabs__tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.faq-tabs__tab').forEach(t => t.classList.remove('is-active'));
-        document.querySelectorAll('.faq-tabs__panel').forEach(p => p.classList.remove('is-active'));
-        tab.classList.add('is-active');
-        document.getElementById(tab.dataset.tab).classList.add('is-active');
+    // Tabs (FAQ & Leistungen): jede Nav-Gruppe unabhängig
+    document.querySelectorAll('.faq-tabs__nav').forEach(nav => {
+      const container = nav.parentElement;
+      nav.querySelectorAll('.faq-tabs__tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          nav.querySelectorAll('.faq-tabs__tab').forEach(t => t.classList.remove('is-active'));
+          tab.classList.add('is-active');
+          container.querySelectorAll('.faq-tabs__panel').forEach(p => p.classList.remove('is-active'));
+          const panel = document.getElementById(tab.dataset.tab);
+          if (panel) panel.classList.add('is-active');
+        });
       });
     });
   </script>
