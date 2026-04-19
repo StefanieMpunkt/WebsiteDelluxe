@@ -147,6 +147,42 @@
     .btn--ghost   { background: var(--black_transparent20); border: 1px solid var(--white_transparent15); color: var(--softgrey70); backdrop-filter: blur(8px); }
     .btn--small   { padding: 6px 18px; font-size: 15px; }
     .btn--secondary { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); }
+
+    /* ── ALTERNATIVE BUTTON-VARIANTEN ── */
+    /* Outline: kein Fill, nur softgreen-Rand */
+    .btn--outline {
+      background: transparent;
+      border: 1.5px solid var(--softgreen);
+      color: var(--softgreen);
+    }
+    .btn--outline:hover { background: var(--softgreen_transparent10); color: var(--softgreen); }
+
+    /* Solid: kräftiges Delluxe-Grün */
+    .btn--solid-green {
+      background: var(--delluxe_green);
+      color: var(--delluxe_black);
+      border: none;
+    }
+    .btn--solid-green:hover { color: var(--delluxe_black); filter: brightness(1.1); }
+
+    /* White: hell, hoher Kontrast */
+    .btn--white {
+      background: var(--delluxe_white);
+      color: var(--delluxe_black);
+      border: none;
+    }
+    .btn--white:hover { color: var(--delluxe_black); }
+
+    /* Gold: Premium-Akzent */
+    .btn--gold {
+      background: transparent;
+      border: 1.5px solid var(--delluxe_green);
+      color: var(--delluxe_green);
+    }
+    .btn--gold:hover { background: #f5c51815; color: var(--gold); }
+
+    .btn-demo { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--white_transparent10); }
+    .btn-demo__label { font-size: 11px; color: var(--softgrey50); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px; width: 100%; }
     /* ════════════════════════════
        NAVIGATION
     ════════════════════════════ */
@@ -773,6 +809,15 @@
             Ihr Originallack ist <strong>unersetzlich.</strong><br>
             Konventionelle Reparaturen greifen in<br>Material und Oberfläche ein. Wir sind<br>die <italic_green>schonende Alternative.</italic_green>
           </h2>
+          <div class="btn-demo">
+            <div class="btn-demo__label">Button-Alternativen</div>
+            <a href="#" class="btn btn--outline">Outline</a>
+            <a href="#" class="btn btn--solid-green">Solid Green</a>
+            <a href="#" class="btn btn--white">White</a>
+            <a href="#" class="btn btn--gold">Gold</a>
+            <a href="#" class="btn btn--ghost">Ghost</a>
+          </div>
+
           <div class="statement__buttons">
             <a href="#kontakt" class="btn btn--green">Jetzt anfragen</a>
                        <a href="https://wa.me/4917622835683" class="btn btn--secondary" target="_blank" rel="noopener">
