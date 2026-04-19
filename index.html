@@ -85,7 +85,7 @@
       --max-width:          1240px;
       --radius:             20px;
       --card-gap:           24px;
-      --section-padding:    120px;
+      --section-padding:    140px;
     }
 
     html { scroll-behavior: smooth; }
@@ -285,6 +285,8 @@
     .hero__subtitle { display: flex; align-items: center; gap: 15px; font-size: 15px; color: var(--softgrey70); }
     .hero__subtitle-dot  { width: 3px; height: 3px; background: var(--mediumgrey); border-radius: 50%; flex-shrink: 0; }
     .hero__subtitle-star { color: var(--gold); }
+    .mobile-only { display: none; }
+    @media (max-width: 480px) { .mobile-only { display: block; } }
 
     /* ════════════════════════════
        STATEMENT
@@ -306,7 +308,8 @@
     ════════════════════════════ */
     .services { padding: var(--section-padding) 0; }
 
-    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
+    .section-header { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
+    .section-header .btn { align-self: flex-end; }
     .section-title { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(32px, 3.8vw, 52px); line-height: 1.1; letter-spacing: -.05em; color: var(--delluxe_white); }
     .section-text { font-size: 15px; color: var(--softgrey80); line-height: 1.75; margin-bottom: 16px; }
     .footer__links a  { font-size: 15px; color: var(--softgrey70); line-height: 1.75; }
@@ -328,7 +331,7 @@
     }
     .service-card:hover .service-card__bg { filter: blur(4px); opacity: 0.45; }
     .service-card > *:not(.service-card__bg) { position: relative; z-index: 1; }
-    .service-card:hover { transform: translateY(-3px); box-shadow: 3px 3px 12px var(--white_transparent10); }
+    .service-card:hover { transform: translateY(-3px);}
     .service-card__number      { font-size: 11px; color: var(--mediumgrey); letter-spacing: 0.06em; }
     .subtitle { font-family: 'Bodoni Moda', serif; font-size: 30px; font-weight: 400; color: var(--delluxe_white); line-height: 1; margin-bottom: 16px;}
     .service-card__link        { margin-top: auto; color: var(--delluxe_green); font-size: 14px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
@@ -673,6 +676,8 @@
       .navbar__mobile-bar.scrollhide { transform: translateY(-15%); }
       .anfragen-float__item { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--white_transparent10); background: var(--black_transparent20); }
       .hero__title { font-size: clamp(52px, 14vw, 80px); }
+      .hero__subtitle {flex-wrap: wrap; gap: 6px 12px; }
+      .hero__subtitle span { white-space: nowrap; } 
       .statement__inner, .section-header, .sustainability__inner { grid-template-columns: 1fr; gap: 32px; }
       .services__grid { display: flex; overflow-x: scroll; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 12px; padding: 0 6% 4px; }
       .services__grid::-webkit-scrollbar { display: none; }
@@ -790,11 +795,11 @@
         <span class="hero__title-line2">ist unsichtbar.</span>
       </div>
       <div class="hero__subtitle">
-        <span>Lackfreie Dellenreparatur</span>
+        <span>Lackfreie <br class="mobile-only">Dellenreparatur</span>
         <span class="hero__subtitle-dot"></span>
-        <span>Eichenau bei München</span>
+        <span>Eichenau <br class="mobile-only">bei München</span>
         <span class="hero__subtitle-dot"></span>
-        <span><span class="hero__subtitle-star">&#9733;</span> 4.9 auf Google</span>
+        <span><span class="hero__subtitle-star">&#9733;</span> 4.9 <br class="mobile-only">auf Google</span>
       </div>
     </div>
   </section>
@@ -809,15 +814,7 @@
             Ihr Originallack ist <strong>unersetzlich.</strong><br>
             Konventionelle Reparaturen greifen in<br>Material und Oberfläche ein. Wir sind<br>die <italic_green>schonende Alternative.</italic_green>
           </h2>
-          <div class="btn-demo">
-            <div class="btn-demo__label">Button-Alternativen</div>
-            <a href="#" class="btn btn--outline">Outline</a>
-            <a href="#" class="btn btn--solid-green">Solid Green</a>
-            <a href="#" class="btn btn--white">White</a>
-            <a href="#" class="btn btn--gold">Gold</a>
-            <a href="#" class="btn btn--ghost">Ghost</a>
-          </div>
-
+          
           <div class="statement__buttons">
             <a href="#kontakt" class="btn btn--green">Jetzt anfragen</a>
                        <a href="https://wa.me/4917622835683" class="btn btn--secondary" target="_blank" rel="noopener">
@@ -826,6 +823,15 @@
            </a>
           </div>
     </div>
+    <div class="btn-demo">
+            <div class="btn-demo__label">Button-Alternativen</div>
+            <a href="#" class="btn btn--outline">Outline</a>
+            <a href="#" class="btn btn--solid-green">Solid Green</a>
+            <a href="#" class="btn btn--white">White</a>
+            <a href="#" class="btn btn--gold">Gold</a>
+            <a href="#" class="btn btn--ghost">Ghost</a>
+          </div>
+
   </section>
 
   <!-- ═══ LEISTUNGEN ═══ -->
@@ -834,7 +840,7 @@
       <div class="section-header reveal">
         <div>
           <span class="eyebrow">Leistungen</span>
-          <h2 class="section-title">Lackfreie Dellenreparatur in München</h2>
+          <h2 class="section-title">Lackfreie<br>Dellenreparatur<br>in München</h2>
         </div>
         <div style="display: flex; flex-direction: column; gap: 24px;">
           <p class="section-text">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
@@ -882,7 +888,7 @@
     <div class="container">
       <div class="gallery__header reveal">
         <span class="eyebrow">Einblicke</span>
-        <h2 class="section-title">Unsere Werkstatt in Eichenau</h2>
+        <h2 class="section-title">Unsere Werkstatt<br>in Eichenau</h2>
       </div>
       <div class="slider reveal">
         <div class="slider__track" id="sliderTrack">
@@ -915,8 +921,8 @@
     <div class="container">
       <div class="section-header reveal">
         <div>
-          <span class="eyebrow" style="color: var(--delluxe_green);"><svg viewBox="0 0 24 36" width="10" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px;margin-bottom:2px;transform:rotate(35deg)"><path d="M12 2 C8 6 2 12 2 20 C2 24 6 27 12 27 C18 27 22 24 22 20 C22 12 16 6 12 2Z"/><path d="M12 27 Q11 22 12 15"/><path d="M12 27 Q11 31 10 34"/></svg>Green Repair</span>
-          <h2 class="section-title">Nachhaltige Dellenreparatur ohne Lack</h2>
+          <span class="eyebrow" style="color: var(--delluxe_green);">Green Repair <svg viewBox="0 0 24 36" width="10" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px;margin-bottom:2px;transform:rotate(35deg)"><path d="M12 2 C8 6 2 12 2 20 C2 24 6 27 12 27 C18 27 22 24 22 20 C22 12 16 6 12 2Z"/><path d="M12 27 Q11 22 12 15"/><path d="M12 27 Q11 31 10 34"/></svg></span>
+          <h2 class="section-title">Nachhaltige Dellenreparatur<br>ohne Lack</h2>
         </div>
         <div style="display: flex; flex-direction: column; gap: 24px;">
           <p class="section-text">Lackfreie Reparatur, eigene PV-Anlage, elektrische Mobilität und transparente digitale Abwicklung.</p>
