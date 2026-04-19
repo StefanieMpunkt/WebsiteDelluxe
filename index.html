@@ -525,7 +525,7 @@
     .navbar__hamburger {
       display: flex;
       flex-direction: column; justify-content: center; align-items: center; gap: 5px;
-      background: none; border: none; padding: 4px; cursor: pointer; width: 32px; height: 32px;
+      background: none; border: none; padding: 4px; cursor: pointer; width: 30px; height: 30px;
     }
     .navbar__hamburger .bar {
       display: block; width: 20px; height: 1.5px;
@@ -534,13 +534,13 @@
     }
     .navbar__mobile-panel {
       display: none;
-      position: fixed; top: 60px; left: 0; right: 0; z-index: 199;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 199;
       backdrop-filter: blur(8px) saturate(1.4); -webkit-backdrop-filter: blur(10px) saturate(1.4);
       max-height: 0; overflow: hidden; pointer-events: none;
       transition: max-height 0.35s ease;
     }
     .navbar__mobile-panel.is-open { max-height: 500px; pointer-events: auto; }
-    .navbar__mobile-links { display: flex; flex-direction: column; padding: 20px 20px 0; }
+    .navbar__mobile-links { display: flex; flex-direction: column; padding: 80px 20px 0; }
     .navbar__mobile-link {
       font-size: 15px; font-weight: 500; color: var(--softgrey70); text-decoration: none;
       padding: 8px 0; border-bottom: 1px solid var(--white_transparent10); transition: color 0.2s;
@@ -564,37 +564,55 @@
       .navbar__links, .navbar__phone { display: none; }
       .navbar__mobile-bar {
         display: flex; align-items: center; justify-content: space-between;
-        position: fixed; top: 18px; left: 18px; right: 0; z-index: 201;
+        position: fixed; top: 18px; left: 0; right: 0; z-index: 201;
         pointer-events: none;
         transition: transform 0.3s ease;
       }
       .navbar__mobile-logo { display: none; pointer-events: auto; align-items: center; text-decoration: none; }
       .navbar__mobile-bar.is-open .navbar__mobile-logo { display: flex; }
-      .navbar__mobile-icon { pointer-events: auto; display: flex; align-items: center; text-decoration: none; }
+      .navbar__mobile-icon { pointer-events: auto; display: flex; align-items: center; text-decoration: none;}
       .navbar__mobile-bar.is-open .navbar__mobile-icon { display: none; }
+      .navbar__mobile-bar.is-open .navbar__mobile-pill-left {
+        background: transparent;
+        border-color: transparent;
+        backdrop-filter: none; -webkit-backdrop-filter: none;
+      }
 
       /* Die Pill */
       .navbar__mobile-pill {
         display: flex; align-items: stretch;
-        border-radius: 999px 0 0 999px;
-        overflow: hidden;
         pointer-events: auto;
         margin-left: auto;
       }
       .navbar__mobile-pill-ghost {
         display: flex; align-items: center;
-        padding: 10px 14px 10px 14px;
+        padding: 8px 28px 8px 14px;
         border: 1px solid var(--white_transparent15);
         background: var(--black_transparent20);
         backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        border-radius: 999px 0 0 999px;
+        align-self: stretch;
+        margin-right: 6px;
+      }
+      .navbar__mobile-pill-left {
+        display: flex; align-items: center;
+        padding: 8px 14px;
+        background: var(--black_transparent20);
+        border: 1px solid var(--white_transparent15);
+        border-right: none;
+        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        border-radius: 0 999px 999px 0;
+        pointer-events: auto;
       }
       .navbar__mobile-pill-green {
         display: flex; align-items: center;
-        padding: 10px 10px 10px 14px;
+        padding: 4px 10px 4px 14px;
         background: var(--softgreen);
-        border: 1px solid var(--delluxe_green);
+        border: 2px solid var(--delluxe_black);
+        border-right: none;
+        box-shadow: 0 0 0 2px var(--softgreen);
         border-radius: 999px 0 0 999px;
-        margin-left: -8px;
+        margin: 2px 0 2px -24px;
         position: relative; z-index: 1;
       }
 
@@ -603,7 +621,7 @@
       .navbar__hamburger { display: flex; background: none; border: none; padding: 0; cursor: pointer; flex-direction: column; gap: 5px; align-items: center; justify-content: center; }
       .navbar__hamburger .bar { background: var(--delluxe_black); }
 
-      .navbar__mobile-bar.is-open .navbar__mobile-social { display: none; }
+      .navbar__mobile-bar.is-open .navbar__mobile-pill-ghost { display: none; }
       .navbar__mobile-bar.is-open .navbar__hamburger .bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
       .navbar__mobile-bar.is-open .navbar__hamburger .bar:nth-child(2) { opacity: 0; }
       .navbar__mobile-bar.is-open .navbar__hamburger .bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -673,25 +691,27 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
         <a href="https://tiktok.com" aria-label="TikTok" target="_blank" rel="noopener">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.07a4.85 4.85 0 0 1-1-.38z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.07a4.85 4.85 0 0 1-1-.38z"/></svg>
         </a>
       </div>
     </div>
     </div>
   </header>
   <div class="navbar__mobile-bar" id="navMobileBar">
-    <a class="navbar__mobile-logo" href="#">
-      <img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Delluxe-Dellen GmbH Logo" height="30" />
-    </a>
-    <a class="navbar__mobile-icon" href="#">
-      <img src="images/Logo/Icon_passend.png" alt="Delluxe-Dellen Icon" height="30" />
-    </a>
+    <div class="navbar__mobile-pill-left">
+      <a class="navbar__mobile-icon" href="#">
+        <img src="images/Logo/Icon_91px_hoch.png" alt="Delluxe-Dellen Icon" height="30" loading="lazy" />
+      </a>
+      <a class="navbar__mobile-logo" href="#">
+        <img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Delluxe-Dellen GmbH Logo" height="30" />
+      </a>
+    </div>
     <div class="navbar__mobile-pill">
       <div class="navbar__mobile-pill-ghost">
         <div class="navbar__mobile-social">
-          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="https://tiktok.com" aria-label="TikTok" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.07a4.85 4.85 0 0 1-1-.38z"/></svg></a>
+          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://tiktok.com" aria-label="TikTok" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.07a4.85 4.85 0 0 1-1-.38z"/></svg></a>
         </div>
       </div>
       <div class="navbar__mobile-pill-green">
@@ -1184,11 +1204,11 @@ Wirklich erstklassige Arbeit und dazu noch menschlich 1A. Besser geht es nicht. 
 
   <!-- ═══ ANFRAGEN FLOAT ═══ -->
   <div class="anfragen-float">
-    <button class="anfragen-float__trigger"><img src="images/Logo/Icon_passend.png" width="15" height="15" alt="" style="vertical-align:middle;">Anfragen</button>
+    <button class="anfragen-float__trigger"><img src="images/Logo/Icon_passend.png" width="16" height="16" alt="" style="vertical-align:middle;">Anfragen</button>
     <div class="anfragen-float__menu">
-      <a href="tel:+4981418908558" class="anfragen-float__item"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>08141 890 8558</a>
+      <a href="tel:+4981418908558" class="anfragen-float__item"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>08141 890 8558</a>
       <a href="https://wa.me/4917622835683" class="anfragen-float__item" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp</a>
-      <a href="#kontakt" class="anfragen-float__item"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>Mail</a>
+      <a href="#kontakt" class="anfragen-float__item"><svg viewBox="0 0 24 24" height="17" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>Mail</a>
     </div>
   </div>
 
