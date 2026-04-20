@@ -83,7 +83,7 @@
       --white_transparent15:  #FFFFFF26;
       
       --max-width:          1240px;
-      --radius:             20px;
+      --radius:             2px;
       --card-gap:           24px;
       --section-padding:    140px;
     }
@@ -493,8 +493,10 @@
     /* ── FAQ VARIANTE 5: Tab-Layout ── */
     .faq-tabs { padding: var(--section-padding) 0; }
     .faq-tabs__nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
-    .faq-tabs__tab { padding: 10px 20px; border-radius: 999px; border: 1px solid var(--white_transparent10); background: none; color: var(--softgrey70); font-size: 14px; font-family: 'Instrument Sans', sans-serif; cursor: pointer; transition: all 0.2s; }
-    .faq-tabs__tab.is-active { background: var(--delluxe_green); color: var(--delluxe_black); border-color: var(--delluxe_green); font-weight: 600; }
+    .faq-tabs__tab { padding: 10px 20px; border-radius: 999px; border: 1px solid var(--white_transparent10); background: none; color: var(--softgrey70); font-size: 15px; font-family: 'Instrument Sans', sans-serif; cursor: pointer; transition: all 0.2s; }
+    .faq-tabs__tab:hover {color: var(--softgreen); box-shadow: 0 3px 12px var(--white_transparent10); transform: translateY(-1px);}
+    .faq-tabs__tab.is-active { background: var(--softgreen); color: var(--delluxe_black); border-color: transparent; font-weight: 600; position: relative; }
+    .faq-tabs__tab.is-active::before { content: ''; position: absolute; inset: 4px; border-radius: inherit; border: 2px solid var(--delluxe_black); }
     .faq-tabs__panel { display: none; }
     .faq-tabs__panel.is-active { display: block; }
     .faq-tabs__answer { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; font-size: 16px; color: var(--softgrey80); line-height: 1.8; max-width: 760px; padding: 40px; border-radius: var(--radius); position: relative; overflow: hidden; }
@@ -783,12 +785,12 @@
     </div>
   </section>
 
-  <!-- ═══ LEISTUNGEN TABS ═══ -->
-  <section class="faq-tabs" id="leistungen-tabs">
+  <!-- ═══ LEISTUNGEN ═══ -->
+  <section class="faq-tabs" id="leistungen">
     <div class="container">
       <div class="section-header reveal">
         <div>
-          <span class="eyebrow">Leistungen Tabs</span>
+          <span class="eyebrow">Leistungen</span>
           <h2 class="section-title">Lackfreie<br>Dellenreparatur<br>in München</h2>
         </div>
         <div style="display: flex; flex-direction: column; gap: 24px;">
