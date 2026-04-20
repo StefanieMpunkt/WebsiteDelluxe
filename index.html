@@ -63,10 +63,6 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --test_green1: #a8e890;
-      --test_green2: #b8f0a0;
-      --test_green3: #c5f0b0;
-      --test_green4: #d4f5c0;
       --delluxe_green:        #6cd141;
       --delluxe_green_transparent25: #6cd14125;
       --softgreen:            #dcffe8fa;
@@ -152,56 +148,6 @@
     .btn--small   { padding: 6px 18px; font-size: 15px; }
     .btn--secondary { background: linear-gradient(60deg, var(--delluxe_black) 60%, var(--delluxe_green_transparent25) 100%); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); }
 
-    /* ── ALTERNATIVE BUTTON-VARIANTEN ── */
-    /* Outline: kein Fill, nur softgreen-Rand */
-    .btn--ghostgreen   { background: var(--delluxe_green_transparent25); border: 1px solid var(--white_transparent15); color: var(--delluxe_green); backdrop-filter: blur(8px); }
-    .btn--ghostgreenII   { background: var(--delluxe_black_transparent55); border: 1px solid var(--white_transparent15); color: var(--delluxe_green); backdrop-filter: blur(8px); }
-
-    .btn--secondary_transparent { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--softgreen); border: 1px solid var(--softgreen_transparent50); backdrop-filter: blur(8px);}
-    .btn--secondary_transparent_green { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--delluxe_green); border: 1px solid var(--softgreen_transparent50); backdrop-filter: blur(8px);}
-
-.btn--green1 { background: var(--test_green1); color: var(--delluxe_black);border: none; }
-.btn--green2 { background: var(--test_green2); color: var(--delluxe_black);border: none; }
-.btn--green3 { background: var(--test_green3); color: var(--delluxe_black);border: none; }
-.btn--green4 { background: var(--test_green4); color: var(--delluxe_black);border: none; }
-.btn--secondary1 { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--test_green1); border: 1px solid var(--softgreen_transparent50); }
-.btn--secondary2 { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--test_green2); border: 1px solid var(--softgreen_transparent50); }
-.btn--secondary3 { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--test_green3); border: 1px solid var(--softgreen_transparent50); }
-.btn--secondary4 { background: linear-gradient(60deg, transparent 60%, var(--delluxe_green_transparent25) 100%); color: var(--test_green4); border: 1px solid var(--softgreen_transparent50); }
-
-    .btn--outline {
-      background: transparent;
-      border: 1.5px solid var(--softgreen);
-      color: var(--softgreen);
-    }
-    .btn--outline:hover { background: var(--softgreen_transparent10); color: var(--softgreen); }
-
-    /* Solid: kräftiges Delluxe-Grün */
-    .btn--solid-green {
-      background: var(--delluxe_green);
-      color: var(--delluxe_black);
-      border: none;
-    }
-    .btn--solid-green:hover { color: var(--delluxe_black); filter: brightness(1.1); }
-
-    /* White: hell, hoher Kontrast */
-    .btn--white {
-      background: var(--delluxe_white);
-      color: var(--delluxe_black);
-      border: none;
-    }
-    .btn--white:hover { color: var(--delluxe_black); }
-
-    /* Gold: Premium-Akzent */
-    .btn--gold {
-      background: transparent;
-      border: 1.5px solid var(--delluxe_green);
-      color: var(--delluxe_green);
-    }
-    .btn--gold:hover { background: #f5c51815; color: var(--gold); }
-
-    .btn-demo { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--white_transparent10); }
-    .btn-demo__label { font-size: 11px; color: var(--softgrey50); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px; width: 100%; }
     /* ════════════════════════════
        NAVIGATION
     ════════════════════════════ */
@@ -870,93 +816,6 @@
               WhatsApp
            </a>
           </div>
-    </div>
-    <div class="btn-demo">
-            <div class="btn-demo__label">Button-Alternativen</div>
-            <a href="#" class="btn btn--outline">Outline</a>
-            <a href="#" class="btn btn--solid-green">Solid Green</a>
-            <a href="#" class="btn btn--white">White</a>
-            <a href="#" class="btn btn--gold">Gold</a>
-            <a href="#" class="btn btn--ghostgreen">GhostgreenI</a>
-            <a href="#" class="btn btn--ghostgreenII">GhostgreenII</a>
-            <a href="#" class="btn btn--secondary_transparent_green">second grün trans</a>
-            </div><div class="btn-demo">
-            <a href="#" class="btn btn--green1">green 1</a>
-            <a href="#" class="btn btn--secondary1">green 1</a>
-            </div><div class="btn-demo">
-            <a href="#" class="btn btn--green2">green 2</a>
-            <a href="#" class="btn btn--secondary2">green 2</a>
-            </div><div class="btn-demo">
-            <a href="#" class="btn btn--green3">green 3</a>
-            <a href="#" class="btn btn--secondary3">green 3</a>
-            </div><div class="btn-demo">
-            <a href="#" class="btn btn--green4">green 4</a>
-            <a href="#" class="btn btn--secondary4">green 4</a>
-          </div>
-  </section>
-
-  <!-- ═══ LEISTUNGEN ═══ -->
-  <section class="services" id="leistungen">
-    <div class="container">
-      <div class="section-header reveal">
-        <div>
-          <span class="eyebrow">Leistungen</span>
-          <h2 class="section-title">Lackfreie<br>Dellenreparatur<br>in München</h2>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 24px;">
-          <p class="section-text">Meisterbetrieb für PDR &ndash; klare Prozesse, hochwertige Werkzeuge und Präzision vom Einzelauftrag bis zum Hagelschaden.</p>
-          <a href="#Leistungen" class="btn btn--secondary">Alle Leistungen</a>
-        </div>
-      </div>
-      <div class="svc-slider" id="svcSlider">
-        <div class="svc-slider__track" id="svcTrack">
-          <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 93%), url('images/DiaShow/dellen-entfernen-muenchen-400x284.jpg');"></div>
-            <span class="service-card__number">I</span>
-            <h3 class="subtitle">Lackfreie Dellenreparatur</h3>
-            <p class="section-text">PDR-Technik bewahrt den Originallack &ndash; ohne Schleifen, ohne Spachtel, ohne Neulackierung.</p>
-            <a href="#Dellenreparatur" class="btn btn--secondary_transparent_green btn--small">Mehr erfahren</a>
-          </article>
-          <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
-            <span class="service-card__number">II</span>
-            <h3 class="subtitle">Hagelschaden</h3>
-            <p class="section-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
-            <a href="#Dellenreparatur" class="btn btn--ghostgreenII btn--small">Mehr erfahren</a>
-          </article>
-          <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
-            <span class="service-card__number">III</span>
-            <h3 class="subtitle">Smart Repair</h3>
-            <p class="section-text">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
-            <a href="#Smart%20Repair" class="btn btn--secondary_transparent btn--small">Mehr erfahren</a>
-          </article>
-          <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-mobiler-dellenservice-400x284.jpg');"></div>
-            <span class="service-card__number">IV</span>
-            <h3 class="subtitle">Leasingrückgabe</h3>
-            <p class="section-text">Optische Aufbereitung vor Rückgabe &ndash; Minderwerte und Nachzahlungen vermeiden.</p>
-            <a href="#" class="service-card__link">Mehr erfahren</a>
-          </article>
-          <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) 0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-sonstiger-service-400x450.jpg');"></div>
-            <span class="service-card__number">V</span>
-            <h3 class="subtitle">Hagelschaden</h3>
-            <p class="section-text">Strukturierte Instandsetzung nach Hagelereignissen mit professioneller Versicherungsabwicklung.</p>
-            <a href="#Dellenreparatur" class="btn btn--ghost btn--small">Mehr erfahren</a>
-          </article>
-          <article class="svc-slide">
-            <div class="svc-slide__bg" style="background-image: linear-gradient(180deg, var(--delluxe_black) ,0%, var(--delluxe_black_transparent55) 50%, var(--delluxe_black) 100%), url('images/DiaShow/delluxe-dellenentfernen-ohne-lackieren-400x284.jpg');"></div>
-            <span class="service-card__number">VI</span>
-            <h3 class="subtitle">Smart Repair</h3>
-            <p class="section-text">Gezielte Reparatur kleiner Schäden mit sauberem Finish und wirtschaftlichem Ergebnis.</p>
-            <a href="#Smart%20Repair" class="btn btn--ghost btn--small">Mehr erfahren</a>
-          </article>
-        </div>
-        <button class="svc-slider__btn svc-slider__btn--prev" id="svcPrev" aria-label="Vorherige Karte">&#8249;</button>
-        <button class="svc-slider__btn svc-slider__btn--next" id="svcNext" aria-label="Nächste Karte">&#8250;</button>
-      </div>
-      <div class="slider-dots" id="svcDots" style="margin-top: 12px;"></div>
     </div>
   </section>
 
