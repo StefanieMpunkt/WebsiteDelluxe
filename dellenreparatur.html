@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="images/Logo/Icon_passend.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Lackfreie Dellenreparatur München – PDR-Meisterbetrieb Delluxe-Dellen</title>
+  <meta name="description" content="Lackfreie Dellenreparatur (PDR) in München und Umgebung. Parkdellen, Türkanten, Beulen – ohne Lack, ohne Spachtel, ab 50 €. Meisterbetrieb seit 2012. ★ 4,9 Google." />
+  <link rel="canonical" href="https://www.delluxe-dellen.de/dellenreparatur.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;0,6..96,500;1,6..96,300;1,6..96,400&family=Instrument+Sans:wght@300;400;500;600&display=swap&font-display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://www.delluxe-dellen.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Leistungen", "item": "https://www.delluxe-dellen.de/#leistungen" },
+      { "@type": "ListItem", "position": 3, "name": "Lackfreie Dellenreparatur", "item": "https://www.delluxe-dellen.de/dellenreparatur.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Lackfreie Dellenreparatur (PDR)",
+    "description": "Professionelle lackfreie Dellenreparatur durch PDR-Technik. Parkdellen, Türkanten, Beulen ohne Lack und Spachtel.",
+    "provider": {
+      "@type": "AutoRepair",
+      "name": "Delluxe-Dellen GmbH",
+      "telephone": "+4981418908558",
+      "address": { "@type": "PostalAddress", "streetAddress": "Ringstraße 19", "addressLocality": "Eichenau", "postalCode": "82223", "addressCountry": "DE" }
+    },
+    "areaServed": "München und Umgebung",
+    "offers": { "@type": "Offer", "priceRange": "50–500 €" }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --delluxe_green: #6cd141; --softgreen: #dcffe8fa; --softgreen_transparent50: #dcffe850;
+      --delluxe_black: #0c0c0c; --delluxe_black_transparent55: #0c0c0c55;
+      --delluxe_black_transparent85: #0c0c0c85; --delluxe_black_transparentC0: #0c0c0cc0;
+      --delluxe_white: #f5f5f2; --softgrey80: #F5F5F2CC; --softgrey70: #F5F5F2B3;
+      --softgrey50: #f5f5f28e; --black_transparent20: #00000033;
+      --white_transparent10: #FFFFFF1A; --white_transparent15: #FFFFFF26;
+      --max-width: 1240px; --section-padding: 100px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--delluxe_black); color: var(--delluxe_white); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
+    italic_green { font-style: italic; color: var(--delluxe_green); }
+    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--delluxe_green); }
+    .section-title { font-family: 'Bodoni Moda', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 400; line-height: 1.15; color: var(--delluxe_white); }
+    .section-text { font-size: 16px; color: var(--softgrey70); line-height: 1.75; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; font-size: 15px; font-weight: 500; font-family: 'Instrument Sans', sans-serif; cursor: pointer; text-decoration: none; border: none; transition: opacity 0.2s, transform 0.2s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--green { background: var(--softgreen); color: var(--delluxe_black); position: relative; }
+    .btn--green::before { content: ''; position: absolute; inset: 4px; border-radius: inherit; border: 2px solid var(--delluxe_black); }
+    .btn--secondary { background: var(--black_transparent20); color: var(--softgreen); border: 1px solid var(--white_transparent15); backdrop-filter: blur(8px); }
+
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: background 0.3s; }
+    .navbar::after { content: ''; position: absolute; bottom: 0; left: 40px; right: 40px; height: 1px; background: var(--white_transparent15); opacity: 0; transition: opacity 0.3s; }
+    .navbar.navbar--scrolled { background: linear-gradient(to bottom, var(--delluxe_black_transparent85) 0%, transparent 100%); }
+    .navbar.navbar--scrolled::after { opacity: 1; }
+    .navbar__inner { max-width: var(--max-width); margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; }
+    .navbar__links { display: flex; gap: 32px; }
+    .navbar__links a { color: var(--softgrey70); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .navbar__links a:hover { color: var(--delluxe_white); }
+    .navbar__right { display: flex; align-items: center; gap: 16px; }
+    .navbar__social { display: flex; gap: 12px; }
+    .navbar__social a { color: var(--softgrey50); transition: color 0.2s; }
+    .navbar__social a:hover { color: var(--delluxe_white); }
+    .navbar__mobile-bar { display: none; position: fixed; bottom: 20px; left: 0; right: 0; z-index: 1001; padding: 0 16px; justify-content: space-between; align-items: center; pointer-events: none; }
+    .navbar__mobile-pill-left { display: flex; align-items: center; gap: 8px; background: var(--delluxe_black_transparent85); backdrop-filter: blur(12px); border: 1px solid var(--white_transparent15); border-radius: 999px; padding: 6px 14px; pointer-events: all; }
+    .navbar__mobile-pill { display: flex; background: var(--delluxe_black_transparent85); backdrop-filter: blur(12px); border: 1px solid var(--white_transparent15); border-radius: 999px; overflow: hidden; pointer-events: all; }
+    .navbar__mobile-pill-ghost { display: flex; align-items: center; padding: 6px 14px; }
+    .navbar__mobile-pill-green { background: var(--delluxe_green); display: flex; align-items: center; padding: 6px 14px; }
+    .navbar__mobile-social { display: flex; gap: 14px; }
+    .navbar__mobile-social a { color: var(--softgrey70); }
+    .navbar__hamburger { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 2px; }
+    .navbar__hamburger .bar { display: block; width: 20px; height: 2px; background: var(--delluxe_black); border-radius: 2px; }
+    .navbar__mobile-panel { position: fixed; inset: 0; z-index: 999; background: var(--delluxe_black); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .navbar__mobile-panel.is-open { opacity: 1; pointer-events: all; }
+    .navbar__mobile-links { display: flex; flex-direction: column; gap: 32px; text-align: center; }
+    .navbar__mobile-link { font-family: 'Bodoni Moda', serif; font-size: 36px; color: var(--delluxe_white); text-decoration: none; }
+
+    /* HERO */
+    .hero { position: relative; min-height: 55vh; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero__frame { position: absolute; inset: 0; overflow: hidden; }
+    .hero__bg { position: absolute; inset: 0; background: var(--delluxe_black_transparent85) url('images/dellenreparatur.jpg') center/cover no-repeat; transform: scale(1.06); }
+    .hero__overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--delluxe_black) 0%, transparent 30%, transparent 70%, var(--delluxe_black) 100%), radial-gradient(ellipse 150% 90% at center, transparent 0%, var(--delluxe_black) 50%); }
+    .hero__content { position: relative; z-index: 2; width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 140px 40px 80px; }
+    .hero__eyebrow { font-size: clamp(13px, 1.5vw, 16px); font-weight: 400; color: var(--softgrey70); letter-spacing: 0.04em; margin-bottom: 16px; display: block; }
+    .hero__title { font-family: 'Bodoni Moda', serif; font-size: clamp(44px, 7vw, 88px); line-height: 0.95; font-weight: 300; margin-bottom: 28px; }
+    .hero__title em { font-style: italic; }
+    .hero__subtitle { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+    .hero__subtitle span { font-size: 14px; color: var(--softgrey70); }
+    .hero__subtitle-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--delluxe_green); }
+    .hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* BREADCRUMB */
+    .breadcrumb { background: var(--delluxe_black); border-bottom: 1px solid var(--black_transparent20); padding: 14px 0; }
+    .breadcrumb__inner { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--softgrey50); }
+    .breadcrumb__inner a { color: var(--softgrey50); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb__inner a:hover { color: var(--delluxe_white); }
+    .breadcrumb__sep { opacity: 0.4; }
+    .breadcrumb__current { color: var(--softgrey70); }
+
+    /* SECTIONS */
+    .lp-section { padding: var(--section-padding) 0; border-bottom: 1px solid var(--black_transparent20); }
+    .lp-section__header { margin-bottom: 48px; }
+    .lp-section__header .eyebrow { margin-bottom: 12px; display: block; }
+    .lp-section__header .section-title { margin-bottom: 16px; }
+    .lp-section__header .section-text { max-width: 680px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .body-text { font-size: 16px; color: var(--softgrey70); line-height: 1.8; }
+    .body-text p { margin-bottom: 16px; }
+    .body-text p:last-child { margin-bottom: 0; }
+    .body-text h3 { font-family: 'Bodoni Moda', serif; font-size: 22px; font-weight: 400; color: var(--delluxe_white); margin-bottom: 12px; margin-top: 28px; }
+    .body-text h3:first-child { margin-top: 0; }
+
+    /* PROCESS STEPS */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step { display: grid; grid-template-columns: 48px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--black_transparent20); align-items: start; }
+    .step:last-child { border-bottom: none; }
+    .step__num { font-family: 'Bodoni Moda', serif; font-size: 32px; font-weight: 300; color: var(--delluxe_green); line-height: 1; margin-top: 4px; }
+    .step__title { font-size: 16px; font-weight: 600; color: var(--delluxe_white); margin-bottom: 6px; }
+    .step__text { font-size: 15px; color: var(--softgrey70); line-height: 1.7; }
+
+    /* PRICE TABLE */
+    .price-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .price-table th { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--softgrey50); text-align: left; padding: 12px 20px; border-bottom: 1px solid var(--black_transparent20); }
+    .price-table td { padding: 16px 20px; font-size: 15px; color: var(--softgrey70); border-bottom: 1px solid var(--black_transparent20); vertical-align: top; }
+    .price-table tr:last-child td { border-bottom: none; }
+    .price-table td:last-child { color: var(--delluxe_white); font-weight: 600; white-space: nowrap; }
+    .price-note { font-size: 13px; color: var(--softgrey50); margin-top: 16px; line-height: 1.6; }
+
+    /* COMPARE */
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 8px; }
+    .compare__col { padding: 28px; background: #111; }
+    .compare__col--green { border-top: 2px solid var(--delluxe_green); }
+    .compare__col--grey { border-top: 2px solid #333; }
+    .compare__head { font-size: 14px; font-weight: 600; color: var(--softgrey70); margin-bottom: 20px; }
+    .compare__head strong { display: block; font-size: 18px; color: var(--delluxe_white); margin-bottom: 4px; }
+    .compare__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .compare__list li { font-size: 14px; color: var(--softgrey70); display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+    .compare__list li::before { content: ''; flex-shrink: 0; margin-top: 6px; width: 6px; height: 6px; border-radius: 50%; }
+    .compare__col--green .compare__list li::before { background: var(--delluxe_green); }
+    .compare__col--grey .compare__list li::before { background: #555; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--black_transparent20); }
+    .faq-question { width: 100%; background: none; border: none; color: var(--delluxe_white); font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; gap: 16px; }
+    .faq-icon { color: var(--delluxe_green); font-size: 20px; flex-shrink: 0; transition: transform 0.3s; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-answer p { font-size: 15px; color: var(--softgrey70); line-height: 1.75; padding-bottom: 20px; border-top: 1px solid var(--black_transparent20); padding-top: 16px; }
+    .faq-item.is-open .faq-answer { max-height: 400px; }
+    .faq-item.is-open .faq-icon { transform: rotate(45deg); }
+
+    /* CTA BOX */
+    .lp-cta { padding: var(--section-padding) 0; }
+    .lp-cta__box { background: #111; border: 1px solid var(--white_transparent15); border-radius: 16px; padding: 60px; text-align: center; }
+    .lp-cta__title { font-family: 'Bodoni Moda', serif; font-size: clamp(24px, 3vw, 40px); font-weight: 400; margin: 12px 0 20px; }
+    .lp-cta__text { font-size: 16px; color: var(--softgrey70); margin-bottom: 32px; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .lp-cta__btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* SERVICE NAV */
+    .service-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .service-nav__item { background: #111; padding: 24px; text-decoration: none; transition: background 0.2s; display: flex; flex-direction: column; gap: 8px; }
+    .service-nav__item:hover { background: #161616; }
+    .service-nav__item--active { border-top: 2px solid var(--delluxe_green); }
+    .service-nav__label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--softgrey50); }
+    .service-nav__title { font-size: 15px; font-weight: 600; color: var(--delluxe_white); }
+
+    /* FOOTER */
+    .footer { padding: 60px 0 0; }
+    .footer__table { width: 100%; border-collapse: collapse; }
+    .footer__table th { text-align: left; padding-bottom: 20px; vertical-align: top; }
+    .footer__table td { text-align: left; padding-bottom: 40px; vertical-align: top; }
+    .footer__col-title { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--softgrey50); }
+    .footer__links { list-style: none; margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { color: var(--softgrey70); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer__links a:hover { color: var(--delluxe_white); }
+    .footer__bottom { border-top: 1px solid var(--black_transparent20); padding: 20px 0; }
+    .footer__copyright { font-size: 12px; color: var(--softgrey50); }
+
+    /* CTA FLOAT */
+    .cta-float { position: fixed; bottom: 24px; right: 24px; z-index: 998; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+
+    /* MODAL */
+    .schaden-modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; background: transparent; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .schaden-modal.is-open { opacity: 1; pointer-events: all; }
+    .schaden-modal__box { background: var(--black_transparent20); backdrop-filter: blur(8px); border: 1px solid var(--white_transparent15); border-radius: 16px; padding: 40px 36px 36px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(16px); transition: transform 0.3s ease; scrollbar-width: thin; scrollbar-color: #333 transparent; }
+    .schaden-modal__box::-webkit-scrollbar { width: 6px; }
+    .schaden-modal__box::-webkit-scrollbar-track { background: transparent; }
+    .schaden-modal__box::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+    .schaden-modal.is-open .schaden-modal__box { transform: translateY(0); }
+    .schaden-modal__close { position: absolute; top: 16px; right: 16px; background: var(--black_transparent20); border: 1px solid var(--white_transparent15); color: var(--softgrey70); border-radius: 50%; width: 36px; height: 36px; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .schaden-modal__title { font-size: 22px; font-weight: 700; color: var(--delluxe_white); margin: 0 0 4px; }
+    .schaden-modal__sub { font-size: 14px; color: var(--softgrey50); margin: 0 0 28px; }
+    .schaden-form { display: flex; flex-direction: column; gap: 14px; }
+    .schaden-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .schaden-form__group { display: flex; flex-direction: column; gap: 6px; }
+    .schaden-form__label { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: var(--softgrey50); text-transform: uppercase; }
+    .schaden-form__label .optional { font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 11px; margin-left: 4px; }
+    .schaden-form__input { background: #1e1e1e; border: 1px solid #333; border-radius: 8px; padding: 11px 14px; font-size: 15px; color: var(--delluxe_white); font-family: 'Instrument Sans', sans-serif; outline: none; transition: border-color 0.2s; width: 100%; box-sizing: border-box; }
+    .schaden-form__input::placeholder { color: #555; }
+    .schaden-form__input:focus { border-color: var(--delluxe_green); }
+    .schaden-form__upload { background: #1e1e1e; border: 1px dashed #444; border-radius: 8px; padding: 20px 14px; text-align: center; cursor: pointer; position: relative; transition: border-color 0.2s; }
+    .schaden-form__upload:hover { border-color: var(--delluxe_green); }
+    .schaden-form__upload input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .schaden-form__upload-icon { font-size: 28px; margin-bottom: 6px; }
+    .schaden-form__upload-text { font-size: 13px; color: var(--softgrey50); }
+    .schaden-form__upload-text strong { color: var(--softgrey70); }
+    .schaden-form__upload-names { margin-top: 8px; font-size: 12px; color: var(--softgrey70); }
+    .schaden-form__divider { display: flex; align-items: center; gap: 12px; color: var(--softgrey50); font-size: 12px; margin: 4px 0; }
+    .schaden-form__divider::before, .schaden-form__divider::after { content: ''; flex: 1; height: 1px; background: #2a2a2a; }
+    .schaden-form__submit { margin-top: 6px; width: 100%; justify-content: center; font-size: 16px; padding: 14px; }
+
+    @media (max-width: 820px) {
+      .container { padding: 0 20px; }
+      .navbar__links, .navbar__right { display: none; }
+      .navbar__mobile-bar { display: flex; }
+      .hero__content { padding: 100px 20px 60px; }
+      .two-col { grid-template-columns: 1fr; gap: 32px; }
+      .compare { grid-template-columns: 1fr; }
+      .service-nav { grid-template-columns: 1fr 1fr; }
+      .lp-cta__box { padding: 40px 24px; }
+      .footer__table { display: none; }
+      .cta-float { bottom: 90px; right: 16px; }
+      .schaden-form__row { grid-template-columns: 1fr; }
+      .schaden-modal__box { padding: 28px 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a class="navbar__logo" href="index.html">
+        <img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Delluxe-Dellen GmbH Logo" height="36" />
+      </a>
+      <nav class="navbar__links" aria-label="Hauptnavigation">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+        <a href="index.html#galerie">Galerie</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+      <div class="navbar__right">
+        <div class="navbar__social">
+          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="navbar__mobile-bar" id="navMobileBar">
+    <div class="navbar__mobile-pill-left">
+      <a href="index.html"><img src="images/Logo/Icon_91px_hoch.png" alt="Icon" height="30" loading="lazy" /></a>
+      <a href="index.html"><img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Logo" height="30" /></a>
+    </div>
+    <div class="navbar__mobile-pill">
+      <div class="navbar__mobile-pill-ghost">
+        <div class="navbar__mobile-social">
+          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+      <div class="navbar__mobile-pill-green">
+        <button class="navbar__hamburger" id="navHamburger" aria-label="Menü öffnen" aria-expanded="false">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="navbar__mobile-panel" id="navMobilePanel" aria-hidden="true">
+    <nav class="navbar__mobile-links">
+      <a href="index.html#leistungen" class="navbar__mobile-link">Leistungen</a>
+      <a href="index.html#nachhaltigkeit" class="navbar__mobile-link">Nachhaltigkeit</a>
+      <a href="index.html#galerie" class="navbar__mobile-link">Galerie</a>
+      <a href="index.html#kontakt" class="navbar__mobile-link">Kontakt</a>
+    </nav>
+  </div>
+
+  <section class="hero" aria-label="Hero">
+    <div class="hero__frame">
+      <div class="hero__bg"></div>
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <span class="hero__eyebrow">Lackfreie Dellenreparatur &middot; PDR &middot; Meisterbetrieb Eichenau</span>
+      <div class="hero__title">
+        <span>Dellen entfernen</span><br>
+        <em>ohne Lack.</em>
+      </div>
+      <div class="hero__subtitle">
+        <span>Ab 50 €</span>
+        <span class="hero__subtitle-dot"></span>
+        <span>Originallack bleibt erhalten</span>
+        <span class="hero__subtitle-dot"></span>
+        <span>Meisterbetrieb seit 2012</span>
+      </div>
+      <div class="hero__ctas">
+        <button class="btn btn--green" id="schadenModalOpen">Schaden checken</button>
+        <a href="tel:+4981418908558" class="btn btn--secondary">+49 8141 8908558</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb__inner">
+        <a href="index.html">Start</a>
+        <span class="breadcrumb__sep">›</span>
+        <a href="index.html#leistungen">Leistungen</a>
+        <span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Lackfreie Dellenreparatur</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- WEITERE LEISTUNGEN -->
+  <div style="background:#0a0a0a; border-bottom: 1px solid var(--black_transparent20);">
+    <div class="container">
+      <div class="service-nav">
+        <div class="service-nav__item service-nav__item--active">
+          <span class="service-nav__label">Aktiv</span>
+          <span class="service-nav__title">Dellenreparatur (PDR)</span>
+        </div>
+        <a href="hagelschaden.html" class="service-nav__item">
+          <span class="service-nav__label">Leistung</span>
+          <span class="service-nav__title">Hagelschaden</span>
+        </a>
+        <a href="smart-repair.html" class="service-nav__item">
+          <span class="service-nav__label">Leistung</span>
+          <span class="service-nav__title">Smart Repair</span>
+        </a>
+        <a href="leasingrueckgabe.html" class="service-nav__item">
+          <span class="service-nav__label">Leistung</span>
+          <span class="service-nav__title">Leasingrückgabe</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAS IST PDR -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <div class="lp-section__header">
+            <span class="eyebrow">Was ist PDR?</span>
+            <h1 class="section-title">Lackfreie Dellenreparatur – <italic_green>die schonende Alternative</italic_green></h1>
+          </div>
+          <div class="body-text">
+            <p>PDR steht für <em>Paintless Dent Repair</em> – lackfreie Dellenreparatur. Das Verfahren funktioniert ohne Spachtel, ohne Schleifpapier und ohne Neulack: Mit speziellen Druckstäben und Gleithämmern wird das verformte Blech von innen oder außen behutsam in seine ursprüngliche Form zurückgeführt.</p>
+            <p>Das Ergebnis ist vom Original nicht zu unterscheiden – weil der Originallack erhalten bleibt. Keine Farbunterschiede, kein Wertverlust, keine Spur der Reparatur.</p>
+            <h3>Wann ist PDR möglich?</h3>
+            <p>PDR ist geeignet, wenn der Originallack intakt ist und das Metall nicht überdehnt wurde. Das trifft auf die große Mehrheit aller Parkdellen, Türkanten-Berührungen und Hagelschäden zu. Ausnahmen: scharfkantige Dellen mit Lackrissen, bereits nachlackierte Stellen oder Dellen an Karosserierippen.</p>
+            <p>Wir begutachten Ihr Fahrzeug kostenfrei und sagen Ihnen ehrlich, ob PDR möglich ist – und wenn nicht, welche Alternative sinnvoll ist.</p>
+            <h3>PDR vs. konventionelle Reparatur</h3>
+            <p>Die konventionelle Methode – Spachtel, Schleifen, Lackieren – greift dauerhaft in die Fahrzeugsubstanz ein. Der Originallack ist unwiederbringlich verloren. Bei Gebrauchtwagenprüfungen (z. B. mit Lackmessgerät) wird das sofort erkannt und führt zu Wertabzügen.</p>
+          </div>
+        </div>
+        <div>
+          <div class="compare">
+            <div class="compare__col compare__col--green">
+              <div class="compare__head"><strong>PDR – Lackfrei</strong>Unsere Methode</div>
+              <ul class="compare__list">
+                <li>Originallack bleibt zu 100 % erhalten</li>
+                <li>Kein Wertminderung am Fahrzeug</li>
+                <li>Bis zu 70 % günstiger als Lackreparatur</li>
+                <li>Ergebnis in Stunden statt Tagen</li>
+                <li>Keine Farbabweichungen möglich</li>
+                <li>Nachhaltiger – kein Lack, kein Lösungsmittel</li>
+              </ul>
+            </div>
+            <div class="compare__col compare__col--grey">
+              <div class="compare__head"><strong>Konventionell</strong>Spachtel &amp; Lack</div>
+              <ul class="compare__list">
+                <li>Originallack wird entfernt und neu aufgetragen</li>
+                <li>Lackmessgerät erkennt Reparatur sofort</li>
+                <li>Deutlich höhere Kosten</li>
+                <li>Mehrere Tage Werkstattaufenthalt</li>
+                <li>Farbabweichungen möglich (Alterung)</li>
+                <li>Lösungsmittel, Lack, Schleifmittel nötig</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABLAUF -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-section__header">
+        <span class="eyebrow">Ablauf</span>
+        <h2 class="section-title">So läuft die Reparatur ab</h2>
+        <p class="section-text">Von der ersten Kontaktaufnahme bis zur Fahrzeugabholung – transparent, termingerecht, ohne Überraschungen.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">1</div>
+          <div>
+            <div class="step__title">Foto senden – kostenloses Angebot erhalten</div>
+            <p class="step__text">Schicken Sie uns einfach ein Foto Ihres Schadens per WhatsApp oder über das Formular auf dieser Seite. Wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung und einem Festpreis. Keine versteckten Kosten, kein Nachverhandeln.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <div>
+            <div class="step__title">Termin vereinbaren</div>
+            <p class="step__text">Nach Annahme des Angebots vereinbaren wir einen Termin in unserer Werkstatt in Eichenau. Bei größeren Hagelschäden oder mehreren Fahrzeugen können wir auch direkt zu Ihnen kommen oder das Fahrzeug abholen.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <div>
+            <div class="step__title">Begutachtung vor Ort</div>
+            <p class="step__text">Vor Beginn der Arbeiten prüfen wir den Schaden unter optimaler Lichtführung nochmals genau. Erst jetzt bestätigen wir den Umfang der Reparatur – Sie erfahren keine Überraschungen nachher.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">4</div>
+          <div>
+            <div class="step__title">Lackfreie Reparatur</div>
+            <p class="step__text">Unsere Techniker arbeiten mit spezialisierten Druckstäben, Gleithämmern und PDR-Leuchten, die jede Verformung sichtbar machen. Einzelne Dellen sind in 1–3 Stunden behoben, Hagelschäden an ganzen Fahrzeugen in 2–4 Tagen.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">5</div>
+          <div>
+            <div class="step__title">Qualitätsprüfung &amp; Übergabe</div>
+            <p class="step__text">Nach der Reparatur prüfen wir das Ergebnis unter mehreren Lichtquellen. Erst wenn wir selbst zufrieden sind, übergeben wir das Fahrzeug. Das Ergebnis: unsichtbar. So wie es sein soll.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREISE -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <div class="lp-section__header">
+            <span class="eyebrow">Preise</span>
+            <h2 class="section-title">Transparente Festpreise</h2>
+            <p class="section-text">Keine stündliche Abrechnung, keine Nachkalkulation. Sie kennen den Preis, bevor wir anfangen.</p>
+          </div>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Schadensbild</th>
+                <th>Beschreibung</th>
+                <th>Preis ab</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Kleine Delle</td>
+                <td>Parkdelle, Fingerkuppen-groß, intakter Lack</td>
+                <td>50 €</td>
+              </tr>
+              <tr>
+                <td>Mittlere Delle</td>
+                <td>Handteller-groß, z. B. Türkante oder Kotflügel</td>
+                <td>80 €</td>
+              </tr>
+              <tr>
+                <td>Große Delle</td>
+                <td>Tiefe oder größere Verformung</td>
+                <td>150 €</td>
+              </tr>
+              <tr>
+                <td>Hagelschaden</td>
+                <td>Mehrere Dellen, ganzes Fahrzeug</td>
+                <td>300 €</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="price-note">Alle Preise sind Richtwerte. Der genaue Festpreis wird nach Fotobeurteilung oder kostenfreier Besichtigung mitgeteilt. MwSt. inklusive.</p>
+        </div>
+        <div class="body-text">
+          <h3>Warum PDR günstiger ist</h3>
+          <p>PDR ist bis zu 70 % günstiger als konventionelle Lackschadenreparatur – weil kein Material verbraucht wird. Kein Lack, kein Spachtel, kein Schleifmittel, keine Lackierzeit, keine Trockenkabine.</p>
+          <p>Sie zahlen ausschließlich für die handwerkliche Leistung. Das macht PDR nicht nur wirtschaftlicher, sondern auch ehrlicher: Der Preis spiegelt den tatsächlichen Aufwand wider.</p>
+          <h3>Übernahme durch die Versicherung</h3>
+          <p>Bei Hagelschäden übernimmt die Teilkaskoversicherung die Kosten in der Regel vollständig – ohne Verlust des Schadenfreiheitsrabattes. Wir unterstützen Sie bei der gesamten Abwicklung mit Ihrer Versicherung.</p>
+          <p>Bei Kaskoschäden (z. B. selbst verursachte Parkunfälle) prüfen wir gemeinsam mit Ihnen, ob eine Meldung sinnvoll ist oder ob die Eigenreparatur wirtschaftlicher ist.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-section__header">
+        <span class="eyebrow">Häufige Fragen</span>
+        <h2 class="section-title">Alles zur lackfreien Dellenreparatur</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">Kann wirklich jede Delle ohne Lackieren repariert werden?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>In der großen Mehrheit der Fälle ja – vorausgesetzt, der Originallack ist intakt und das Metall nicht überdehnt. Ausnahmen sind scharfkantige Dellen mit Lackrissen, Dellen an Karosserierippen und bereits nachlackierte Stellen. Wir begutachten Ihr Fahrzeug kostenfrei und sagen Ihnen ehrlich, was möglich ist.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Wie lange dauert eine Dellenreparatur?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Einzelne kleine Dellen sind oft in 1–2 Stunden behoben. Mittlere Schäden benötigen 2–4 Stunden. Umfangreiche Hagelschäden an einem kompletten Fahrzeug dauern 2–4 Tage – je nach Schwere und Fahrzeuggröße. Sie erhalten vor Beginn der Arbeiten eine genaue Zeitangabe.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Sieht man nach der PDR-Reparatur noch etwas?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Nein – bei einer fachgerecht durchgeführten PDR-Reparatur ist das Ergebnis nicht vom Originalzustand zu unterscheiden. Weder optisch noch mit dem Lackmessgerät. Der Originallack ist zu 100 % erhalten.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Verliere ich meine Garantie, wenn ich PDR machen lasse?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Nein. PDR greift nicht in den Lack oder die Fahrzeugstruktur ein. Die Herstellergarantie bleibt vollständig erhalten. Es gibt nichts, was „nachgemacht" oder „verändert" wurde – der Originallack ist unberührt.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Kommen Sie auch zu mir, oder muss ich zu Ihnen kommen?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Für die Reparatur arbeiten wir in unserer Werkstatt in Eichenau – dort haben wir optimale Lichtverhältnisse und alle Werkzeuge. Auf Anfrage holen wir Ihr Fahrzeug aber auch ab und bringen es nach der Reparatur zurück.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="lp-cta">
+    <div class="container">
+      <div class="lp-cta__box">
+        <span class="eyebrow">Kostenlose Einschätzung</span>
+        <h2 class="lp-cta__title">Foto senden – Angebot in 24 Stunden</h2>
+        <p class="lp-cta__text">Einfach ein Foto Ihres Schadens senden. Wir kalkulieren transparent und melden uns innerhalb von 24 Stunden mit einem Festpreis.</p>
+        <div class="lp-cta__btns">
+          <button class="btn btn--green" id="schadenModalOpen2">Jetzt Foto senden</button>
+          <a href="https://wa.me/4917622835683" class="btn btn--secondary" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <table class="footer__table">
+        <thead>
+          <tr>
+            <th><a href="index.html"><img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Logo" height="30" loading="lazy" /></a></th>
+            <th><div class="footer__col-title">Leistungen</div></th>
+            <th><div class="footer__col-title">Standorte</div></th>
+            <th><div class="footer__col-title">Direktkontakt</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><p class="section-text" style="margin-bottom:0;font-size:14px;color:var(--softgrey70)">Meisterbetrieb für lackfreie Dellenreparatur<br>Ringstraße 19 · 82223 Eichenau<br>+49 8141 8908558</p></td>
+            <td><ul class="footer__links">
+              <li><a href="dellenreparatur.html">Dellenreparatur</a></li>
+              <li><a href="hagelschaden.html">Hagelschaden</a></li>
+              <li><a href="smart-repair.html">Smart Repair</a></li>
+              <li><a href="leasingrueckgabe.html">Leasingrückgabe</a></li>
+            </ul></td>
+            <td><ul class="footer__links">
+              <li><a href="muenchen.html">München</a></li>
+              <li><a href="starnberg.html">Starnberg</a></li>
+              <li><a href="fuerstenfeldbruck.html">Fürstenfeldbruck</a></li>
+              <li><a href="augsburg.html">Augsburg</a></li>
+            </ul></td>
+            <td><ul class="footer__links">
+              <li><a href="tel:+4981418908558">Telefon</a></li>
+              <li><a href="https://wa.me/4917622835683" target="_blank" rel="noopener">WhatsApp</a></li>
+              <li><a href="#">Impressum</a></li>
+              <li><a href="#">Datenschutz</a></li>
+            </ul></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 Delluxe-Dellen GmbH &middot; Meisterbetrieb für lackfreie Dellenreparatur in Eichenau bei München</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="schaden-modal" id="schadenModal" role="dialog" aria-modal="true" aria-label="Schaden einreichen">
+    <div class="schaden-modal__box">
+      <button class="schaden-modal__close" id="schadenModalClose" aria-label="Schließen">&times;</button>
+      <h2 class="schaden-modal__title">Schaden checken</h2>
+      <p class="schaden-modal__sub">Wir melden uns innerhalb von 24 Stunden mit einem Angebot.</p>
+      <form class="schaden-form" id="schadenForm" novalidate>
+        <div class="schaden-form__row">
+          <div class="schaden-form__group">
+            <label class="schaden-form__label" for="sf-vorname">Vorname <span style="color:var(--delluxe_green)">*</span></label>
+            <input class="schaden-form__input" type="text" id="sf-vorname" name="vorname" placeholder="Max" required autocomplete="given-name">
+          </div>
+          <div class="schaden-form__group">
+            <label class="schaden-form__label" for="sf-name">Nachname <span style="color:var(--delluxe_green)">*</span></label>
+            <input class="schaden-form__input" type="text" id="sf-name" name="name" placeholder="Müller" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="schaden-form__group">
+          <label class="schaden-form__label" for="sf-telefon">Telefonnummer <span style="color:var(--delluxe_green)">*</span></label>
+          <input class="schaden-form__input" type="tel" id="sf-telefon" name="telefon" placeholder="+49 176 12345678" required autocomplete="tel">
+        </div>
+        <div class="schaden-form__group">
+          <label class="schaden-form__label">Fotos &amp; Videos des Schadens</label>
+          <div class="schaden-form__upload">
+            <input type="file" id="sf-upload" name="dateien" accept="image/*,video/*" multiple>
+            <div class="schaden-form__upload-icon">📎</div>
+            <div class="schaden-form__upload-text"><strong>Dateien auswählen</strong> oder hier ablegen</div>
+            <div class="schaden-form__upload-text">mehrere Bilder &amp; Videos möglich</div>
+            <div class="schaden-form__upload-names" id="sfFileNames"></div>
+          </div>
+        </div>
+        <div class="schaden-form__divider">Optional</div>
+        <div class="schaden-form__group">
+          <label class="schaden-form__label" for="sf-mail">E-Mail <span class="optional">(optional)</span></label>
+          <input class="schaden-form__input" type="email" id="sf-mail" name="mail" placeholder="max@beispiel.de" autocomplete="email">
+        </div>
+        <div class="schaden-form__group">
+          <label class="schaden-form__label" for="sf-mitteilung">Mitteilung <span class="optional">(optional)</span></label>
+          <textarea class="schaden-form__input" id="sf-mitteilung" name="mitteilung" placeholder="Beschreiben Sie kurz den Schaden …" rows="3" style="resize:vertical"></textarea>
+        </div>
+        <button type="submit" class="btn btn--green schaden-form__submit">Anfrage absenden</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="cta-float">
+    <a href="https://wa.me/4917622835683" class="btn btn--secondary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <button class="btn btn--green" style="white-space:nowrap" id="schadenModalOpen3">Schaden checken</button>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('navbar--scrolled', window.scrollY > 30); }, { passive: true });
+    (function () {
+      const hamburger = document.getElementById('navHamburger');
+      const panel = document.getElementById('navMobilePanel');
+      if (!hamburger || !panel) return;
+      function openMenu() { panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); }
+      function closeMenu() { panel.classList.remove('is-open'); panel.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); }
+      hamburger.addEventListener('click', () => panel.classList.contains('is-open') ? closeMenu() : openMenu());
+      panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    })();
+    (function () {
+      const modal = document.getElementById('schadenModal');
+      const closeBtn = document.getElementById('schadenModalClose');
+      const fileInput = document.getElementById('sf-upload');
+      const fileNames = document.getElementById('sfFileNames');
+      function openModal() { modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
+      ['schadenModalOpen','schadenModalOpen2','schadenModalOpen3'].forEach(id => { const b = document.getElementById(id); if (b) b.addEventListener('click', openModal); });
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+      if (fileInput) fileInput.addEventListener('change', () => { fileNames.textContent = [...fileInput.files].map(f => f.name).join(', '); });
+      document.getElementById('schadenForm').addEventListener('submit', e => { e.preventDefault(); alert('Danke! Wir melden uns bei Ihnen.'); closeModal(); });
+    })();
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
+        if (!isOpen) item.classList.add('is-open');
+      });
+    });
+  </script>
+</body>
+</html>

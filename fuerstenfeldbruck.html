@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="images/Logo/Icon_passend.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Dellenreparatur Fürstenfeldbruck – Beulendoktor Delluxe-Dellen direkt vor Ort</title>
+  <meta name="description" content="Lackfreie Dellenreparatur für Fürstenfeldbruck – PDR-Meisterbetrieb aus Eichenau, nur 5 km entfernt. Hagelschaden, Smart Repair, Leasingrückgabe. ★ 4,9 Google." />
+  <link rel="canonical" href="https://www.delluxe-dellen.de/fuerstenfeldbruck.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;0,6..96,500;1,6..96,300;1,6..96,400&family=Instrument+Sans:wght@300;400;500;600&display=swap&font-display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://www.delluxe-dellen.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Standorte", "item": "https://www.delluxe-dellen.de/#standorte" },
+      { "@type": "ListItem", "position": 3, "name": "Fürstenfeldbruck", "item": "https://www.delluxe-dellen.de/fuerstenfeldbruck.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Delluxe-Dellen GmbH",
+    "description": "Meisterbetrieb für lackfreie Dellenreparatur – Ihr Beulendoktor direkt bei Fürstenfeldbruck",
+    "url": "https://www.delluxe-dellen.de/fuerstenfeldbruck.html",
+    "telephone": "+4981418908558",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ringstraße 19",
+      "addressLocality": "Eichenau",
+      "postalCode": "82223",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
+    },
+    "areaServed": { "@type": "City", "name": "Fürstenfeldbruck" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "80" }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --delluxe_green:        #6cd141;
+      --softgreen:            #dcffe8fa;
+      --softgreen_transparent50: #dcffe850;
+      --delluxe_black:        #0c0c0c;
+      --delluxe_black_transparent55: #0c0c0c55;
+      --delluxe_black_transparent85: #0c0c0c85;
+      --delluxe_black_transparentC0: #0c0c0cc0;
+      --delluxe_white:        #f5f5f2;
+      --softgrey80:           #F5F5F2CC;
+      --softgrey70:           #F5F5F2B3;
+      --softgrey50:           #f5f5f28e;
+      --black_transparent20:  #00000033;
+      --white_transparent10:  #FFFFFF1A;
+      --white_transparent15:  #FFFFFF26;
+      --max-width: 1240px;
+      --radius: 2px;
+      --section-padding: 100px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--delluxe_black); color: var(--delluxe_white); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
+    italic_green { font-style: italic; color: var(--delluxe_green); }
+    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--delluxe_green); }
+    .section-title { font-family: 'Bodoni Moda', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 400; line-height: 1.15; color: var(--delluxe_white); }
+    .section-text { font-size: 16px; color: var(--softgrey70); line-height: 1.75; max-width: 640px; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; font-size: 15px; font-weight: 500; font-family: 'Instrument Sans', sans-serif; cursor: pointer; text-decoration: none; border: none; transition: opacity 0.2s, transform 0.2s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--green { background: var(--softgreen); color: var(--delluxe_black); position: relative; }
+    .btn--green::before { content: ''; position: absolute; inset: 4px; border-radius: inherit; border: 2px solid var(--delluxe_black); }
+    .btn--secondary { background: var(--black_transparent20); color: var(--softgreen); border: 1px solid var(--white_transparent15); backdrop-filter: blur(8px); }
+
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: background 0.3s; }
+    .navbar::after { content: ''; position: absolute; bottom: 0; left: 40px; right: 40px; height: 1px; background: var(--white_transparent15); opacity: 0; transition: opacity 0.3s; }
+    .navbar.navbar--scrolled { background: linear-gradient(to bottom, var(--delluxe_black_transparent85) 0%, transparent 100%); }
+    .navbar.navbar--scrolled::after { opacity: 1; }
+    .navbar__inner { max-width: var(--max-width); margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; }
+    .navbar__logo img { display: block; }
+    .navbar__links { display: flex; gap: 32px; }
+    .navbar__links a { color: var(--softgrey70); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .navbar__links a:hover { color: var(--delluxe_white); }
+    .navbar__right { display: flex; align-items: center; gap: 16px; }
+    .navbar__social { display: flex; gap: 12px; }
+    .navbar__social a { color: var(--softgrey50); transition: color 0.2s; }
+    .navbar__social a:hover { color: var(--delluxe_white); }
+
+    /* MOBILE NAVBAR */
+    .navbar__mobile-bar { display: none; position: fixed; bottom: 20px; left: 0; right: 0; z-index: 1001; padding: 0 16px; justify-content: space-between; align-items: center; pointer-events: none; }
+    .navbar__mobile-pill-left { display: flex; align-items: center; gap: 8px; background: var(--delluxe_black_transparent85); backdrop-filter: blur(12px); border: 1px solid var(--white_transparent15); border-radius: 999px; padding: 6px 14px; pointer-events: all; }
+    .navbar__mobile-pill { display: flex; gap: 0; background: var(--delluxe_black_transparent85); backdrop-filter: blur(12px); border: 1px solid var(--white_transparent15); border-radius: 999px; overflow: hidden; pointer-events: all; }
+    .navbar__mobile-pill-ghost { display: flex; align-items: center; padding: 6px 14px; }
+    .navbar__mobile-pill-green { background: var(--delluxe_green); display: flex; align-items: center; padding: 6px 14px; }
+    .navbar__mobile-social { display: flex; gap: 14px; }
+    .navbar__mobile-social a { color: var(--softgrey70); }
+    .navbar__hamburger { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 2px; }
+    .navbar__hamburger .bar { display: block; width: 20px; height: 2px; background: var(--delluxe_black); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    .navbar__mobile-panel { position: fixed; inset: 0; z-index: 999; background: var(--delluxe_black); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .navbar__mobile-panel.is-open { opacity: 1; pointer-events: all; }
+    .navbar__mobile-links { display: flex; flex-direction: column; gap: 32px; text-align: center; }
+    .navbar__mobile-link { font-family: 'Bodoni Moda', serif; font-size: 36px; color: var(--delluxe_white); text-decoration: none; }
+
+    /* HERO */
+    .hero { position: relative; min-height: 60vh; display: flex; align-items: flex-end; padding-bottom: 60px; overflow: hidden; }
+    .hero__frame { position: absolute; inset: 0; overflow: hidden; }
+    .hero__bg { position: absolute; inset: 0; background: var(--delluxe_black_transparent85) url('images/dellenreparatur.jpg') center/cover no-repeat; transform: scale(1.06); }
+    .hero__overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--delluxe_black) 0%, transparent 30%, transparent 70%, var(--delluxe_black) 100%), radial-gradient(ellipse 150% 90% at center, transparent 0%, var(--delluxe_black) 50%); }
+    .hero__content { position: relative; z-index: 2; width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 120px 40px 80px; }
+    .hero__eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: clamp(13px, 1.5vw, 16px); font-weight: 400; color: var(--softgrey70); letter-spacing: 0.04em; margin-bottom: 16px; display: block; }
+    .hero__title { font-family: 'Bodoni Moda', serif; font-size: clamp(48px, 8vw, 96px); line-height: 0.95; font-weight: 300; margin-bottom: 28px; }
+    .hero__title-line1 { display: block; }
+    .hero__title-line2 { display: block; font-style: italic; }
+    .hero__subtitle { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .hero__subtitle span { font-size: 14px; color: var(--softgrey70); }
+    .hero__subtitle-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--delluxe_green); }
+    .hero__subtitle-star { color: var(--delluxe_green); }
+    .hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+    /* BREADCRUMB */
+    .breadcrumb { background: var(--delluxe_black); border-bottom: 1px solid var(--black_transparent20); padding: 14px 0; }
+    .breadcrumb__inner { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--softgrey50); }
+    .breadcrumb__inner a { color: var(--softgrey50); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb__inner a:hover { color: var(--delluxe_white); }
+    .breadcrumb__sep { color: var(--softgrey50); opacity: 0.4; }
+    .breadcrumb__current { color: var(--softgrey70); }
+
+    /* CONTENT SECTIONS */
+    .lp-section { padding: var(--section-padding) 0; border-bottom: 1px solid var(--black_transparent20); }
+    .lp-section__header { margin-bottom: 48px; }
+    .lp-section__header .eyebrow { margin-bottom: 12px; display: block; }
+    .lp-intro { padding: var(--section-padding) 0; border-bottom: 1px solid var(--black_transparent20); }
+    .lp-intro__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .lp-intro__title { font-family: 'Bodoni Moda', serif; font-size: clamp(24px, 3vw, 38px); font-weight: 400; line-height: 1.2; margin-bottom: 20px; }
+    .lp-intro__text { font-size: 16px; color: var(--softgrey70); line-height: 1.8; margin-bottom: 16px; }
+    .lp-stats { display: flex; flex-direction: column; gap: 24px; }
+    .lp-stat { border-left: 2px solid var(--delluxe_green); padding-left: 20px; }
+    .lp-stat__value { font-family: 'Bodoni Moda', serif; font-size: 36px; font-weight: 300; color: var(--delluxe_white); }
+    .lp-stat__label { font-size: 13px; color: var(--softgrey50); margin-top: 4px; }
+
+    /* SERVICE CARDS */
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+    .svc-card { background: #111; padding: 32px; transition: background 0.2s; }
+    .svc-card:hover { background: #151515; }
+    .svc-card__num { font-family: 'Bodoni Moda', serif; font-size: 48px; font-weight: 300; color: var(--delluxe_green); opacity: 0.4; line-height: 1; margin-bottom: 16px; }
+    .svc-card__title { font-size: 18px; font-weight: 600; color: var(--delluxe_white); margin-bottom: 10px; }
+    .svc-card__text { font-size: 14px; color: var(--softgrey70); line-height: 1.7; }
+
+    /* TRUST */
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .trust-item { text-align: center; padding: 32px 24px; border: 1px solid var(--white_transparent15); border-radius: 12px; }
+    .trust-item__icon { font-size: 32px; margin-bottom: 16px; }
+    .trust-item__title { font-weight: 600; color: var(--delluxe_white); margin-bottom: 8px; }
+    .trust-item__text { font-size: 14px; color: var(--softgrey50); line-height: 1.6; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--black_transparent20); }
+    .faq-question { width: 100%; background: none; border: none; color: var(--delluxe_white); font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; gap: 16px; }
+    .faq-icon { color: var(--delluxe_green); font-size: 20px; flex-shrink: 0; transition: transform 0.3s; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+    .faq-answer p { font-size: 15px; color: var(--softgrey70); line-height: 1.75; padding-bottom: 20px; border-top: 1px solid var(--black_transparent20); padding-top: 16px; }
+    .faq-item.is-open .faq-answer { max-height: 300px; }
+    .faq-item.is-open .faq-icon { transform: rotate(45deg); }
+
+    /* CTA SECTION */
+    .lp-cta { padding: var(--section-padding) 0; }
+    .lp-cta__box { background: #111; border: 1px solid var(--white_transparent15); border-radius: 16px; padding: 60px; text-align: center; }
+    .lp-cta__title { font-family: 'Bodoni Moda', serif; font-size: clamp(24px, 3vw, 40px); font-weight: 400; margin: 12px 0 20px; }
+    .lp-cta__text { font-size: 16px; color: var(--softgrey70); margin-bottom: 32px; }
+    .lp-cta__btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .footer { padding: 60px 0 0; background: var(--delluxe_black); }
+    .footer__table { width: 100%; border-collapse: collapse; }
+    .footer__table th { text-align: left; padding-bottom: 20px; vertical-align: top; width: 25%; }
+    .footer__table td { text-align: left; padding-bottom: 40px; vertical-align: top; }
+    .footer__col-title { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--softgrey50); }
+    .footer__links { list-style: none; margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { color: var(--softgrey70); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer__links a:hover { color: var(--delluxe_white); }
+    .footer__bottom { border-top: 1px solid var(--black_transparent20); padding: 20px 0; }
+    .footer__copyright { font-size: 12px; color: var(--softgrey50); }
+
+    /* CTA FLOAT */
+    .cta-float { position: fixed; bottom: 24px; right: 24px; z-index: 998; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+
+    /* MODAL */
+    .schaden-modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; background: transparent; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .schaden-modal.is-open { opacity: 1; pointer-events: all; }
+    .schaden-modal__box { background: var(--black_transparent20); backdrop-filter: blur(8px); border: 1px solid var(--white_transparent15); border-radius: 16px; padding: 40px 36px 36px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(16px); transition: transform 0.3s ease; }
+    .schaden-modal__box::-webkit-scrollbar { width: 6px; }
+    .schaden-modal__box::-webkit-scrollbar-track { background: transparent; }
+    .schaden-modal__box::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+    .schaden-modal__box { scrollbar-width: thin; scrollbar-color: #333 transparent; }
+    .schaden-modal.is-open .schaden-modal__box { transform: translateY(0); }
+    .schaden-modal__close { position: absolute; top: 16px; right: 16px; background: var(--black_transparent20); border: 1px solid var(--white_transparent15); color: var(--softgrey70); border-radius: 50%; width: 36px; height: 36px; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+    .schaden-modal__title { font-size: 22px; font-weight: 700; color: var(--delluxe_white); margin: 0 0 4px; }
+    .schaden-modal__sub { font-size: 14px; color: var(--softgrey50); margin: 0 0 28px; }
+    .schaden-form { display: flex; flex-direction: column; gap: 14px; }
+    .schaden-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .schaden-form__group { display: flex; flex-direction: column; gap: 6px; }
+    .schaden-form__label { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: var(--softgrey50); text-transform: uppercase; }
+    .schaden-form__label .optional { font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 11px; margin-left: 4px; }
+    .schaden-form__input { background: #1e1e1e; border: 1px solid #333; border-radius: 8px; padding: 11px 14px; font-size: 15px; color: var(--delluxe_white); font-family: 'Instrument Sans', sans-serif; outline: none; transition: border-color 0.2s; width: 100%; box-sizing: border-box; }
+    .schaden-form__input::placeholder { color: #555; }
+    .schaden-form__input:focus { border-color: var(--delluxe_green); }
+    .schaden-form__upload { background: #1e1e1e; border: 1px dashed #444; border-radius: 8px; padding: 20px 14px; text-align: center; cursor: pointer; position: relative; transition: border-color 0.2s; }
+    .schaden-form__upload:hover { border-color: var(--delluxe_green); }
+    .schaden-form__upload input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .schaden-form__upload-icon { font-size: 28px; margin-bottom: 6px; }
+    .schaden-form__upload-text { font-size: 13px; color: var(--softgrey50); }
+    .schaden-form__upload-text strong { color: var(--softgrey70); }
+    .schaden-form__upload-names { margin-top: 8px; font-size: 12px; color: var(--softgrey70); }
+    .schaden-form__divider { display: flex; align-items: center; gap: 12px; color: var(--softgrey50); font-size: 12px; margin: 4px 0; }
+    .schaden-form__divider::before, .schaden-form__divider::after { content: ''; flex: 1; height: 1px; background: #2a2a2a; }
+    .schaden-form__submit { margin-top: 6px; width: 100%; justify-content: center; font-size: 16px; padding: 14px; }
+
+    @media (max-width: 820px) {
+      .container { padding: 0 20px; }
+      .navbar__links, .navbar__right { display: none; }
+      .navbar__mobile-bar { display: flex; }
+      .hero__content { padding: 100px 20px 60px; }
+      .lp-intro__inner { grid-template-columns: 1fr; gap: 32px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .lp-cta__box { padding: 40px 24px; }
+      .footer__table { display: none; }
+      .cta-float { bottom: 90px; right: 16px; }
+      .schaden-form__row { grid-template-columns: 1fr; }
+      .schaden-modal__box { padding: 28px 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a class="navbar__logo" href="index.html">
+        <img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Delluxe-Dellen GmbH Logo" height="36" />
+      </a>
+      <nav class="navbar__links" aria-label="Hauptnavigation">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+        <a href="index.html#galerie">Galerie</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+      <div class="navbar__right">
+        <div class="navbar__social">
+          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="navbar__mobile-bar" id="navMobileBar">
+    <div class="navbar__mobile-pill-left">
+      <a href="index.html"><img src="images/Logo/Icon_91px_hoch.png" alt="Delluxe-Dellen Icon" height="30" loading="lazy" /></a>
+      <a href="index.html"><img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Logo" height="30" /></a>
+    </div>
+    <div class="navbar__mobile-pill">
+      <div class="navbar__mobile-pill-ghost">
+        <div class="navbar__mobile-social">
+          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+      <div class="navbar__mobile-pill-green">
+        <button class="navbar__hamburger" id="navHamburger" aria-label="Menü öffnen" aria-expanded="false">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="navbar__mobile-panel" id="navMobilePanel" aria-hidden="true">
+    <nav class="navbar__mobile-links">
+      <a href="index.html#leistungen" class="navbar__mobile-link">Leistungen</a>
+      <a href="index.html#nachhaltigkeit" class="navbar__mobile-link">Nachhaltigkeit</a>
+      <a href="index.html#galerie" class="navbar__mobile-link">Galerie</a>
+      <a href="index.html#kontakt" class="navbar__mobile-link">Kontakt</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__frame">
+      <div class="hero__bg"></div>
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <span class="hero__eyebrow">Dellenreparatur Fürstenfeldbruck &middot; Beulendoktor direkt vor Ort</span>
+      <div class="hero__title">
+        <span class="hero__title-line1">Perfektion</span>
+        <span class="hero__title-line2">ist unsichtbar.</span>
+      </div>
+      <div class="hero__subtitle">
+        <span>Lackfreie Dellenreparatur</span>
+        <span class="hero__subtitle-dot"></span>
+        <span>Eichenau bei München</span>
+        <span class="hero__subtitle-dot"></span>
+        <span><span class="hero__subtitle-star">&#9733;</span> 4,9 auf Google</span>
+      </div>
+      <div class="hero__ctas">
+        <button class="btn btn--green" id="schadenModalOpen">Schaden checken</button>
+        <a href="https://wa.me/4917622835683" class="btn btn--secondary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb__inner">
+        <a href="index.html">Start</a>
+        <span class="breadcrumb__sep">›</span>
+        <a href="index.html">Standorte</a>
+        <span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Fürstenfeldbruck</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- INTRO -->
+  <section class="lp-intro">
+    <div class="container">
+      <div class="lp-intro__inner">
+        <div>
+          <h1 class="lp-intro__title">Ihr Beulendoktor<br>für <italic_green>Fürstenfeldbruck</italic_green> – quasi um die Ecke</h1>
+          <p class="lp-intro__text">Eichenau und Fürstenfeldbruck sind Nachbarorte – der Weg zu uns beträgt keine 5 km. Kunden aus Fürstenfeldbruck, Olching, Puchheim oder Germering sind bei uns in 5–10 Minuten. Kein langer Weg, kein Termin-Stress.</p>
+          <p class="lp-intro__text">Als Meisterbetrieb mit Sitz im Landkreis Fürstenfeldbruck reparieren wir seit 2012 Dellen und Hagelschäden lackfrei. Wir kennen die Region, ihre Straßen und die Hagelereignisse im Münchner Westen sehr gut.</p>
+        </div>
+        <div class="lp-stats">
+          <div class="lp-stat">
+            <div class="lp-stat__value">4,9 ★</div>
+            <div class="lp-stat__label">Google-Bewertung – 80+ verifizierte Stimmen</div>
+          </div>
+          <div class="lp-stat">
+            <div class="lp-stat__value">seit 2012</div>
+            <div class="lp-stat__label">Meisterbetrieb GmbH in Eichenau</div>
+          </div>
+          <div class="lp-stat">
+            <div class="lp-stat__value">~5 km</div>
+            <div class="lp-stat__label">von Fürstenfeldbruck nach Eichenau</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-section__header">
+        <span class="eyebrow">Unsere Leistungen für den Landkreis Fürstenfeldbruck</span>
+        <h2 class="section-title">Was wir für Sie tun</h2>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-card__num">I</div>
+          <div class="svc-card__title">Lackfreie Dellenreparatur (PDR)</div>
+          <p class="svc-card__text">Parkdellen, Türkanten, Beulen ohne Lackierschaden – wir massieren das Blech von innen zurück in die Originalform. Keine Spachtel, kein Lack, kein Qualitätsverlust. Ab 50 €.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-card__num">II</div>
+          <div class="svc-card__title">Hagelschaden-Reparatur</div>
+          <p class="svc-card__text">Der Landkreis FFB und der Münchner Westen sind regelmäßig von Hagelzügen betroffen. Wir rechnen direkt mit Ihrer Teilkaskoversicherung ab – ohne Verlust des Schadenfreiheitsrabattes. Komplette Fahrzeuge in 2–4 Tagen.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-card__num">III</div>
+          <div class="svc-card__title">Smart Repair</div>
+          <p class="svc-card__text">Kleine Kratzer, Lackschäden und Kunststoffschäden reparieren wir punktgenau – ohne das gesamte Teil neu zu lackieren. Spart Zeit und Kosten und erhält den Fahrzeugwert.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-card__num">IV</div>
+          <div class="svc-card__title">Leasingrückgabe</div>
+          <p class="svc-card__text">Vor der Fahrzeugrückgabe prüfen und beheben wir alle Dellen und Lackschäden, die beim Leasinggeber kostenpflichtig werden könnten. Die Reparatur ist fast immer günstiger als der Abzug.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-section__header">
+        <span class="eyebrow">Warum Delluxe-Dellen</span>
+        <h2 class="section-title">Meisterbetrieb. Nicht Werkstatt.</h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-item__icon">🏅</div>
+          <div class="trust-item__title">Karosseriebaumeister & IHK-Ausbilder</div>
+          <p class="trust-item__text">Andreas Soir ist Karosseriebaumeister und IHK-Ausbilder – ein Qualifikationsniveau, das die meisten PDR-Anbieter nicht vorweisen können.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item__icon">⚡</div>
+          <div class="trust-item__title">Digitale Auftragsabwicklung</div>
+          <p class="trust-item__text">Foto senden – Angebot erhalten. Wir arbeiten vollständig digital: PDR-Cloud, transparente Kalkulation, direkte Versicherungsabrechnung.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item__icon">🌱</div>
+          <div class="trust-item__title">Nachhaltig & elektrisch</div>
+          <p class="trust-item__text">Unser Betrieb läuft auf 25 kWp Solarstrom. Unsere Fahrzeugflotte ist vollständig elektrisch – Mercedes EQV, Tesla Model Y, Tesla Model X.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-section__header">
+        <span class="eyebrow">Häufige Fragen</span>
+        <h2 class="section-title">Dellenreparatur Fürstenfeldbruck – was Sie wissen sollten</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">Wie weit ist Eichenau von Fürstenfeldbruck entfernt?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Eichenau und Fürstenfeldbruck sind direkte Nachbarorte – ca. 5 km Entfernung, 5–10 Minuten Fahrt. Sie parken kurz bei uns, wir schauen uns den Schaden an und geben Ihnen sofort eine ehrliche Einschätzung – kostenlos und ohne Verpflichtung.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Was kostet eine Dellenreparatur?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Kleine Dellen kosten 50–80 €, mittlere 80–150 €, Hagelschäden je nach Umfang 300–1.500 €. PDR ist bis zu 70 % günstiger als konventionelle Lackierung – und der Originallack bleibt erhalten.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Übernimmt die Versicherung Hagelschäden?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Ja. Die Teilkaskoversicherung übernimmt Hagelschäden in der Regel vollständig – ohne Verlust des Schadenfreiheitsrabattes. Wir unterstützen Sie bei der gesamten Abwicklung mit Ihrer Versicherung.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Wie lange dauert eine Reparatur?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Einzelne Dellen sind in 1–3 Stunden behoben. Umfangreiche Hagelschäden benötigen 2–4 Tage. Sie erhalten vorab eine genaue Zeitangabe und können Ihr Fahrzeug anschließend direkt weiterfahren.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Kann jede Delle ohne Lackieren repariert werden?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>In den meisten Fällen ja – vorausgesetzt, der Originallack ist intakt. Ausnahmen sind scharfkantige Dellen, überdehnte Stellen oder Karosserierippen. Wir begutachten Ihr Fahrzeug kostenfrei und sagen Ihnen ehrlich, was möglich ist.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="lp-cta">
+    <div class="container">
+      <div class="lp-cta__box">
+        <span class="eyebrow">Foto senden – Angebot in 24 Stunden</span>
+        <h2 class="lp-cta__title">Schaden checken lassen</h2>
+        <p class="lp-cta__text">Einfach ein Foto Ihres Schadens senden – wir kalkulieren transparent und melden uns innerhalb von 24 Stunden mit einem Angebot.</p>
+        <div class="lp-cta__btns">
+          <button class="btn btn--green" id="schadenModalOpen2">Jetzt Foto senden</button>
+          <a href="tel:+4981418908558" class="btn btn--secondary">+49 8141 8908558</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <table class="footer__table">
+        <thead>
+          <tr>
+            <th><a href="index.html"><img src="images/Logo/logo-delluxe-dellen-gruen-weiss-passend.png" alt="Delluxe-Dellen GmbH Logo" height="30" loading="lazy" /></a></th>
+            <th><div class="footer__col-title">Leistungen</div></th>
+            <th><div class="footer__col-title">Standorte</div></th>
+            <th><div class="footer__col-title">Direktkontakt</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><p class="section-text" style="margin-bottom:0;font-size:14px">Meisterbetrieb für lackfreie Dellenreparatur<br>Ringstraße 19 · 82223 Eichenau<br>+49 8141 8908558</p></td>
+            <td><ul class="footer__links">
+              <li><a href="index.html#leistungen">Dellenreparatur</a></li>
+              <li><a href="index.html#leistungen">Hagelschaden</a></li>
+              <li><a href="index.html#leistungen">Smart Repair</a></li>
+              <li><a href="index.html#leistungen">Leasingrückgabe</a></li>
+            </ul></td>
+            <td><ul class="footer__links">
+              <li><a href="muenchen.html">München</a></li>
+              <li><a href="starnberg.html">Starnberg</a></li>
+              <li><a href="fuerstenfeldbruck.html">Fürstenfeldbruck</a></li>
+              <li><a href="augsburg.html">Augsburg</a></li>
+            </ul></td>
+            <td><ul class="footer__links">
+              <li><a href="tel:+4981418908558">Telefon</a></li>
+              <li><a href="https://wa.me/4917622835683" target="_blank" rel="noopener">WhatsApp</a></li>
+              <li><a href="index.html#impressum">Impressum</a></li>
+              <li><a href="index.html#datenschutz">Datenschutz</a></li>
+            </ul></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 Delluxe-Dellen GmbH &middot; Meisterbetrieb für lackfreie Dellenreparatur in Eichenau bei München</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="schaden-modal" id="schadenModal" role="dialog" aria-modal="true" aria-label="Schaden einreichen">
+    <div class="schaden-modal__box">
+      <button class="schaden-modal__close" id="schadenModalClose" aria-label="Schließen">&times;</button>
+      <h2 class="schaden-modal__title">Schaden checken</h2>
+      <p class="schaden-modal__sub">Wir melden uns innerhalb von 24 Stunden mit einem Angebot.</p>
+      <form class="schaden-form" id="schadenForm" novalidate>
+        <div class="schaden-form__row">
+          <div class="schaden-form__group">
+            <label class="schaden-form__label" for="sf-vorname">Vorname <span style="color:var(--delluxe_green)">*</span></label>
+            <input class="schaden-form__input" type="text" id="sf-vorname" name="vorname" placeholder="Max" required autocomplete="given-name">
+          </div>
+          <div class="schaden-form__group">
+            <label class="schaden-form__label" for="sf-name">Nachname <span style="color:var(--delluxe_green)">*</span></label>
+            <input class="schaden-form__input" type="text" id="sf-name" name="name" placeholder="Müller" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="schaden-form__group">
+          <label class="schaden-form__label" for="sf-telefon">Telefonnummer <span style="color:var(--delluxe_green)">*</span></label>
+          <input class="schaden-form__input" type="tel" id="sf-telefon" name="telefon" placeholder="+49 176 12345678" required autocomplete="tel">
+        </div>
+        <div class="schaden-form__group">
+          <label class="schaden-form__label">Fotos &amp; Videos des Schadens</label>
+          <div class="schaden-form__upload">
+            <input type="file" id="sf-upload" name="dateien" accept="image/*,video/*" multiple>
+            <div class="schaden-form__upload-icon">📎</div>
+            <div class="schaden-form__upload-text"><strong>Dateien auswählen</strong> oder hier ablegen</div>
+            <div class="schaden-form__upload-text">mehrere Bilder &amp; Videos möglich</div>
+            <div class="schaden-form__upload-names" id="sfFileNames"></div>
+          </div>
+        </div>
+        <div class="schaden-form__divider">Optional</div>
+        <div class="schaden-form__group">
+          <label class="schaden-form__label" for="sf-mail">E-Mail <span class="optional">(optional)</span></label>
+          <input class="schaden-form__input" type="email" id="sf-mail" name="mail" placeholder="max@beispiel.de" autocomplete="email">
+        </div>
+        <div class="schaden-form__group">
+          <label class="schaden-form__label" for="sf-mitteilung">Mitteilung <span class="optional">(optional)</span></label>
+          <textarea class="schaden-form__input" id="sf-mitteilung" name="mitteilung" placeholder="Beschreiben Sie kurz den Schaden …" rows="3" style="resize:vertical"></textarea>
+        </div>
+        <button type="submit" class="btn btn--green schaden-form__submit">Anfrage absenden</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CTA FLOAT -->
+  <div class="cta-float">
+    <a href="https://wa.me/4917622835683" class="btn btn--secondary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <button class="btn btn--green" style="white-space:nowrap" id="schadenModalOpen3">Schaden checken</button>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('navbar--scrolled', window.scrollY > 30); }, { passive: true });
+
+    (function () {
+      const hamburger = document.getElementById('navHamburger');
+      const panel = document.getElementById('navMobilePanel');
+      if (!hamburger || !panel) return;
+      function openMenu() { panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); }
+      function closeMenu() { panel.classList.remove('is-open'); panel.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); }
+      hamburger.addEventListener('click', () => panel.classList.contains('is-open') ? closeMenu() : openMenu());
+      panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    })();
+
+    (function () {
+      const modal = document.getElementById('schadenModal');
+      const closeBtn = document.getElementById('schadenModalClose');
+      const fileInput = document.getElementById('sf-upload');
+      const fileNames = document.getElementById('sfFileNames');
+      function openModal() { modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
+      ['schadenModalOpen','schadenModalOpen2','schadenModalOpen3'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.addEventListener('click', openModal);
+      });
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+      if (fileInput) fileInput.addEventListener('change', () => { fileNames.textContent = [...fileInput.files].map(f => f.name).join(', '); });
+      document.getElementById('schadenForm').addEventListener('submit', e => { e.preventDefault(); alert('Danke! Wir melden uns bei Ihnen.'); closeModal(); });
+    })();
+
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
+        if (!isOpen) item.classList.add('is-open');
+      });
+    });
+  </script>
+</body>
+</html>
