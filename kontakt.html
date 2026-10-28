@@ -297,18 +297,6 @@
     </a>
   </div>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => { navbar.classList.toggle('navbar--scrolled', window.scrollY > 30); }, { passive: true });
-    (function () {
-      const hamburger = document.getElementById('navHamburger');
-      const panel = document.getElementById('navMobilePanel');
-      if (!hamburger || !panel) return;
-      function openMenu() { panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); }
-      function closeMenu() { panel.classList.remove('is-open'); panel.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); }
-      hamburger.addEventListener('click', () => panel.classList.contains('is-open') ? closeMenu() : openMenu());
-      panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-    })();
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>

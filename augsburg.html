@@ -372,46 +372,6 @@
     <button class="btn btn--green" style="white-space:nowrap" id="schadenModalOpen3">Schaden checken</button>
   </div>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => { navbar.classList.toggle('navbar--scrolled', window.scrollY > 30); }, { passive: true });
-
-    (function () {
-      const hamburger = document.getElementById('navHamburger');
-      const panel = document.getElementById('navMobilePanel');
-      if (!hamburger || !panel) return;
-      function openMenu() { panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); }
-      function closeMenu() { panel.classList.remove('is-open'); panel.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); }
-      hamburger.addEventListener('click', () => panel.classList.contains('is-open') ? closeMenu() : openMenu());
-      panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-    })();
-
-    (function () {
-      const modal = document.getElementById('schadenModal');
-      const closeBtn = document.getElementById('schadenModalClose');
-      const fileInput = document.getElementById('sf-upload');
-      const fileNames = document.getElementById('sfFileNames');
-      function openModal() { modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
-      function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
-      ['schadenModalOpen','schadenModalOpen2','schadenModalOpen3'].forEach(id => {
-        const btn = document.getElementById(id);
-        if (btn) btn.addEventListener('click', openModal);
-      });
-      closeBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-      if (fileInput) fileInput.addEventListener('change', () => { fileNames.textContent = [...fileInput.files].map(f => f.name).join(', '); });
-      document.getElementById('schadenForm').addEventListener('submit', e => { e.preventDefault(); alert('Danke! Wir melden uns bei Ihnen.'); closeModal(); });
-    })();
-
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('is-open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
-        if (!isOpen) item.classList.add('is-open');
-      });
-    });
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
